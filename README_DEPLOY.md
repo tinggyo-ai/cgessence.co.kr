@@ -17,7 +17,40 @@ Required files and folders:
 - `css/`
 - `js/`
 
-## Recommended setup
+## Current deployment
+
+The site is deployed with GitHub Pages.
+
+- Repository: `https://github.com/tinggyo-ai/cgessence.co.kr`
+- Pages source: `master` branch, project root
+- Custom domain configured in GitHub Pages: `cgessence.co.kr`
+
+## GitHub Pages DNS records for Gabia
+
+In Gabia DNS, add these records for the root domain.
+
+| Type | Host | Value |
+| --- | --- | --- |
+| A | @ | 185.199.108.153 |
+| A | @ | 185.199.109.153 |
+| A | @ | 185.199.110.153 |
+| A | @ | 185.199.111.153 |
+| CNAME | www | tinggyo-ai.github.io |
+
+Optional IPv6 records:
+
+| Type | Host | Value |
+| --- | --- | --- |
+| AAAA | @ | 2606:50c0:8000::153 |
+| AAAA | @ | 2606:50c0:8001::153 |
+| AAAA | @ | 2606:50c0:8002::153 |
+| AAAA | @ | 2606:50c0:8003::153 |
+
+After DNS propagation, enable HTTPS in GitHub repository settings:
+
+`Settings` -> `Pages` -> `Enforce HTTPS`
+
+## Alternative setup
 
 Use a static hosting provider such as Netlify, Vercel, Cloudflare Pages, GitHub Pages, or Gabia web hosting.
 
