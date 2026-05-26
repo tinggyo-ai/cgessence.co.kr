@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <defs>
+    <!-- Layer gradients: lighter top-left → darker bottom-right (3D effect) -->
+    <linearGradient id="g1" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#1e4a5a"/>
+      <stop offset="100%" stop-color="#0b1c28"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#28606e"/>
+      <stop offset="100%" stop-color="#0e2535"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#347888"/>
+      <stop offset="100%" stop-color="#153040"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#409098"/>
+      <stop offset="100%" stop-color="#1c4050"/>
+    </linearGradient>
+    <linearGradient id="g5" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="#5cc5d5"/>
+      <stop offset="100%" stop-color="#2a7880"/>
+    </linearGradient>
+
+    <!-- Edge bevel highlight (semi-transparent white overlay) -->
+    <linearGradient id="bevel" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.14)"/>
+      <stop offset="45%"  stop-color="rgba(255,255,255,0.04)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.10)"/>
+    </linearGradient>
+
+    <!-- Smiley soft glow -->
+    <filter id="smGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <!-- Overall drop shadow -->
+    <filter id="shadow" x="-15%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- ─── Shield path: 8-vertex badge shape ─── -->
+  <!-- Base points: top=40,4 | TR=70,18 | R=76,44 | BR=60,70 | B=40,78 | BL=20,70 | L=4,44 | TL=10,18 -->
+
+  <!-- LAYER 1 — outermost (100%) -->
+  <path filter="url(#shadow)"
+        d="M40,4 L70,18 L76,44 L60,70 L40,78 L20,70 L4,44 L10,18 Z"
+        fill="url(#g1)"/>
+  <path d="M40,4 L70,18 L76,44 L60,70 L40,78 L20,70 L4,44 L10,18 Z"
+        fill="url(#bevel)"/>
+
+  <!-- LAYER 2 — 84% scale from (40,40) -->
+  <path d="M40,9 L65.2,21.4 L70.6,43.9 L56.4,65.1 L40,72.4 L23.6,65.1 L9.4,43.9 L14.8,21.4 Z"
+        fill="url(#g2)"/>
+  <path d="M40,9 L65.2,21.4 L70.6,43.9 L56.4,65.1 L40,72.4 L23.6,65.1 L9.4,43.9 L14.8,21.4 Z"
+        fill="url(#bevel)"/>
+
+  <!-- LAYER 3 — 68% scale -->
+  <path d="M40,14.6 L60.4,24.8 L65.2,43.6 L52.8,60.1 L40,66.9 L27.2,60.1 L14.8,43.6 L19.6,24.8 Z"
+        fill="url(#g3)"/>
+  <path d="M40,14.6 L60.4,24.8 L65.2,43.6 L52.8,60.1 L40,66.9 L27.2,60.1 L14.8,43.6 L19.6,24.8 Z"
+        fill="url(#bevel)"/>
+
+  <!-- LAYER 4 — 52% scale -->
+  <path d="M40,20.7 L55.6,28.4 L59.5,43.3 L49.1,55.1 L40,59.3 L30.9,55.1 L20.5,43.3 L24.4,28.4 Z"
+        fill="url(#g4)"/>
+  <path d="M40,20.7 L55.6,28.4 L59.5,43.3 L49.1,55.1 L40,59.3 L30.9,55.1 L20.5,43.3 L24.4,28.4 Z"
+        fill="url(#bevel)"/>
+
+  <!-- LAYER 5 — center (36% scale) -->
+  <path d="M40,26.3 L51.2,31.6 L54.0,41.4 L47.6,50.6 L40,53.7 L32.4,50.6 L26.0,41.4 L28.8,31.6 Z"
+        fill="url(#g5)"/>
+  <path d="M40,26.3 L51.2,31.6 L54.0,41.4 L47.6,50.6 L40,53.7 L32.4,50.6 L26.0,41.4 L28.8,31.6 Z"
+        fill="url(#bevel)"/>
+
+  <!-- ─── Smiley face ─── -->
+  <!-- Left eye -->
+  <circle cx="35.5" cy="38.5" r="2.3" fill="#d0f8ff" filter="url(#smGlow)"/>
+  <!-- Right eye -->
+  <circle cx="44.5" cy="38.5" r="2.3" fill="#d0f8ff" filter="url(#smGlow)"/>
+  <!-- Smile arc -->
+  <path d="M33.5,43.5 Q40,51 46.5,43.5"
+        stroke="#d0f8ff" stroke-width="2.5" fill="none"
+        stroke-linecap="round" filter="url(#smGlow)"/>
+</svg>

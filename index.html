@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CGEssence — 중소기업을 위한 스마트 IT 솔루션</title>
+  <meta name="description" content="CGEssence는 300인 이하 중소기업을 위한 그룹웨어, 사내메신저, 서비스데스크, AI챗봇을 합리적인 가격으로 제공합니다." />
+  <meta property="og:title" content="CGEssence — 중소기업을 위한 스마트 IT 솔루션" />
+  <meta property="og:description" content="그룹웨어 · 사내메신저 · IT관리 · AI챗봇 — 올인원 IT 플랫폼" />
+  <meta property="og:url" content="https://cgessence.co.kr" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23020408'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2300ffcc'>◈</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#hero" class="nav__brand">
+      <img src="Lg2.png?v=1" alt="CGEssence 마스코트" class="nav__brand-logo"/>
+      CGEssence
+      <span class="nav__brand-tld">.co.kr</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#about"    class="nav__link">소개</a></li>
+      <li><a href="#products" class="nav__link">제품</a></li>
+      <li><a href="#showcase" class="nav__link">미리보기</a></li>
+      <li><a href="#market"   class="nav__link">타겟</a></li>
+      <li><a href="#vision"   class="nav__link">비전</a></li>
+      <li><a href="#contact"  class="nav__link nav__link--cta">도입 문의</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <a href="#about"    class="nav__link">소개</a>
+    <a href="#products" class="nav__link">제품</a>
+    <a href="#showcase" class="nav__link">미리보기</a>
+    <a href="#market"   class="nav__link">타겟</a>
+    <a href="#vision"   class="nav__link">비전</a>
+    <a href="#contact"  class="nav__link" style="color:var(--cyan)">도입 문의</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <canvas class="hero__matrix" id="matrixCanvas"></canvas>
+  <canvas class="hero__particles" id="particleCanvas"></canvas>
+  <div class="hero__grid-overlay"></div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">
+      <span class="hero__eyebrow-dot"></span>
+      <span>// Korean SMB Digital Transformation</span>
+    </div>
+
+    <h1 class="hero__title">
+      <span class="hero__title-line glitch" data-text="스마트한 IT,">스마트한 IT,</span>
+      <span class="hero__title-line" style="color:rgba(255,255,255,0.85)">합리적인 가격으로.</span>
+      <span class="hero__title-line hero__title-gradient">CGEssence</span>
+    </h1>
+
+    <p class="hero__subtitle">
+      대기업 솔루션의 10분의 1 가격으로 — 그룹웨어, AI 챗봇, 서비스데스크, 사내메신저까지.<br>
+      중소기업을 위해 설계된 올인원 IT 플랫폼입니다.
+    </p>
+
+    <div class="hero__actions">
+      <a href="#products" class="btn btn--primary">제품 둘러보기 →</a>
+      <a href="#contact"  class="btn btn--ghost">도입 문의하기</a>
+    </div>
+
+    <div class="hero__stats">
+      <div class="hero__stat">
+        <span class="hero__stat-value">5종</span>
+        <span class="hero__stat-label">통합 제품군</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">300인</span>
+        <span class="hero__stat-label">이하 중소기업 특화</span>
+      </div>
+      <div class="hero__stat-divider"></div>
+      <div class="hero__stat">
+        <span class="hero__stat-value">100%</span>
+        <span class="hero__stat-label">온프레미스 옵션</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-hint">
+    <span>scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     ABOUT
+═══════════════════════════════════════════════ -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="about__grid">
+
+      <div class="about__text reveal">
+        <div class="section__eyebrow">// About CGEssence</div>
+        <h2 class="section__title">왜 CGEssence인가</h2>
+        <p class="about__lead">
+          M365, ITSM, 대형 그룹웨어 &mdash; 강력하지만
+          <strong>300인 이하 중소기업</strong>에게는 너무 비쌉니다.
+        </p>
+        <p class="about__body">
+          CGEssence는 국내 중소기업의 현실에 맞게 설계된 올인원 IT 플랫폼입니다.
+          복잡한 도입 절차 없이 바로 쓸 수 있으며, 데이터는 완전히 귀사 소유입니다.
+          대기업 IT 인프라를 현실적인 가격으로 — 함께 성장하는 생태계를 만들어 갑니다.
+        </p>
+        <div class="about__tags">
+          <span class="tag tag--cyan">국산 솔루션</span>
+          <span class="tag tag--purple">온프레미스 지원</span>
+          <span class="tag tag--green">중소기업 특화</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal--delay-1">
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="terminal__dot terminal__dot--red"></span>
+            <span class="terminal__dot terminal__dot--yellow"></span>
+            <span class="terminal__dot terminal__dot--green"></span>
+            <span class="terminal__title">cgessence-system.sh</span>
+          </div>
+          <div class="terminal__body" id="terminalOutput"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCTS
+═══════════════════════════════════════════════ -->
+<section class="products section" id="products">
+  <div class="container">
+    <div class="section__eyebrow" style="text-align:center">// Products</div>
+    <h2 class="section__title section__title--center">5가지 통합 솔루션</h2>
+    <p class="section__subtitle">한 공급사에서 — 완벽하게 연결된 디지털 업무 환경</p>
+
+    <div class="products__grid">
+
+      <!-- ① Groupware (featured / 2-col span) -->
+      <article class="product-card product-card--featured reveal" data-product="groupware">
+        <div class="product-card__glow"></div>
+        <div class="product-card__header">
+          <div class="product-card__icon-wrap">🏢</div>
+          <div class="product-card__meta">
+            <span class="product-card__tag">Groupware</span>
+            <h3 class="product-card__name">CGEssence 그룹웨어</h3>
+          </div>
+        </div>
+        <p class="product-card__desc">
+          근태 · 전자결재 · 조직도 · 급여 · 인사 · IT자산 · 게시판 &mdash;
+          인트라넷의 모든 기능을 하나의 플랫폼으로. 중소기업이 즉시 도입 가능한 올인원 그룹웨어입니다.
+        </p>
+        <ul class="product-card__features">
+          <li><span class="feature-dot"></span>근태 자동 집계 · CSV 내보내기</li>
+          <li><span class="feature-dot"></span>전자결재 워크플로 (기안→결재→완료)</li>
+          <li><span class="feature-dot"></span>IT 자산 관리 · 유지보수 이력</li>
+          <li><span class="feature-dot"></span>급여 · 인사 모듈 통합</li>
+          <li><span class="feature-dot"></span>조직도 · 부서별 직원 검색</li>
+          <li><span class="feature-dot"></span>공지사항 · 자유 게시판</li>
+        </ul>
+        <div class="product-card__footer">
+          <span class="product-card__badge">All-in-One Intranet</span>
+          <span class="product-card__badge">SQLite 경량 DB</span>
+        </div>
+      </article>
+
+      <!-- ② E-Messenger -->
+      <article class="product-card reveal reveal--delay-1" data-product="messenger">
+        <div class="product-card__glow"></div>
+        <div class="product-card__header">
+          <div class="product-card__icon-wrap">💬</div>
+          <div class="product-card__meta">
+            <span class="product-card__tag">Messenger</span>
+            <h3 class="product-card__name">E-Messenger</h3>
+          </div>
+        </div>
+        <p class="product-card__desc">
+          사내 전용 실시간 메신저. PC 앱(Windows), 웹, Android까지 모든 디바이스를 지원합니다.
+        </p>
+        <ul class="product-card__features">
+          <li><span class="feature-dot"></span>실시간 채팅 · 채널 관리</li>
+          <li><span class="feature-dot"></span>파일 공유 · 읽음 확인</li>
+          <li><span class="feature-dot"></span>Windows 데스크톱 앱 (Electron)</li>
+          <li><span class="feature-dot"></span>Android 앱 (APK 직접 배포)</li>
+          <li><span class="feature-dot"></span>관리자 패널 · 사용자 관리</li>
+        </ul>
+        <div class="product-card__footer">
+          <span class="product-card__badge">Cross-Platform</span>
+        </div>
+      </article>
+
+      <!-- ③ IT-Manager -->
+      <article class="product-card reveal reveal--delay-2" data-product="itmanager">
+        <div class="product-card__glow"></div>
+        <div class="product-card__header">
+          <div class="product-card__icon-wrap">🖥️</div>
+          <div class="product-card__meta">
+            <span class="product-card__tag">Service Desk</span>
+            <h3 class="product-card__name">IT-Manager</h3>
+          </div>
+        </div>
+        <p class="product-card__desc">
+          IT 장애 접수부터 자산 관리, 소프트웨어 라이선스 추적까지. 중소기업 IT 담당자를 위한 통합 서비스데스크.
+        </p>
+        <ul class="product-card__features">
+          <li><span class="feature-dot"></span>장애 티켓 시스템 (접수/진행/완료)</li>
+          <li><span class="feature-dot"></span>IT 자산 · 유지보수 이력 관리</li>
+          <li><span class="feature-dot"></span>소프트웨어 라이선스 만료 알림</li>
+          <li><span class="feature-dot"></span>PPT 보고서 자동 생성</li>
+          <li><span class="feature-dot"></span>이메일 알림 · 마스터/서브 권한</li>
+        </ul>
+        <div class="product-card__footer">
+          <span class="product-card__badge">ITSM Lightweight</span>
+        </div>
+      </article>
+
+      <!-- ④ Essence AI -->
+      <article class="product-card reveal" data-product="essence">
+        <div class="product-card__glow"></div>
+        <div class="product-card__header">
+          <div class="product-card__icon-wrap">🤖</div>
+          <div class="product-card__meta">
+            <span class="product-card__tag">AI Chatbot · Cloud</span>
+            <h3 class="product-card__name">Essence AI</h3>
+          </div>
+        </div>
+        <p class="product-card__desc">
+          업무 화면 위에 항상 떠 있는 AI 어시스턴트. 문서 작성, 코드 검토, 보고서 초안을 즉시 지원합니다.
+        </p>
+        <ul class="product-card__features">
+          <li><span class="feature-dot"></span>상시 부유창 위젯 (화면 우측 하단)</li>
+          <li><span class="feature-dot"></span>실시간 스트리밍 응답</li>
+          <li><span class="feature-dot"></span>문서·이메일·보고서 초안 작성</li>
+          <li><span class="feature-dot"></span>이미지·텍스트 파일 첨부 지원</li>
+          <li><span class="feature-dot"></span>캐릭터·프롬프트 커스터마이징</li>
+        </ul>
+        <div class="product-card__footer">
+          <span class="product-card__badge product-card__badge--ai">
+            <span class="ai-pulse"></span>AI Powered · Groq
+          </span>
+        </div>
+      </article>
+
+      <!-- ⑤ EssenceOn (Secure) -->
+      <article class="product-card reveal reveal--delay-1" data-product="essenceon">
+        <div class="product-card__glow"></div>
+        <div class="product-card__header">
+          <div class="product-card__icon-wrap">🔐</div>
+          <div class="product-card__meta">
+            <span class="product-card__tag">AI Chatbot · On-Premise</span>
+            <h3 class="product-card__name">EssenceOn</h3>
+          </div>
+        </div>
+        <p class="product-card__desc">
+          인터넷 없이 작동하는 완전 온프레미스 AI. 민감한 데이터가 외부로 나가지 않습니다. USB로 배포 가능.
+        </p>
+        <ul class="product-card__features">
+          <li><span class="feature-dot"></span>완전 오프라인 동작 (Ollama + Gemma)</li>
+          <li><span class="feature-dot"></span>데이터 외부 전송 0% — 내부망만 통신</li>
+          <li><span class="feature-dot"></span>USB 오프라인 배포 지원</li>
+          <li><span class="feature-dot"></span>경량(7.2GB) / 고품질(9.6GB) 모델 선택</li>
+          <li><span class="feature-dot"></span>Essence와 동일한 UX · 커스터마이징</li>
+        </ul>
+        <div class="product-card__footer">
+          <span class="product-card__badge product-card__badge--ai">
+            <span class="ai-pulse"></span>Secure · Offline AI
+          </span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCT SHOWCASE
+═══════════════════════════════════════════════ -->
+<section class="showcase section" id="showcase">
+  <div class="container">
+    <div class="section__eyebrow" style="text-align:center">// Live Preview</div>
+    <h2 class="section__title section__title--center">제품 UI 미리보기</h2>
+    <p class="section__subtitle" style="text-align:center;margin-bottom:2rem">실제 화면을 직접 확인해 보세요</p>
+
+    <div class="showcase__tabs" role="tablist">
+      <button class="showcase__tab showcase__tab--active" data-product="groupware" role="tab" aria-selected="true">
+        <span class="showcase__tab-dot"></span>그룹웨어
+      </button>
+      <button class="showcase__tab" data-product="messenger" role="tab" aria-selected="false">
+        <span class="showcase__tab-dot"></span>E-Messenger
+      </button>
+      <button class="showcase__tab" data-product="itmanager" role="tab" aria-selected="false">
+        <span class="showcase__tab-dot"></span>IT-Manager
+      </button>
+      <button class="showcase__tab" data-product="essence" role="tab" aria-selected="false">
+        <span class="showcase__tab-dot"></span>Essence AI
+      </button>
+      <button class="showcase__tab" data-product="essenceon" role="tab" aria-selected="false">
+        <span class="showcase__tab-dot"></span>EssenceOn
+      </button>
+    </div>
+
+    <div class="browser-frame reveal" id="showcasePanel" data-active="groupware">
+      <div class="browser-frame__viewport">
+        <img class="browser-frame__shot browser-frame__shot--active" id="showcaseImg"
+             src="assets/screenshots/groupware.png" alt="그룹웨어 대시보드"
+             onerror="this.style.display='none'" />
+        <div class="browser-frame__scanlines"></div>
+        <div class="browser-frame__shimmer" id="showcaseShimmer"></div>
+      </div>
+    </div>
+
+    <p class="showcase__caption" id="showcaseCaption">
+      중소기업 맞춤형 그룹웨어 — 전자결재, 게시판, 일정 통합 관리
+    </p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TARGET MARKET
+═══════════════════════════════════════════════ -->
+<section class="market section" id="market">
+  <div class="container">
+    <div class="section__eyebrow" style="text-align:center">// Target Market</div>
+    <h2 class="section__title section__title--center">중소기업을 위해 설계되었습니다</h2>
+
+    <div class="market__compare reveal">
+      <div class="market__col market__col--enterprise">
+        <div class="market__col-header">
+          <span class="market__col-label market__col-label--bad">기존 대기업 솔루션</span>
+        </div>
+        <ul class="market__list market__list--pain">
+          <li>💸 연간 수천만원 라이선스 비용</li>
+          <li>⚙️ 복잡한 구축·유지보수 과정</li>
+          <li>📞 해외 기업 지원 → 느린 대응</li>
+          <li>🔒 종속 계약 · 탈출 불가 구조</li>
+          <li>📦 중소기업 규모에 과도한 기능</li>
+        </ul>
+      </div>
+
+      <div class="market__versus">
+        <div class="market__versus-line"></div>
+        <span class="market__versus-text">VS</span>
+        <div class="market__versus-line"></div>
+      </div>
+
+      <div class="market__col market__col--cge">
+        <div class="market__col-header">
+          <span class="market__col-label market__col-label--good">CGEssence</span>
+        </div>
+        <ul class="market__list market__list--gain">
+          <li><span class="check">✓</span> 중소기업 전용 합리적 가격</li>
+          <li><span class="check">✓</span> 간단한 설치 · 즉시 운영 가능</li>
+          <li><span class="check">✓</span> 국내 담당자 직접 대응</li>
+          <li><span class="check">✓</span> 데이터 완전 자사 소유</li>
+          <li><span class="check">✓</span> 필요한 기능만 심플하게</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="market__badges reveal reveal--delay-1">
+      <div class="market__badge">
+        <span class="market__badge-num">300인</span>
+        <span class="market__badge-desc">이하 기업 전문</span>
+      </div>
+      <div class="market__badge">
+        <span class="market__badge-num">5종</span>
+        <span class="market__badge-desc">통합 솔루션</span>
+      </div>
+      <div class="market__badge">
+        <span class="market__badge-num">USB</span>
+        <span class="market__badge-desc">오프라인 배포 가능</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     VISION / ECOSYSTEM
+═══════════════════════════════════════════════ -->
+<section class="vision section" id="vision">
+  <div class="container">
+    <div class="section__eyebrow" style="text-align:center">// Ecosystem</div>
+    <h2 class="section__title section__title--center">완전히 연결된 디지털 업무 생태계</h2>
+
+    <div class="vision__diagram-wrap reveal">
+      <div class="vision__diagram">
+        <div class="vision__hub">
+          <div class="vision__hub-ring vision__hub-ring--outer"></div>
+          <div class="vision__hub-ring vision__hub-ring--inner"></div>
+          <div class="vision__hub-core">CGE<br>ssence</div>
+        </div>
+        <div class="vision__node vision__node--groupware">그룹웨어</div>
+        <div class="vision__node vision__node--messenger">메신저</div>
+        <div class="vision__node vision__node--itmanager">IT관리</div>
+        <div class="vision__node vision__node--essence">AI챗봇</div>
+        <div class="vision__node vision__node--essenceon">보안AI</div>
+      </div>
+    </div>
+
+    <div class="vision__pillars">
+      <div class="vision__pillar reveal">
+        <div class="vision__pillar-icon">🔐</div>
+        <h3>데이터 완전 소유</h3>
+        <p>온프레미스 옵션으로 데이터가 사내 서버 밖으로 나가지 않습니다. 규정 준수와 보안 걱정 해소.</p>
+      </div>
+      <div class="vision__pillar reveal reveal--delay-1">
+        <div class="vision__pillar-icon">⚡</div>
+        <h3>즉시 도입 가능</h3>
+        <p>복잡한 구축 컨설팅 없이 빠르게 시작. USB 배포로 인터넷 없는 환경에서도 운영 가능.</p>
+      </div>
+      <div class="vision__pillar reveal reveal--delay-2">
+        <div class="vision__pillar-icon">🤖</div>
+        <h3>AI 통합 준비 완료</h3>
+        <p>클라우드 AI(Essence)와 완전 오프라인 AI(EssenceOn) — 환경에 맞게 선택 가능.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════════ -->
+<section class="contact section" id="contact">
+  <div class="contact__bg-glow"></div>
+  <div class="container">
+    <div class="contact__inner reveal">
+      <div class="section__eyebrow">// Contact</div>
+      <h2 class="contact__title">도입을 검토 중이신가요?</h2>
+      <p class="contact__subtitle">
+        규모와 상관없이 편하게 문의하세요.<br>국내 담당자가 직접 상담드립니다.
+      </p>
+
+      <div class="contact__cards">
+        <a href="mailto:changgyo@cgessence.co.kr" class="contact__card">
+          <span class="contact__card-icon">✉️</span>
+          <span class="contact__card-label">대표 메일</span>
+          <span class="contact__card-value">changgyo@cgessence.co.kr</span>
+        </a>
+        <a href="mailto:support@cgessence.co.kr" class="contact__card">
+          <span class="contact__card-icon">🛠️</span>
+          <span class="contact__card-label">제품 지원</span>
+          <span class="contact__card-value">support@cgessence.co.kr</span>
+        </a>
+        <div class="contact__card">
+          <span class="contact__card-icon">🌐</span>
+          <span class="contact__card-label">웹사이트</span>
+          <span class="contact__card-value">cgessence.co.kr</span>
+        </div>
+      </div>
+
+      <a href="mailto:changgyo@cgessence.co.kr" class="btn btn--primary btn--large">
+        지금 바로 문의하기 →
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__brand">◈ CGEssence</div>
+    <p class="footer__copy">© 2025 CGEssence. All rights reserved.</p>
+    <p class="footer__tagline">중소기업을 위한 스마트 IT 솔루션 · cgessence.co.kr</p>
+  </div>
+</footer>
+
+<script src="js/matrix.js" defer></script>
+<script src="js/particles.js" defer></script>
+<script src="js/main.js" defer></script>
+</body>
+</html>
