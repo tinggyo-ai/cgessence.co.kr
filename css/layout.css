@@ -722,6 +722,7 @@
   .nav__hamburger { display: flex; }
   .nav__inner { padding: 0 20px; }
   .products__grid { grid-template-columns: 1fr; }
+  .product-card--featured { grid-column: span 1; }
   .hero__stats { gap: 20px; }
   .hero__stat-divider { width: 40px; height: 1px; background: linear-gradient(90deg, transparent, var(--border-cyan), transparent); }
   .vision__diagram { display: none; }
