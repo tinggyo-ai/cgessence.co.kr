@@ -465,4 +465,5 @@
   .showcase__tab { padding: 8px 14px; font-size: 0.8rem; }
   .browser-frame__bar { padding: 8px 12px; }
   .browser-frame__actions { display: none; }
+  .product-card--featured { grid-column: span 1; }
 }
