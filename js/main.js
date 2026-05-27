@@ -63,8 +63,8 @@
     { text: '> 그룹웨어 ............. [ONLINE]', cls: 'terminal__line--ok', delay: 380 },
     { text: '> E-Messenger ......... [ONLINE]', cls: 'terminal__line--ok', delay: 780 },
     { text: '> IT-Manager .......... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
-    { text: '> Essence AI .......... [ONLINE]', cls: 'terminal__line--ok', delay: 1580 },
-    { text: '> EssenceOn AI ........ [SECURE]', cls: 'terminal__line--ok', delay: 1980 },
+    { text: '> E-AI챗봇(API형) ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1580 },
+    { text: '> E-AI챗봇(온프레미스) .. [SECURE]', cls: 'terminal__line--ok', delay: 1980 },
     { text: '> 시스템 상태: 모두 정상', cls: 'terminal__line--info', delay: 2380 },
     { text: '$ █', cls: 'terminal__line--cmd', delay: 2780, isCursor: true },
   ];
@@ -156,12 +156,12 @@
     essence: {
       src:     'assets/screenshots/essence.png',
       host:    'ai.cgessence.local',
-      caption: 'Essence AI — 온프레미스 대화형 AI 어시스턴트 (인터넷 불필요)',
+      caption: 'E-AI챗봇 (API형) — 인터넷 연결 클라우드 AI, 빠른 응답·문서 작성·보고서 초안 지원',
     },
     essenceon: {
       src:     'assets/screenshots/essenceon.png',
       host:    'essenceon.cgessence.local',
-      caption: 'EssenceOn — 보안 격리 AI 채팅, 민감 데이터 완전 로컬 처리',
+      caption: 'E-AI챗봇 (온프레미스) — 완전 오프라인, 민감 데이터가 외부로 나가지 않는 사내 전용 AI',
     },
     esecurity: {
       src:     'assets/screenshots/esecurity.png',
