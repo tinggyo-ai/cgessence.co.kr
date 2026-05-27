@@ -530,6 +530,7 @@
   margin: -36px;
   border-radius: 12px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -541,6 +542,13 @@
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
+  line-height: 1.4;
+}
+.vision__node small {
+  font-size: 0.48rem;
+  opacity: 0.75;
+  letter-spacing: 0.03em;
+  font-weight: 400;
 }
 .vision__node:hover { transform: scale(1.12) !important; }
 
@@ -568,16 +576,16 @@
   border-color: rgba(0,180,216,0.3);
   color: var(--cyan-dim);
 }
-.vision__node--essenceon {
+.vision__node--esecurity {
   transform: rotate(288deg) translateX(160px) rotate(-288deg);
-  background: rgba(0,255,65,0.08);
-  border-color: rgba(0,255,65,0.25);
-  color: var(--green);
+  background: rgba(255,51,102,0.08);
+  border-color: rgba(255,51,102,0.3);
+  color: #ff3366;
 }
 
 .vision__pillars {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 .vision__pillar {
