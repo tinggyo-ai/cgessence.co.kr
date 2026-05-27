@@ -163,6 +163,11 @@
       host:    'essenceon.cgessence.local',
       caption: 'EssenceOn — 보안 격리 AI 채팅, 민감 데이터 완전 로컬 처리',
     },
+    esecurity: {
+      src:     'assets/screenshots/esecurity.png',
+      host:    'esecurity.cgessence.local',
+      caption: 'E-Security — Windows 엔드포인트 보안, 악성코드 스캔부터 USB 제어까지 중앙 관리',
+    },
   };
 
   const tabs    = document.querySelectorAll('.showcase__tab');
@@ -177,7 +182,7 @@
   let current  = 'groupware';
   let timer    = null;
   const DELAY  = 4500;
-  const order  = ['groupware', 'messenger', 'itmanager', 'essence', 'essenceon'];
+  const order  = ['groupware', 'messenger', 'itmanager', 'essence', 'essenceon', 'esecurity'];
 
   function switchTab(product) {
     if (product === current) return;
