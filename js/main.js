@@ -60,9 +60,9 @@
 
   const lines = [
     { text: '$ cgessence --status', cls: 'terminal__line--cmd' },
-    { text: '> 그룹웨어 ............. [ONLINE]', cls: 'terminal__line--ok', delay: 380 },
+    { text: '> E-그룹웨어 ........... [ONLINE]', cls: 'terminal__line--ok', delay: 380 },
     { text: '> E-Messenger ......... [ONLINE]', cls: 'terminal__line--ok', delay: 780 },
-    { text: '> IT-Manager .......... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
+    { text: '> E-Service Desk ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
     { text: '> E-AI챗봇(API형) ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1580 },
     { text: '> E-AI챗봇(온프레미스) .. [SECURE]', cls: 'terminal__line--ok', delay: 1980 },
     { text: '> 시스템 상태: 모두 정상', cls: 'terminal__line--info', delay: 2380 },
@@ -141,7 +141,7 @@
     groupware: {
       src:     'assets/screenshots/groupware.png',
       host:    'groupware.cgessence.local',
-      caption: '중소기업 맞춤형 그룹웨어 — 전자결재, 게시판, 일정 통합 관리',
+      caption: 'E-그룹웨어 — 전자결재·근태·급여·인사·자산관리를 하나로, 중소기업 전용 올인원 인트라넷',
     },
     messenger: {
       src:     'assets/screenshots/messenger.png',
@@ -151,7 +151,7 @@
     itmanager: {
       src:     'assets/screenshots/itmanager.png',
       host:    'itmanager.cgessence.local',
-      caption: 'IT-Manager — 장애 접수부터 처리까지, 티켓 기반 서비스 데스크 통합',
+      caption: 'E-Service Desk — 장애 접수부터 처리까지, 티켓 기반 IT 서비스데스크 통합',
     },
     essence: {
       src:     'assets/screenshots/essence.png',
