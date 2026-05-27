@@ -526,8 +526,8 @@
 .vision__node {
   position: absolute;
   top: 50%; left: 50%;
-  width: 72px; height: 72px;
-  margin: -36px;
+  width: 84px; height: 84px;
+  margin: -42px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -535,19 +535,20 @@
   justify-content: center;
   text-align: center;
   font-family: var(--font-mono);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   border: 1px solid;
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: default;
-  line-height: 1.4;
+  line-height: 1.5;
+  padding: 4px;
 }
 .vision__node small {
-  font-size: 0.48rem;
+  font-size: 0.5rem;
   opacity: 0.75;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   font-weight: 400;
 }
 .vision__node:hover { transform: scale(1.12) !important; }
