@@ -62,7 +62,7 @@
     { text: '$ cgessence --status', cls: 'terminal__line--cmd' },
     { text: '> E-그룹웨어 ........... [ONLINE]', cls: 'terminal__line--ok', delay: 380 },
     { text: '> E-Messenger ......... [ONLINE]', cls: 'terminal__line--ok', delay: 780 },
-    { text: '> E-Service Desk ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
+    { text: '> E-IT통합관리 ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
     { text: '> E-AI챗봇(API형) ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1580 },
     { text: '> E-AI챗봇(온프레미스) .. [SECURE]', cls: 'terminal__line--ok', delay: 1980 },
     { text: '> 시스템 상태: 모두 정상', cls: 'terminal__line--info', delay: 2380 },
@@ -151,7 +151,7 @@
     itmanager: {
       src:     'assets/screenshots/itmanager.png',
       host:    'itmanager.cgessence.local',
-      caption: 'E-Service Desk — 장애 접수부터 처리까지, 티켓 기반 IT 서비스데스크 통합',
+      caption: 'E-IT통합관리 — IT 자산, 티켓, 라이선스를 한 화면에서 통합관리',
     },
     essence: {
       src:     'assets/screenshots/essence.png',
