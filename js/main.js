@@ -59,14 +59,15 @@
   if (!output) return;
 
   const lines = [
-    { text: '$ cgessence --status', cls: 'terminal__line--cmd' },
-    { text: '> E-그룹웨어 ........... [ONLINE]', cls: 'terminal__line--ok', delay: 380 },
-    { text: '> E-Messenger ......... [ONLINE]', cls: 'terminal__line--ok', delay: 780 },
-    { text: '> E-자산통합관리 ..... [ONLINE]', cls: 'terminal__line--ok', delay: 1180 },
-    { text: '> E-AI챗봇(API형) ...... [ONLINE]', cls: 'terminal__line--ok', delay: 1580 },
-    { text: '> E-AI챗봇(온프레미스) .. [SECURE]', cls: 'terminal__line--ok', delay: 1980 },
-    { text: '> 시스템 상태: 모두 정상', cls: 'terminal__line--info', delay: 2380 },
-    { text: '$ █', cls: 'terminal__line--cmd', delay: 2780, isCursor: true },
+    { text: '$ portfolio --list-projects', cls: 'terminal__line--cmd' },
+    { text: '> E-그룹웨어 ........... [Node.js + SQLite]', cls: 'terminal__line--ok', delay: 380 },
+    { text: '> E-Messenger ......... [React + Electron]', cls: 'terminal__line--ok', delay: 780 },
+    { text: '> E-자산통합관리 ..... [Node.js + PPTGen]', cls: 'terminal__line--ok', delay: 1180 },
+    { text: '> E-AI챗봇(API형) ...... [Electron + Groq]', cls: 'terminal__line--ok', delay: 1580 },
+    { text: '> E-AI챗봇(온프레미스) . [Ollama + Gemma4]', cls: 'terminal__line--ok', delay: 1980 },
+    { text: '> E-Security .......... [.NET + React]', cls: 'terminal__line--ok', delay: 2380 },
+    { text: '> 총 6개 시스템 · IT 경력 16년', cls: 'terminal__line--info', delay: 2780 },
+    { text: '$ █', cls: 'terminal__line--cmd', delay: 3180, isCursor: true },
   ];
 
   let started = false;
@@ -141,7 +142,7 @@
     groupware: {
       src:     'assets/screenshots/groupware.png',
       host:    'groupware.cgessence.local',
-      caption: 'E-그룹웨어 — 전자결재·근태·급여·인사·자산관리를 하나로, 중소기업 전용 올인원 인트라넷',
+      caption: 'E-그룹웨어 — 전자결재·근태·급여·인사·자산관리를 하나로 통합한 올인원 인트라넷 (Node.js + SQLite)',
     },
     messenger: {
       src:     'assets/screenshots/messenger.png',
