@@ -59,14 +59,14 @@
   if (!output) return;
 
   const lines = [
-    { text: '$ portfolio --list-projects', cls: 'terminal__line--cmd' },
-    { text: '> E-그룹웨어 ........... [Node.js + SQLite]', cls: 'terminal__line--ok', delay: 380 },
-    { text: '> E-Messenger ......... [React + Electron]', cls: 'terminal__line--ok', delay: 780 },
-    { text: '> E-자산통합관리 ..... [Node.js + PPTGen]', cls: 'terminal__line--ok', delay: 1180 },
-    { text: '> E-AI챗봇(API형) ...... [Electron + Groq]', cls: 'terminal__line--ok', delay: 1580 },
-    { text: '> E-AI챗봇(온프레미스) . [Ollama + Gemma4]', cls: 'terminal__line--ok', delay: 1980 },
-    { text: '> E-Security .......... [.NET + React]', cls: 'terminal__line--ok', delay: 2380 },
-    { text: '> 총 6개 시스템 · IT 경력 16년', cls: 'terminal__line--info', delay: 2780 },
+    { text: '$ cgessence --list-solutions', cls: 'terminal__line--cmd' },
+    { text: '> E-그룹웨어 ........... [근태 · 결재 · 인사]', cls: 'terminal__line--ok', delay: 380 },
+    { text: '> E-Messenger ......... [사내 커뮤니케이션]', cls: 'terminal__line--ok', delay: 780 },
+    { text: '> E-자산통합관리 ..... [자산 · 티켓 · 라이선스]', cls: 'terminal__line--ok', delay: 1180 },
+    { text: '> E-AI챗봇(API형) ...... [업무 문서 지원]', cls: 'terminal__line--ok', delay: 1580 },
+    { text: '> E-AI챗봇(온프레미스) . [내부망 AI 옵션]', cls: 'terminal__line--ok', delay: 1980 },
+    { text: '> E-Security .......... [PC 보안 · USB 정책]', cls: 'terminal__line--ok', delay: 2380 },
+    { text: '> 상담 후 고객 환경에 맞춰 도입 범위 설계', cls: 'terminal__line--info', delay: 2780 },
     { text: '$ █', cls: 'terminal__line--cmd', delay: 3180, isCursor: true },
   ];
 
@@ -142,12 +142,12 @@
     groupware: {
       src:     'assets/screenshots/groupware.png',
       host:    'groupware.cgessence.local',
-      caption: 'E-그룹웨어 — 전자결재·근태·급여·인사·자산관리를 하나로 통합한 올인원 인트라넷 (Node.js + SQLite)',
+      caption: 'E-그룹웨어 — 전자결재·근태·급여·인사·자산관리를 하나로 통합한 사내 업무 포털',
     },
     messenger: {
       src:     'assets/screenshots/messenger.png',
       host:    'messenger.cgessence.local',
-      caption: 'E-Messenger — 로그인부터 1:1 채팅·파일 공유까지, 회사 전용 메신저',
+      caption: 'E-Messenger — 로그인부터 1:1 채팅·파일 공유까지, 회사 전용 커뮤니케이션 채널',
     },
     itmanager: {
       src:     'assets/screenshots/itmanager.png',
@@ -157,12 +157,12 @@
     essence: {
       src:     'assets/screenshots/essence.png',
       host:    'ai.cgessence.local',
-      caption: 'E-AI챗봇 (API형) — 인터넷 연결 클라우드 AI, 빠른 응답·문서 작성·보고서 초안 지원',
+      caption: 'E-AI챗봇 (API형) — 클라우드 AI 기반 빠른 응답·문서 작성·보고서 초안 지원',
     },
     essenceon: {
       src:     'assets/screenshots/essenceon.png',
       host:    'essenceon.cgessence.local',
-      caption: 'E-AI챗봇 (온프레미스) — 완전 오프라인, 민감 데이터가 외부로 나가지 않는 사내 전용 AI',
+      caption: 'E-AI챗봇 (온프레미스) — 내부망 중심 운영으로 민감 데이터 외부 전송 부담을 낮춘 사내 AI',
     },
     esecurity: {
       src:     'assets/screenshots/esecurity.png',

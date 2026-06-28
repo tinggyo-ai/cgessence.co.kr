@@ -25,6 +25,22 @@ The site is deployed with GitHub Pages.
 - Pages source: `master` branch, project root
 - Custom domain configured in GitHub Pages: `cgessence.co.kr`
 
+## Fly.io deployment
+
+The site is also deployed to Fly.io as a static Nginx container.
+
+- App: `cgessence-main`
+- URL: `https://cgessence-main.fly.dev/`
+- Region: `nrt`
+- Config: `fly.toml`
+- Image build: `Dockerfile`
+
+Redeploy from this folder:
+
+```powershell
+flyctl deploy --remote-only
+```
+
 ## GitHub Pages DNS records for Gabia
 
 In Gabia DNS, add these records for the root domain.
