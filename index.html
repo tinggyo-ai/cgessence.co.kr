@@ -3,553 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CGEssence - 중소기업 업무 시스템 도입 솔루션</title>
-  <meta name="description" content="그룹웨어, 메신저, 자산관리, AI챗봇, 엔드포인트 보안을 중소기업 환경에 맞게 구축·도입하는 업무 시스템 솔루션입니다." />
-  <meta property="og:title" content="CGEssence - 중소기업 업무 시스템 도입 솔루션" />
-  <meta property="og:description" content="그룹웨어 · 메신저 · 자산관리 · AI챗봇 · 엔드포인트 보안을 고객사 환경에 맞게 구축·도입합니다." />
+  <title>CGEssence — 일의 본질에 집중할 시간을 돌려드립니다</title>
+  <meta name="description" content="CGEssence는 AI 업무자동화로 불필요한 일을 덜어내 시간은 줄이고 품질은 높입니다. 비용과 시간을 함께 아껴 고객의 일이 낼 수 있는 효과를 극대화합니다." />
+  <meta property="og:title" content="CGEssence — 일의 본질에 집중할 시간을 돌려드립니다" />
+  <meta property="og:description" content="AI 업무자동화로 시간은 줄이고 품질은 높입니다. IT 서비스데스크 SERVIQ · 학원 AI 챗봇 에센나S." />
   <meta property="og:url" content="https://cgessence.co.kr" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23020408'/><text x='16' y='22' font-size='18' text-anchor='middle' fill='%2300ffcc'>◈</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/variables.css?v=2" />
-  <link rel="stylesheet" href="css/reset.css?v=2" />
-  <link rel="stylesheet" href="css/layout.css?v=6" />
-  <link rel="stylesheet" href="css/components.css?v=4" />
-  <link rel="stylesheet" href="css/animations.css?v=2" />
+  <meta property="og:image" content="https://cgessence.co.kr/img/photos/hero-seoul-night.jpg" />
+  <link rel="icon" type="image/png" href="img/favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="css/site.css?v=3" />
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════
-     NAVIGATION
-═══════════════════════════════════════════════ -->
 <nav class="nav" id="nav">
   <div class="nav__inner">
-    <a href="#hero" class="nav__brand">
-      <img src="Lg2.png?v=1" alt="CGEssence 마스코트" class="nav__brand-logo"/>
-      CGEssence
-      <span class="nav__brand-tld">.co.kr</span>
+    <a href="./" class="nav__brand">
+      <img src="img/logo-symbol.png?v=1" alt="" class="nav__brand-logo"/>
+      <span class="brand-name"><b>CG</b>Essence</span>
     </a>
     <ul class="nav__links">
-      <li><a href="#about"    class="nav__link">도입가치</a></li>
-      <li><a href="#products" class="nav__link">제품</a></li>
-      <li><a href="#showcase" class="nav__link">미리보기</a></li>
-      <li><a href="#skills"   class="nav__link">운영역량</a></li>
-      <li><a href="#vision"   class="nav__link">설계</a></li>
-      <li><a href="#contact"  class="nav__link nav__link--cta">도입 상담</a></li>
+      <li><a href="./"       class="nav__link nav__link--on">회사 소개</a></li>
+      <li><a href="serviq/"  class="nav__link">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
+      <li><a href="essenna/" class="nav__link">에센나 <span style="font-size:0.8em;color:var(--ghost)">ESSENNA</span></a></li>
+      <li><a href="#contact" class="nav__link nav__link--cta">도입 문의</a></li>
     </ul>
     <button class="nav__hamburger" id="navToggle" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="nav__mobile" id="navMobile">
-    <a href="#about"    class="nav__link">도입가치</a>
-    <a href="#products" class="nav__link">제품</a>
-    <a href="#showcase" class="nav__link">미리보기</a>
-    <a href="#skills"   class="nav__link">운영역량</a>
-    <a href="#vision"   class="nav__link">설계</a>
-    <a href="#contact"  class="nav__link" style="color:var(--cyan)">도입 상담</a>
+  <div class="nav__mobile">
+    <a href="./"       class="nav__link">회사 소개</a>
+    <a href="serviq/"  class="nav__link">서비큐 SERVIQ</a>
+    <a href="essenna/" class="nav__link">에센나 ESSENNA</a>
+    <a href="#contact" class="nav__link">도입 문의</a>
   </div>
 </nav>
 
-
-<!-- ═══════════════════════════════════════════════
-     HERO
-═══════════════════════════════════════════════ -->
-<section class="hero" id="hero">
-  <canvas class="hero__matrix" id="matrixCanvas"></canvas>
-  <canvas class="hero__particles" id="particleCanvas"></canvas>
-  <div class="hero__grid-overlay"></div>
-
-  <div class="hero__content">
-    <div class="hero__eyebrow">
-      <span class="hero__eyebrow-dot"></span>
-      <span>// 중소기업 업무 시스템 구축·도입 상담</span>
-    </div>
-
-    <h1 class="hero__title">
-      <span class="hero__title-line glitch" data-text="중소기업 업무를">중소기업 업무를</span>
-      <span class="hero__title-line" style="color:rgba(255,255,255,0.85)">한 곳에서 운영하는</span>
-      <span class="hero__title-line hero__title-gradient"><span>CGEssence</span><span>업무 시스템</span></span>
-    </h1>
-
-    <p class="hero__subtitle">
-      그룹웨어, 메신저, 자산관리, AI챗봇, 엔드포인트 보안을 고객사 환경에 맞게 도입합니다.<br>
-      16년 현장 IT 운영 경험을 바탕으로 설치, 교육, 운영 지원까지 함께 제공합니다.
+<!-- ═══ 히어로 ═══ -->
+<header class="hero-photo">
+  <div class="container">
+    <span class="hero-photo__eyebrow">AI WORK AUTOMATION</span>
+    <h1 class="hero-photo__title">일의 본질에 집중할<br/><em>시간</em>을 돌려드립니다</h1>
+    <p class="hero-photo__desc">
+      CGEssence는 AI 업무자동화로 불필요한 일을 덜어내 시간은 줄이고 품질은 높입니다.
+      비용과 시간, 두 마리 토끼를 함께 잡아 고객의 일이 낼 수 있는 효과를 끝까지 끌어올립니다.
     </p>
-
-    <div class="hero__actions">
-      <a href="#contact" class="btn btn--primary">도입 상담 요청 →</a>
-      <a href="#showcase"  class="btn btn--ghost">제품 화면 보기</a>
-    </div>
-
-    <div class="hero__stats">
-      <div class="hero__stat">
-        <span class="hero__stat-value">16년</span>
-        <span class="hero__stat-label">IT 운영 경험</span>
-      </div>
-      <div class="hero__stat-divider"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-value">6개</span>
-        <span class="hero__stat-label">업무 시스템</span>
-      </div>
-      <div class="hero__stat-divider"></div>
-      <div class="hero__stat">
-        <span class="hero__stat-value">지원</span>
-        <span class="hero__stat-label">구축·교육·운영</span>
-      </div>
+    <div class="hero-photo__actions">
+      <a href="#business" class="btn btn--primary">사업 영역 보기</a>
+      <a href="#contact" class="btn btn--ghost">도입 문의</a>
     </div>
   </div>
+  <span class="hero-photo__scroll">SCROLL</span>
+</header>
 
-  <div class="hero__scroll-hint">
-    <span>scroll</span>
-    <div class="hero__scroll-line"></div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     ABOUT
-═══════════════════════════════════════════════ -->
-<section class="about section" id="about">
-  <div class="container">
-    <div class="about__grid">
-
-      <div class="about__text reveal">
-        <div class="section__eyebrow">// Value</div>
-        <h2 class="section__title">중소기업 실무 흐름에 맞춘<br>업무 시스템</h2>
-        <p class="about__lead">
-          중소기업 IT 운영에서 반복되는 업무를 <strong>도입 가능한 시스템</strong>으로 정리합니다.
-        </p>
-        <p class="about__body">
-          근태, 결재, 자산, 장애 접수, 보안 정책, 사내 AI 활용처럼 중소기업에서 자주 흩어지는 업무를 실제 운영 관점에서 설계했습니다.
-          고객사 환경을 확인한 뒤 필요한 기능부터 적용하고, 설치·교육·운영 지원까지 이어지는 도입 상담을 제공합니다.
-          AI 도구는 빠른 개선과 고객 맞춤화를 위한 보조 수단으로 활용합니다.
-        </p>
-        <div class="about__tags">
-          <span class="tag tag--cyan">현장 IT 운영 16년</span>
-          <span class="tag tag--purple">고객 환경 맞춤 도입</span>
-          <span class="tag tag--green">설치·교육·운영 지원</span>
-        </div>
-      </div>
-
-      <div class="reveal reveal--delay-1">
-        <div class="terminal">
-          <div class="terminal__bar">
-            <span class="terminal__dot terminal__dot--red"></span>
-            <span class="terminal__dot terminal__dot--yellow"></span>
-            <span class="terminal__dot terminal__dot--green"></span>
-            <span class="terminal__title">cgessence-system.sh</span>
-          </div>
-          <div class="terminal__body" id="terminalOutput"></div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     PRODUCTS
-═══════════════════════════════════════════════ -->
-<section class="products section" id="products">
-  <div class="container">
-    <div class="section__eyebrow" style="text-align:center">// Products</div>
-    <h2 class="section__title section__title--center">중소기업을 위한 업무 시스템 제품군</h2>
-    <p class="section__subtitle">데모 확인 후 고객사 업무 방식과 보안 정책에 맞춰 도입 범위를 설계합니다.</p>
-
-    <div class="products__grid">
-
-      <!-- ① E-그룹웨어 (featured / 2-col span) -->
-      <article class="product-card product-card--featured reveal" data-product="groupware">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">🏢</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">사내 인트라넷 · 그룹웨어</span>
-            <h3 class="product-card__name">E-그룹웨어</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          흩어진 근태, 결재, 인사, 자산, Help Desk 업무를 하나의 사내 포털로 통합합니다.
-          부서별 운영 방식에 맞춰 필요한 모듈부터 단계적으로 도입할 수 있습니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>근태관리 자동 집계 · CSV 내보내기</li>
-          <li><span class="feature-dot"></span>업무일지 작성 · 관리자 검토 워크플로</li>
-          <li><span class="feature-dot"></span>전자결재 워크플로 (기안→결재→완료)</li>
-          <li><span class="feature-dot"></span>인사관리 · 급여 모듈 통합</li>
-          <li><span class="feature-dot"></span>자산관리 · 유지보수 이력 · Help Desk</li>
-          <li><span class="feature-dot"></span>조직도 · 게시판 · 사내 메일</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge">All-in-One Intranet</span>
-          <span class="product-card__badge">SQLite 경량 DB</span>
-          <a href="#contact" class="product-card__consult">도입 상담</a>
-          <a href="https://github.com/tinggyo-ai/e-groupware" target="_blank" rel="noopener" class="product-card__link">기술 검토</a>
-        </div>
-      </article>
-
-      <!-- ② E-Messenger -->
-      <article class="product-card reveal reveal--delay-1" data-product="messenger">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">💬</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">Messenger</span>
-            <h3 class="product-card__name">E-Messenger</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          사내 대화와 파일 공유가 외부 메신저에 흩어지지 않도록 회사 전용 커뮤니케이션 채널을 제공합니다.
-          PC, 웹, Android 환경을 함께 검토해 배포 방식을 정합니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>실시간 채팅 · 채널 관리</li>
-          <li><span class="feature-dot"></span>파일 공유 · 읽음 확인</li>
-          <li><span class="feature-dot"></span>Windows 데스크톱 앱 (Electron)</li>
-          <li><span class="feature-dot"></span>Android 앱 (APK 직접 배포)</li>
-          <li><span class="feature-dot"></span>관리자 패널 · 사용자 관리</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge">Cross-Platform</span>
-          <a href="#contact" class="product-card__consult">도입 상담</a>
-          <a href="https://e-messenger.fly.dev" target="_blank" rel="noopener" class="product-card__link">화면 데모</a>
-          <a href="https://github.com/tinggyo-ai/e-messenger" target="_blank" rel="noopener" class="product-card__link">기술 검토</a>
-        </div>
-      </article>
-
-      <!-- ③ E-자산통합관리 -->
-      <article class="product-card reveal reveal--delay-2" data-product="itmanager">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">🖥️</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">자산 · 티켓 · 라이선스 통합관리</span>
-            <h3 class="product-card__name">E-자산통합관리</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          장비, 비품, 장애 접수, 라이선스 만료 이력이 엑셀과 메신저에 흩어지는 문제를 줄입니다.
-          자산 현황과 대응 이력을 한 화면에서 추적할 수 있게 구성합니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>장애 티켓 시스템 (접수/진행/완료)</li>
-          <li><span class="feature-dot"></span>자산 · 유지보수 이력 관리</li>
-          <li><span class="feature-dot"></span>소프트웨어 라이선스 만료 알림</li>
-          <li><span class="feature-dot"></span>PPT 보고서 자동 생성</li>
-          <li><span class="feature-dot"></span>이메일 알림 · 마스터/서브 권한</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge">ITSM Lightweight</span>
-          <a href="#contact" class="product-card__consult">도입 상담</a>
-          <a href="https://github.com/tinggyo-ai/e-servicedesk" target="_blank" rel="noopener" class="product-card__link">기술 검토</a>
-        </div>
-      </article>
-
-      <!-- ④ Essence AI -->
-      <article class="product-card reveal" data-product="essence">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">🤖</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">사내용 AI챗봇 · API형</span>
-            <h3 class="product-card__name">E-AI챗봇 (API형)</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          보고서, 메일, 공지, 업무 문서 초안을 빠르게 정리해야 하는 실무자를 위한 사내 AI 도구입니다.
-          클라우드 API 사용이 가능한 조직에 맞춰 빠른 응답과 편의 기능을 제공합니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>상시 부유창 위젯 (화면 우측 하단)</li>
-          <li><span class="feature-dot"></span>실시간 스트리밍 응답</li>
-          <li><span class="feature-dot"></span>문서·이메일·보고서 초안 작성</li>
-          <li><span class="feature-dot"></span>이미지·텍스트 파일 첨부 지원</li>
-          <li><span class="feature-dot"></span>캐릭터·프롬프트 커스터마이징</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge product-card__badge--ai">
-            <span class="ai-pulse"></span>AI Powered · Groq
-          </span>
-          <a href="#contact" class="product-card__consult">도입 상담</a>
-          <a href="https://github.com/tinggyo-ai/essence-chatbot" target="_blank" rel="noopener" class="product-card__link">기술 검토</a>
-        </div>
-      </article>
-
-      <!-- ⑤ EssenceOn (Secure) -->
-      <article class="product-card reveal reveal--delay-1" data-product="essenceon">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">🔐</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">사내용 AI챗봇 · 온프레미스</span>
-            <h3 class="product-card__name">E-AI챗봇 (온프레미스)</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          민감한 문서를 외부 서비스로 보내기 어려운 조직을 위한 내부망 AI 도입 옵션입니다.
-          인터넷 연결이 제한된 환경에서도 보안 정책에 맞춰 배포 범위를 검토합니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>완전 오프라인 동작 (Ollama + Gemma)</li>
-          <li><span class="feature-dot"></span>데이터 외부 전송 0% — 내부망만 통신</li>
-          <li><span class="feature-dot"></span>USB 오프라인 배포 지원</li>
-          <li><span class="feature-dot"></span>경량(7.2GB) / 고품질(9.6GB) 모델 선택</li>
-          <li><span class="feature-dot"></span>Essence와 동일한 UX · 커스터마이징</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge product-card__badge--ai">
-            <span class="ai-pulse"></span>Secure · Offline AI
-          </span>
-          <a href="#contact" class="product-card__consult">도입 상담</a>
-          <a href="https://github.com/tinggyo-ai/essence-onprem" target="_blank" rel="noopener" class="product-card__link">기술 검토</a>
-        </div>
-      </article>
-
-      <!-- ⑥ E-Security -->
-      <article class="product-card reveal reveal--delay-2" data-product="esecurity">
-        <div class="product-card__glow"></div>
-        <div class="product-card__header">
-          <div class="product-card__icon-wrap">🛡️</div>
-          <div class="product-card__meta">
-            <span class="product-card__tag">ENDPOINT SECURITY</span>
-            <h3 class="product-card__name">E-Security</h3>
-          </div>
-        </div>
-        <p class="product-card__desc">
-          PC별 보안 상태와 USB 사용 정책을 중앙에서 확인해야 하는 조직을 위한 엔드포인트 관리 콘솔입니다.
-          Windows 업무 PC 기준으로 필요한 보안 범위를 상담 후 정리합니다.
-        </p>
-        <ul class="product-card__features">
-          <li><span class="feature-dot"></span>악성코드 스캔 (해시·패턴 기반)</li>
-          <li><span class="feature-dot"></span>USB 이동식 저장소 정책 제어</li>
-          <li><span class="feature-dot"></span>중앙 관리 콘솔 (React 대시보드)</li>
-          <li><span class="feature-dot"></span>위협 격리 및 감사 로그</li>
-        </ul>
-        <div class="product-card__footer">
-          <span class="product-card__badge">Windows Agent</span>
-          <span class="product-card__badge product-card__badge--ai">
-            <span class="ai-pulse"></span>실시간 보호
-          </span>
-          <a href="#contact" class="product-card__consult">보안 기능 상담</a>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     PRODUCT SHOWCASE
-═══════════════════════════════════════════════ -->
-<section class="showcase section" id="showcase">
-  <div class="container">
-    <div class="section__eyebrow" style="text-align:center">// Product Preview</div>
-    <h2 class="section__title section__title--center">제품 UI 미리보기</h2>
-    <p class="section__subtitle" style="text-align:center;margin-bottom:2rem">도입 상담 전 실제 화면과 업무 흐름을 먼저 확인하실 수 있습니다.</p>
-
-    <div class="showcase__tabs" role="tablist">
-      <button class="showcase__tab showcase__tab--active" data-product="groupware" role="tab" aria-selected="true">
-        <span class="showcase__tab-dot"></span>E-그룹웨어
-      </button>
-      <button class="showcase__tab" data-product="messenger" role="tab" aria-selected="false">
-        <span class="showcase__tab-dot"></span>E-Messenger
-      </button>
-      <button class="showcase__tab" data-product="itmanager" role="tab" aria-selected="false">
-        <span class="showcase__tab-dot"></span>E-자산통합관리
-      </button>
-      <button class="showcase__tab" data-product="essence" role="tab" aria-selected="false">
-        <span class="showcase__tab-dot"></span>E-AI챗봇 (API형)
-      </button>
-      <button class="showcase__tab" data-product="essenceon" role="tab" aria-selected="false">
-        <span class="showcase__tab-dot"></span>E-AI챗봇 (온프레미스)
-      </button>
-      <button class="showcase__tab" data-product="esecurity" role="tab" aria-selected="false">
-        <span class="showcase__tab-dot"></span>🛡️ E-Security
-      </button>
-    </div>
-
-    <div class="browser-frame reveal" id="showcasePanel" data-active="groupware">
-      <div class="browser-frame__viewport">
-        <img class="browser-frame__shot browser-frame__shot--active" id="showcaseImg"
-             src="assets/screenshots/groupware.png" alt="그룹웨어 대시보드"
-             onerror="this.style.display='none'" />
-        <div class="browser-frame__scanlines"></div>
-        <div class="browser-frame__shimmer" id="showcaseShimmer"></div>
-      </div>
-    </div>
-
-    <p class="showcase__caption" id="showcaseCaption">
-      E-그룹웨어 — 근태관리, 업무일지, 전자결재, 인사·급여, 자산관리, Help Desk를 하나의 사내 포털로 통합
-    </p>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     SKILLS
-═══════════════════════════════════════════════ -->
-<section class="market section" id="skills">
-  <div class="container">
-    <div class="section__eyebrow" style="text-align:center">// Capability</div>
-    <h2 class="section__title section__title--center">도입과 운영을 함께 보는 역량</h2>
-
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem" class="reveal">
-
-      <div style="background:rgba(0,255,204,0.05);border:1px solid rgba(0,255,204,0.2);border-radius:12px;padding:1.5rem">
-        <div style="color:var(--cyan);font-size:0.75rem;font-weight:700;letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase">현장 IT 운영 · 16년</div>
-        <ul class="market__list market__list--gain">
-          <li><span class="check">✓</span> Windows Server · Active Directory</li>
-          <li><span class="check">✓</span> 네트워크 장비 설정 (스위치·방화벽)</li>
-          <li><span class="check">✓</span> 전산장비 유지보수 및 교체</li>
-          <li><span class="check">✓</span> 사내 IT 운영 및 사용자 지원</li>
-        </ul>
-      </div>
-
-      <div style="background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.2);border-radius:12px;padding:1.5rem">
-        <div style="color:#a78bfa;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase">Microsoft 365</div>
-        <ul class="market__list market__list--gain">
-          <li><span class="check">✓</span> Exchange Online · 메일 운영</li>
-          <li><span class="check">✓</span> SharePoint · Teams 관리</li>
-          <li><span class="check">✓</span> Entra ID · 계정 관리</li>
-          <li><span class="check">✓</span> M365 도입 · 설정 · 사용자 교육</li>
-        </ul>
-      </div>
-
-      <div style="background:rgba(34,197,94,0.05);border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:1.5rem">
-        <div style="color:#4ade80;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;margin-bottom:1rem;text-transform:uppercase">업무 시스템 구축</div>
-        <ul class="market__list market__list--gain">
-          <li><span class="check">✓</span> Node.js · Express · SQLite</li>
-          <li><span class="check">✓</span> React · Electron · Socket.IO</li>
-          <li><span class="check">✓</span> Ollama 기반 내부망 AI 구성</li>
-          <li><span class="check">✓</span> AI 연동 및 고객 맞춤 개선</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="market__badges reveal reveal--delay-1">
-      <div class="market__badge">
-        <span class="market__badge-num">16년</span>
-        <span class="market__badge-desc">현장 운영 경험</span>
-      </div>
-      <div class="market__badge">
-        <span class="market__badge-num">6개</span>
-        <span class="market__badge-desc">업무 시스템</span>
-      </div>
-      <div class="market__badge">
-        <span class="market__badge-num">맞춤</span>
-        <span class="market__badge-desc">도입 범위 설계</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     VISION / ECOSYSTEM
-═══════════════════════════════════════════════ -->
-<section class="vision section" id="vision">
-  <div class="container">
-    <div class="section__eyebrow" style="text-align:center">// Implementation Model</div>
-    <h2 class="section__title section__title--center">상담 후 환경에 맞춰 도입합니다</h2>
-
-    <div class="vision__diagram-wrap reveal">
-      <div class="vision__diagram">
-        <div class="vision__hub">
-          <div class="vision__hub-ring vision__hub-ring--outer"></div>
-          <div class="vision__hub-ring vision__hub-ring--inner"></div>
-          <div class="vision__hub-core">CGE<br>ssence</div>
-        </div>
-        <div class="vision__node vision__node--groupware">E-그룹웨어</div>
-        <div class="vision__node vision__node--messenger">E-메신저</div>
-        <div class="vision__node vision__node--itmanager">E-서비스<br><small>데스크</small></div>
-        <div class="vision__node vision__node--essence">AI챗봇<br><small>2종</small></div>
-        <div class="vision__node vision__node--esecurity">E-보안</div>
-      </div>
-    </div>
-
-    <div class="vision__pillars">
-      <div class="vision__pillar reveal">
-        <div class="vision__pillar-icon">🔐</div>
-        <h3>데이터 완전 소유</h3>
-        <p>온프레미스 옵션으로 주요 데이터를 사내 서버 안에서 운영할 수 있어 보안 정책에 맞추기 쉽습니다.</p>
-      </div>
-      <div class="vision__pillar reveal reveal--delay-1">
-        <div class="vision__pillar-icon">⚡</div>
-        <h3>환경 맞춤 도입</h3>
-        <p>데모 확인 후 사용자 수, 서버 환경, 보안 정책, 필요한 기능을 기준으로 도입 범위를 정리합니다.</p>
-      </div>
-      <div class="vision__pillar reveal reveal--delay-2">
-        <div class="vision__pillar-icon">🤖</div>
-        <h3>AI 챗봇 2종 선택</h3>
-        <p>E-AI챗봇 API형과 온프레미스형 중 조직의 보안 정책과 활용 목적에 맞는 방식을 선택합니다.</p>
-      </div>
-      <div class="vision__pillar reveal reveal--delay-3">
-        <div class="vision__pillar-icon">🛡️</div>
-        <h3>엔드포인트 보안</h3>
-        <p>E-Security로 Windows PC 보안 상태, USB 정책, 위협 격리 이력을 한 콘솔에서 확인하도록 구성합니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════════════════════════════════════
-     CONTACT
-═══════════════════════════════════════════════ -->
-<section class="contact section" id="contact">
-  <div class="contact__bg-glow"></div>
-  <div class="container">
-    <div class="contact__inner reveal">
-      <div class="section__eyebrow">// Consultation</div>
-      <h2 class="contact__title">도입 상담 문의</h2>
-      <p class="contact__subtitle">
-        현재 운영 중인 업무 방식과 필요한 기능을 알려주시면,<br>적용 가능한 제품과 도입 범위를 검토해 안내드리겠습니다.
+<!-- ═══ 브랜드 이야기 ═══ -->
+<section class="section" id="about">
+  <div class="container story">
+    <div>
+      <span class="eyebrow">ABOUT CGESSENCE</span>
+      <h2 class="story__title">Essence,<br/>일의 <em>본질</em>만 남깁니다</h2>
+      <p class="story__text">
+        회사 이름의 Essence는 「본질」입니다. 같은 질문에 답하고, 같은 서류를 옮기고,
+        같은 절차를 되풀이하는 일은 AI가 맡습니다. 사람에게는 판단하고, 만들고,
+        고객을 만나는 본질적인 일만 남깁니다.
       </p>
-
-      <div class="contact__cards">
-        <a href="mailto:changgyo@cgessence.co.kr?subject=CGEssence%20%EB%8F%84%EC%9E%85%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98&amp;body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%0A%0ACGEssence%20%EC%97%85%EB%AC%B4%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EB%8F%84%EC%9E%85%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%ED%9A%8C%EC%82%AC%EB%AA%85:%0A%ED%9D%AC%EB%A7%9D%20%EC%A0%9C%ED%92%88:%0A%ED%98%84%EC%9E%AC%20%EC%9A%B4%EC%98%81%20%EB%B0%A9%EC%8B%9D/%EB%B6%88%ED%8E%B8%20%EC%82%AC%ED%95%AD:%0A%EC%83%81%EB%8B%B4%20%EA%B0%80%EB%8A%A5%20%EC%8B%9C%EA%B0%84:" class="contact__card">
-          <span class="contact__card-icon">✉️</span>
-          <span class="contact__card-label">도입 상담</span>
-          <span class="contact__card-value">changgyo@cgessence.co.kr</span>
-        </a>
-        <a href="mailto:support@cgessence.co.kr?subject=CGEssence%20%EC%A0%9C%ED%92%88%20%EC%A7%80%EC%9B%90%20%EB%AC%B8%EC%9D%98" class="contact__card">
-          <span class="contact__card-icon">🛠️</span>
-          <span class="contact__card-label">제품 지원</span>
-          <span class="contact__card-value">support@cgessence.co.kr</span>
-        </a>
-        <a href="http://cgessence.co.kr" target="_blank" rel="noopener" class="contact__card">
-          <span class="contact__card-icon">🌐</span>
-          <span class="contact__card-label">웹사이트</span>
-          <span class="contact__card-value">cgessence.co.kr</span>
-        </a>
+      <p class="story__text">
+        로고 속 시계는 저희가 고객에게 돌려드리려는 「시간」을 뜻합니다.
+        CGEssence가 만드는 모든 제품은 결국 하나를 묻습니다 —
+        이 일로 고객의 시간을 얼마나 아껴 드렸는가.
+      </p>
+    </div>
+    <div>
+      <div class="story__logo">
+        <img src="img/logo-full.jpg?v=1" alt="CGEssence 로고 — 시계를 품은 C와 G" />
       </div>
+      <p class="story__logo-cap">시계를 품은 C, 궤도를 그리며 이어지는 G — 돌려드리는 시간</p>
+    </div>
+  </div>
+</section>
 
-      <a href="mailto:changgyo@cgessence.co.kr?subject=CGEssence%20%EB%8F%84%EC%9E%85%20%EC%83%81%EB%8B%B4%20%EB%AC%B8%EC%9D%98&amp;body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%0A%0ACGEssence%20%EC%97%85%EB%AC%B4%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EB%8F%84%EC%9E%85%20%EC%83%81%EB%8B%B4%EC%9D%84%20%EC%9A%94%EC%B2%AD%EB%93%9C%EB%A6%BD%EB%8B%88%EB%8B%A4.%0A%0A%ED%9A%8C%EC%82%AC%EB%AA%85:%0A%ED%9D%AC%EB%A7%9D%20%EC%A0%9C%ED%92%88:%0A%ED%98%84%EC%9E%AC%20%EC%9A%B4%EC%98%81%20%EB%B0%A9%EC%8B%9D/%EB%B6%88%ED%8E%B8%20%EC%82%AC%ED%95%AD:%0A%EC%83%81%EB%8B%B4%20%EA%B0%80%EB%8A%A5%20%EC%8B%9C%EA%B0%84:" class="btn btn--primary btn--large">
-        도입 상담 메일 보내기 →
+<!-- ═══ 미션 · 비전 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">WHAT WE PURSUE</span>
+      <h2 class="section__title">우리가 추구하는 것</h2>
+    </div>
+    <div class="mv">
+      <div class="mv__item">
+        <div class="mv__label">MISSION</div>
+        <p class="mv__text">AI 업무자동화로 고객의 불필요한 업무를 줄여, 일의 효과를 극대화합니다.</p>
+      </div>
+      <div class="mv__item">
+        <div class="mv__label">VISION</div>
+        <p class="mv__text">반복은 AI에게, 사람은 본질에 — 모든 조직이 그렇게 일하는 내일을 만듭니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 가치 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">OUR VALUE</span>
+      <h2 class="section__title">고객의 일에 만들어 드리는 네 가지 변화</h2>
+      <p class="section__desc">AI 업무자동화가 고객의 하루를 어떻게 바꾸는지, 저희는 이 네 가지로 약속합니다.</p>
+    </div>
+    <div class="values">
+      <article class="value">
+        <img class="value__img" src="img/photos/value-paperwork.jpg" alt="" loading="lazy" />
+        <div class="value__body">
+          <div class="value__no">01 · LESS WORK</div>
+          <h3 class="value__title">불필요한 업무를 덜어냅니다</h3>
+          <p class="value__desc">반복 문의 응대, 자료 찾기, 옮겨 적기처럼 사람이 하지 않아도 되는 일을 AI가 대신합니다.</p>
+        </div>
+      </article>
+      <article class="value">
+        <img class="value__img" src="img/photos/value-clock.jpg" alt="" loading="lazy" />
+        <div class="value__body">
+          <div class="value__no">02 · LESS TIME</div>
+          <h3 class="value__title">시간을 단축합니다</h3>
+          <p class="value__desc">기다리고 확인하던 단계가 사라지면, 같은 일이 훨씬 짧은 시간에 끝납니다.</p>
+        </div>
+      </article>
+      <article class="value">
+        <img class="value__img" src="img/photos/value-dashboard.jpg" alt="" loading="lazy" />
+        <div class="value__body">
+          <div class="value__no">03 · BETTER QUALITY</div>
+          <h3 class="value__title">품질을 최상으로 높입니다</h3>
+          <p class="value__desc">AI가 회사 자료를 근거로 늘 같은 기준으로 처리해, 사람마다 달라지던 결과의 편차를 줄입니다.</p>
+        </div>
+      </article>
+      <article class="value">
+        <img class="value__img" src="img/photos/value-hourglass.jpg" alt="" loading="lazy" />
+        <div class="value__body">
+          <div class="value__no">04 · LOWER COST</div>
+          <h3 class="value__title">비용을 아낍니다</h3>
+          <p class="value__desc">줄어든 시간은 곧 줄어든 비용입니다. 사람을 늘리지 않고도 더 많은 일을 해냅니다.</p>
+        </div>
+      </article>
+    </div>
+    <div class="formula">
+      <div class="formula__eq">
+        <span>업무 ↓</span><i>+</i><span>시간 ↓</span><i>+</i><span>품질 ↑</span><i>+</i><span>비용 ↓</span>
+      </div>
+      <div class="formula__result">= 일의 효과 극대화</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 서비스 방식 ═══ -->
+<section class="section section--soft">
+  <div class="container approach">
+    <img class="approach__img" src="img/photos/approach-meeting.jpg" alt="" loading="lazy" />
+    <div>
+      <span class="eyebrow">HOW WE SERVE</span>
+      <h2 class="section__title">도입에서 끝나지 않고,<br/>성과가 날 때까지 함께합니다</h2>
+      <p class="section__desc">AI 도구를 건네고 떠나지 않습니다. 고객의 업무를 먼저 이해하고, 실제로 시간이 줄어드는 것을 확인할 때까지 곁에 있습니다.</p>
+      <div class="approach__list">
+        <div class="approach__item">
+          <span class="approach__no">01</span>
+          <div><h3 class="approach__title">업무 진단</h3><p class="approach__desc">어떤 일이 반복되고, 어디서 시간이 새는지 현장의 업무 흐름부터 살핍니다.</p></div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no">02</span>
+          <div><h3 class="approach__title">맞춤 설계</h3><p class="approach__desc">AI에게 맡길 일과 사람이 할 일을 나누고, 회사의 자료와 규칙에 맞춰 설계합니다.</p></div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no">03</span>
+          <div><h3 class="approach__title">구축 · 도입</h3><p class="approach__desc">검증된 제품 위에 고객 환경을 얹어 빠르게 도입하고, 쓰는 분들이 바로 익히도록 돕습니다.</p></div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no">04</span>
+          <div><h3 class="approach__title">운영 · 개선</h3><p class="approach__desc">쓰면서 나오는 요청을 제품에 바로 반영하고, 줄어든 시간을 숫자로 함께 확인합니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 사업 영역 ═══ -->
+<section class="biz-band" id="business">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow">BUSINESS</span>
+      <h2 class="section__title">CGEssence의 사업 영역</h2>
+      <p class="section__desc">반복 문의가 가장 많은 두 현장 — 기업의 IT 운영과 학원 — 에서 AI가 먼저 답하도록 만듭니다.</p>
+    </div>
+    <div class="biz">
+      <a href="serviq/" class="biz__card" style="background-image:url('img/photos/biz-serviq.jpg')">
+        <span class="biz__tag">기업 · IT 운영</span>
+        <h3 class="biz__name">SERVIQ<small>서비큐</small></h3>
+        <p class="biz__desc">AI IT 서비스데스크. 1선 대응은 AI가 맡고, 엔지니어는 판단이 필요한 건에 집중합니다.</p>
+        <span class="biz__more">서비큐 자세히 보기</span>
+      </a>
+      <a href="essenna/" class="biz__card" style="background-image:url('img/photos/biz-essenna.jpg')">
+        <span class="biz__tag">교육 · 학원</span>
+        <h3 class="biz__name">ESSENNA S<small>에센나S</small></h3>
+        <p class="biz__desc">학원 전용 AI 챗봇. 학원의 교재와 수업 기록을 근거로 학생 · 학부모님 질문에 답합니다.</p>
+        <span class="biz__more">에센나 자세히 보기</span>
       </a>
     </div>
   </div>
 </section>
 
+<!-- ═══ 대표 인사말 ═══ -->
+<section class="section">
+  <div class="container ceo">
+    <div>
+      <span class="eyebrow">CEO MESSAGE</span>
+      <p class="ceo__quote">“화려한 기술보다,<br/>내일 아침 바로 쓰이는 도구를 만들겠습니다.”</p>
+      <p class="ceo__text">
+        17년 동안 기업 IT 운영 현장에서 일하며 가장 많이 본 것은, 유능한 사람들이
+        반복되는 일에 하루를 쓰는 모습이었습니다. CGEssence는 그 시간을 고객에게
+        돌려드리기 위해 시작했습니다.
+      </p>
+      <p class="ceo__text">
+        만든 사람이 직접 상담하고, 직접 도입하고, 직접 지원합니다. 고객의 요청이
+        전달 과정 없이 제품에 바로 반영되는 것 — 작은 회사이기에 드릴 수 있는 약속입니다.
+      </p>
+      <p class="ceo__sign">CGEssence 대표<b>김창교</b></p>
+    </div>
+    <img class="ceo__img" src="img/photos/ceo-office.jpg" alt="" loading="lazy" />
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════════════
-     FOOTER
-═══════════════════════════════════════════════ -->
+<!-- ═══ 회사 정보 ═══ -->
+<section class="section section--soft" style="padding-top:88px;padding-bottom:88px;">
+  <div class="container">
+    <div class="section__head" style="margin-bottom:32px;">
+      <span class="eyebrow">COMPANY</span>
+      <h2 class="section__title">회사 정보</h2>
+    </div>
+    <div class="info">
+      <div class="info__cell"><div class="info__label">회사명</div><div class="info__value">씨지에센스 (CGEssence)</div></div>
+      <div class="info__cell"><div class="info__label">대표</div><div class="info__value">김창교</div></div>
+      <div class="info__cell"><div class="info__label">사업 분야</div><div class="info__value">AI 업무자동화 솔루션</div></div>
+      <div class="info__cell"><div class="info__label">사업자등록번호</div><div class="info__value">566-30-01786</div></div>
+      <div class="info__cell info__cell--wide"><div class="info__label">주소</div><div class="info__value">경기도 수원시 영통구 대학로 16, 171호</div></div>
+      <div class="info__cell"><div class="info__label">이메일</div><div class="info__value"><a href="mailto:changgyo@cgessence.co.kr">changgyo@cgessence.co.kr</a></div></div>
+      <div class="info__cell"><div class="info__label">전화</div><div class="info__value"><a href="tel:010-3369-5635">010-3369-5635</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 문의 ═══ -->
+<section class="cta" id="contact" style="background:#0b1a33 url('img/photos/band-skyscrapers.jpg') center / cover; position:relative;">
+  <div style="position:absolute;inset:0;background:rgba(8,20,44,0.86);"></div>
+  <div class="container cta__inner" style="position:relative;">
+    <h2 class="cta__title">우리 회사의 시간은<br/>어디서 새고 있을까요?</h2>
+    <p class="cta__desc">
+      지금 하고 계신 업무를 알려 주시면, AI로 줄일 수 있는 부분과
+      맞는 도입 방법을 하루 안에 답변드립니다.
+    </p>
+    <div class="cta__actions">
+      <a href="mailto:changgyo@cgessence.co.kr?subject=AI%20업무자동화%20도입%20문의" class="btn btn--primary">메일로 문의하기</a>
+      <a href="tel:010-3369-5635" class="btn btn--ghost">전화 010-3369-5635</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 푸터 ═══ -->
 <footer class="footer">
   <div class="container">
-    <div class="footer__brand">◈ CGEssence</div>
+    <div class="footer__top">
+      <a href="./" class="footer__brand">
+        <img src="img/logo-symbol.png?v=1" alt="" class="footer__brand-logo"/>
+        <span class="brand-name"><b>CG</b>Essence</span>
+      </a>
+      <div class="footer__links">
+        <a href="./">회사 소개</a>
+        <a href="serviq/">서비큐</a>
+        <a href="essenna/">에센나</a>
+        <a href="#contact">도입 문의</a>
+      </div>
+    </div>
+    <div class="footer__info">
+      <span>상호 씨지에센스(CGEssence)</span><span>대표 김창교</span><span>사업자등록번호 566-30-01786</span><br/>
+      <span>경기도 수원시 영통구 대학로 16, 171호</span><span>changgyo@cgessence.co.kr</span><span>010-3369-5635</span>
+    </div>
     <p class="footer__copy">© 2026 CGEssence. All rights reserved.</p>
-    <p class="footer__tagline">중소기업 업무 시스템 도입 솔루션 · 16년 IT 운영 경험 · cgessence.co.kr</p>
   </div>
 </footer>
 
-<script src="js/matrix.js" defer></script>
-<script src="js/particles.js" defer></script>
-<script src="js/main.js?v=3" defer></script>
+<script>
+  var nav = document.getElementById('nav');
+  document.getElementById('navToggle').addEventListener('click', function () {
+    nav.classList.toggle('nav--open');
+  });
+  nav.querySelectorAll('.nav__mobile a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('nav--open'); });
+  });
+</script>
 </body>
 </html>
