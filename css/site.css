@@ -59,7 +59,7 @@ b, strong { font-weight: 700; }
 .nav__links { display: flex; align-items: center; gap: 6px; }
 .nav__link {
   padding: 8px 14px; border-radius: 8px;
-  font-size: 0.95rem; font-weight: 500; color: var(--text);
+  font-size: 0.95rem; font-weight: 500; color: var(--text); white-space: nowrap;
   transition: background 0.15s, color 0.15s;
 }
 .nav__link:hover { background: var(--bg-soft); color: var(--navy); }
@@ -276,6 +276,9 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
 .footer__copy { margin-top: 10px; font-size: 0.82rem; color: var(--ghost); }
 
 /* ── 반응형 ─────────────────────────────── */
+@media (max-width: 900px) {
+  .nav__links .nav__link span { display: none; }  /* 좁은 폭: 메뉴 옆 회색 보조 글씨(SERVIQ · 기업 · 학원) 숨김 */
+}
 @media (max-width: 1024px) {
   .hero__inner, .product { grid-template-columns: 1fr; gap: 44px; }
   .product--flip .product__media { order: 0; }
@@ -397,6 +400,9 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
 .biz__more { margin-top: 22px; font-weight: 700; font-size: 0.98rem; }
 .biz__more::after { content: " →"; transition: margin 0.2s; }
 .biz__card:hover .biz__more::after { margin-left: 4px; }
+.biz--3 { grid-template-columns: repeat(3, 1fr); }
+.biz--3 .biz__card { min-height: 420px; padding: 32px 28px; }
+.biz--3 .biz__name { font-size: 1.75rem; }
 
 /* 대표 인사말 */
 .ceo { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
@@ -421,12 +427,15 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
   .info { grid-template-columns: repeat(2, 1fr); }
   .approach__img { aspect-ratio: 16 / 9; }
   .ceo__img { aspect-ratio: 16 / 9; }
+  .biz--3 { grid-template-columns: 1fr; }
+  .biz--3 .biz__card { min-height: 320px; }
 }
 @media (max-width: 640px) {
   .hero-photo { min-height: 0; padding: 130px 0 90px; }
   .mv, .biz, .values, .info { grid-template-columns: 1fr; }
   .mv__item { padding: 32px 26px; }
   .biz__card { min-height: 360px; padding: 28px 24px; }
+  .biz--3 .biz__card { padding: 28px 24px; }
   .biz-band { padding: 72px 0; }
   .story__logo { padding: 24px; }
   .formula { padding: 24px; }

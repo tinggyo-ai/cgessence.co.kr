@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>에센나B — 우리 회사 규정을 아는 업무 AI 비서</title>
+  <meta name="description" content="직원이 묻는 인사 · 총무 · 노무 · 재무 질문을 비서 에센나가 먼저 받고, 알맞은 부서 AI가 회사 문서를 근거로 조항까지 짚어 답합니다. 자료에 없으면 담당자에게 이어 드립니다." />
+  <meta property="og:title" content="에센나B — 우리 회사 규정을 아는 업무 AI 비서" />
+  <meta property="og:description" content="담당자에게 매일 오던 같은 질문, 에센나가 먼저 받습니다. CGEssence의 회사 업무 AI 비서." />
+  <meta property="og:url" content="https://cgessence.co.kr/essenna-b/" />
+  <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="../css/site.css?v=4" />
+  <style>
+    /* 에센나B — 에센나 캐릭터의 청록(학원용 에센나S 는 초록) */
+    :root { --b: #0a7ea3; --b-deep: #075e7a; --b-soft: #e7f5fa; --b-line: #bfe2ee; }
+    .hero--essenna-b {
+      background:
+        radial-gradient(900px 420px at 85% -10%, rgba(10,126,163,0.11), transparent 70%),
+        radial-gradient(700px 380px at 0% 110%, rgba(46,165,242,0.06), transparent 70%),
+        var(--bg);
+    }
+    .hero--essenna-b .hero__title em, .b-accent { color: var(--b); }
+    .hero--essenna-b .eyebrow, .eyebrow.b-accent { color: var(--b); }
+    .btn--b { background: var(--b); color: #fff; }
+    .btn--b:hover { background: var(--b-deep); transform: translateY(-1px); }
+    .card__icon--b { background: var(--b-soft); color: var(--b-deep); }
+    .chip--b { background: var(--b-soft); color: var(--b-deep); }
+    .step__no--b { background: var(--b); }
+    .series-note { margin-top: 14px; font-size: 0.9rem; color: var(--ghost); }
+    .series-note a { color: var(--green-deep); font-weight: 600; }
+    .series-note a:hover { text-decoration: underline; }
+
+    /* 화면 목업 — 캐릭터 · 연결 안내 줄 */
+    .mock__who { display: flex; align-items: center; gap: 6px; margin: 4px 2px -4px; font-size: 0.76rem; font-weight: 600; color: var(--muted); }
+    .mock__who svg { width: 26px; height: 26px; flex-shrink: 0; }
+    .mock__date { display: flex; align-items: center; gap: 10px; font-size: 0.72rem; color: var(--ghost); }
+    .mock__date::before, .mock__date::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+    .mock__divider {
+      align-self: center; margin: 2px 0; padding: 4px 12px; border-radius: 999px;
+      background: var(--b-soft); border: 1px solid var(--b-line); color: var(--b-deep);
+      font-size: 0.74rem; font-weight: 600;
+    }
+    .mock .bubble--me { background: var(--b); }
+    .mock .bubble__src { color: var(--b-deep); }
+
+    /* 부서 AI */
+    .depts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .dept {
+      background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 18px 12px 18px; text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .dept:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .dept svg { display: block; width: 78px; height: 78px; margin: 0 auto 6px; }
+    .dept__name { font-size: 1rem; font-weight: 800; color: var(--navy); }
+    .dept__desc { margin-top: 3px; font-size: 0.82rem; color: var(--muted); }
+    .dept--main {
+      grid-column: span 2; display: flex; align-items: center; gap: 18px; padding: 18px 24px;
+      text-align: left; background: var(--b-soft); border-color: var(--b-line);
+    }
+    .dept--main svg { width: 96px; height: 96px; margin: 0; flex-shrink: 0; }
+    .dept--main .dept__name { font-size: 1.15rem; }
+    .dept--main .dept__desc { font-size: 0.92rem; color: var(--text); }
+    .depts-note { margin-top: 26px; text-align: center; font-size: 0.92rem; color: var(--muted); }
+
+    /* 읽는 자료 */
+    .sources { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .chips { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+    .chips .chip { font-size: 0.86rem; padding: 6px 13px; white-space: normal; }   /* 휴대폰에서 긴 꼬리표가 칸 밖으로 나가지 않게 */
+    .sources > .card { min-width: 0; }
+
+    @media (max-width: 1024px) {
+      .depts { grid-template-columns: repeat(3, 1fr); }
+      .dept--main { grid-column: span 3; }
+    }
+    @media (max-width: 640px) {
+      .depts { grid-template-columns: repeat(2, 1fr); }
+      .dept--main { grid-column: span 2; padding: 16px; gap: 12px; }
+      .dept--main svg { width: 72px; height: 72px; }
+      .sources { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="f-front-s" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3fd0ef"/><stop offset="100%" stop-color="#0a7ea3"/></linearGradient>
+    <filter id="f-ds-s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="2" stdDeviation="2.2" flood-color="#04324a" flood-opacity=".5"/></filter>
+    <linearGradient id="g-it" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#a5b4fc"/><stop offset="100%" stop-color="#6366f1"/></linearGradient>
+    <linearGradient id="g-security" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5eead4"/><stop offset="100%" stop-color="#14b8a6"/></linearGradient>
+    <linearGradient id="g-finance" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#86efac"/><stop offset="100%" stop-color="#22c55e"/></linearGradient>
+    <linearGradient id="g-strategy" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c4b5fd"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+    <linearGradient id="g-safety" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fcd34d"/><stop offset="100%" stop-color="#f59e0b"/></linearGradient>
+    <linearGradient id="g-facility" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#bef264"/><stop offset="100%" stop-color="#65a30d"/></linearGradient>
+    <linearGradient id="g-marketing" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f9a8d4"/><stop offset="100%" stop-color="#ec4899"/></linearGradient>
+    <linearGradient id="g-hr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#7dd3fc"/><stop offset="100%" stop-color="#0ea5e9"/></linearGradient>
+    <linearGradient id="g-labor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0abfc"/><stop offset="100%" stop-color="#c026d3"/></linearGradient>
+    <linearGradient id="g-affairs" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f5d0a0"/><stop offset="100%" stop-color="#c58b4e"/></linearGradient>
+    <linearGradient id="g-admin" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cbd5e1"/><stop offset="100%" stop-color="#64748b"/></linearGradient>
+    <linearGradient id="g-tax" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fdba74"/><stop offset="100%" stop-color="#f97316"/></linearGradient>
+    <linearGradient id="g-legal" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#fca5a5"/><stop offset="100%" stop-color="#ef4444"/></linearGradient>
+    <linearGradient id="g-rules" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#93c5fd"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+  </defs>
+  <symbol id="ch-folder" viewBox="-6 8 88 88">
+  
+  
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#0a5f7d" stroke-width="3" stroke-linecap="round"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#0a5f7d"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#0a5f7d"/>
+  <path d="M8 22 Q8 15 15 15 L27 15 L32 21 L58 21 Q64 21 64 27 L64 80 Q64 86 58 86 L14 86 Q8 86 8 80 Z" fill="#06627f" filter="url(#f-ds-s)"/>
+  <g transform="rotate(-5 36 30)"><rect x="15" y="17" width="40" height="30" rx="2" fill="#ffffff"/><path d="M20 23h26M20 27h30M20 31h22" stroke="#b9d6e3" stroke-width="1.4"/></g>
+  <g transform="rotate(4 40 32)"><rect x="20" y="20" width="38" height="28" rx="2" fill="#eef7fb"/><path d="M25 26h24M25 30h28" stroke="#b9d6e3" stroke-width="1.4"/><rect x="45" y="20" width="7" height="9" fill="#ffc828"/></g>
+  <path d="M6 37 Q6 31 12 31 L60 31 Q66 31 66 37 L66 80 Q66 87 59 87 L13 87 Q6 87 6 80 Z" fill="url(#f-front-s)" filter="url(#f-ds-s)"/>
+  <path d="M10 35 L62 35" stroke="rgba(255,255,255,.35)" stroke-width="1.4" stroke-linecap="round"/>
+  <ellipse cx="18" cy="64" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="64" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="54" r="7" fill="#fff"/><circle cx="26" cy="55" r="4.2" fill="#0b2540"/><circle cx="24" cy="52.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="54" r="7" fill="#fff"/><circle cx="46" cy="55" r="4.2" fill="#0b2540"/><circle cx="44" cy="52.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 66 Q36 72 43 66" stroke="#04324a" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M6 58 Q-1 52 1 44" stroke="#0a5f7d" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="1.5" cy="43" r="3.2" fill="#3fd0ef"/>
+  <path d="M66 62 Q70 66 66 71" stroke="#0a5f7d" stroke-width="3" stroke-linecap="round"/>
+  <line x1="67" y1="70" x2="62" y2="78" stroke="#8a5a00" stroke-width="3.2" stroke-linecap="round"/>
+  <circle cx="71" cy="62" r="8" fill="rgba(220,245,255,.35)" stroke="#ffc828" stroke-width="2.6"/>
+  <path d="M67.5 59 Q69.5 57 72 57.6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+  <circle cx="64" cy="70" r="3.2" fill="#3fd0ef"/>
+</symbol>
+<symbol id="ch-it" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#3730a3" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#3730a3"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#3730a3"/>
+  <path d="M2 72 L70 72 L66 84 L6 84 Z" fill="#3730a3" filter="url(#f-ds-s)"/>
+  <path d="M5 72 L67 72 L66 75 L6 75 Z" fill="#c7d2fe" opacity=".6"/>
+  <rect x="8" y="20" width="56" height="54" rx="6" fill="#312e81" filter="url(#f-ds-s)"/>
+  <rect x="12" y="24" width="48" height="46" rx="3" fill="url(#g-it)"/>
+  <path d="M14 27 L58 27" stroke="rgba(255,255,255,.35)" stroke-width="1.4" stroke-linecap="round"/>
+  
+  <ellipse cx="18" cy="56" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="56" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="46" r="7" fill="#fff"/><circle cx="26" cy="47" r="4.2" fill="#0b2540"/><circle cx="24" cy="44.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="46" r="7" fill="#fff"/><circle cx="46" cy="47" r="4.2" fill="#0b2540"/><circle cx="44" cy="44.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 58 Q36 64 43 58" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <path d="M10 36 Q10 9 36 9 Q62 9 62 36" stroke="#1e1b4b" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <rect x="4" y="30" width="9" height="15" rx="3.5" fill="#1e1b4b"/><rect x="59" y="30" width="9" height="15" rx="3.5" fill="#1e1b4b"/>
+  <path d="M64 44 Q64 60 50 61" stroke="#1e1b4b" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="49" cy="61" r="2.6" fill="#fbbf24"/>
+  
+  <path d="M4 78 Q-3 72 -1 64" stroke="#3730a3" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="-0.5" cy="63" r="3.2" fill="#a5b4fc"/>
+  <path d="M68 78 Q75 74 73 66" stroke="#3730a3" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="75" cy="58" r="7.4" fill="none" stroke="#fbbf24" stroke-width="3.2" stroke-dasharray="2.6 3.2"/>
+  <circle cx="75" cy="58" r="5.6" fill="#fbbf24"/><circle cx="75" cy="58" r="2.2" fill="#3730a3"/>
+  <circle cx="73" cy="65" r="3.2" fill="#a5b4fc"/>
+  </symbol>
+  <symbol id="ch-security" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 80 L25 91 M45 80 L47 91" stroke="#0f766e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#0f766e"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#0f766e"/>
+  <path d="M36 14 L64 23 L64 49 Q64 75 36 88 Q8 75 8 49 L8 23 Z" fill="url(#g-security)" filter="url(#f-ds-s)"/>
+  <path d="M36 19.5 L59 27 L59 49 Q59 71 36 82.5 Q13 71 13 49 L13 27 Z" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.6"/>
+  <path d="M30 31 L34.5 35.5 L42 27.5" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <ellipse cx="18" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="50" r="7" fill="#fff"/><circle cx="26" cy="51" r="4.2" fill="#0b2540"/><circle cx="24" cy="48.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="50" r="7" fill="#fff"/><circle cx="46" cy="51" r="4.2" fill="#0b2540"/><circle cx="44" cy="48.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 62 Q36 68 43 62" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M9 58 Q2 52 4 44" stroke="#0f766e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="4.5" cy="43" r="3.2" fill="#5eead4"/>
+  <path d="M63 60 Q70 63 67 69" stroke="#0f766e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="74" cy="53" r="4.6" fill="none" stroke="#fbbf24" stroke-width="3"/>
+  <path d="M72.3 57.4 L64.5 74 M66.4 70 L70 71.7 M65.4 72.3 L68.4 73.7" stroke="#fbbf24" stroke-width="2.8" stroke-linecap="round"/>
+  <circle cx="67.6" cy="66.5" r="3.2" fill="#5eead4"/>
+  </symbol>
+  <symbol id="ch-finance" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 82 L25 91 M45 82 L47 91" stroke="#15803d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#15803d"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#15803d"/>
+  <path d="M26 30 Q14 22 23 13 Q30 18 36 13 Q42 18 49 13 Q58 22 46 30 Q68 42 67 64 Q66 87 36 87 Q6 87 5 64 Q4 42 26 30 Z" fill="url(#g-finance)" filter="url(#f-ds-s)"/>
+  <path d="M24 29.5 Q36 35 48 29.5" stroke="#fbbf24" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M16 44 Q22 38 28 37" stroke="rgba(255,255,255,.4)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  
+  <ellipse cx="18" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="56" r="7" fill="#fff"/><circle cx="26" cy="57" r="4.2" fill="#0b2540"/><circle cx="24" cy="54.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="56" r="7" fill="#fff"/><circle cx="46" cy="57" r="4.2" fill="#0b2540"/><circle cx="44" cy="54.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 68 Q36 74 43 68" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M7 60 Q0 54 2 46" stroke="#15803d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="2.5" cy="45" r="3.2" fill="#86efac"/>
+  <path d="M66 63 Q71 67 67 72" stroke="#15803d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="74" cy="61" r="8" fill="#fbbf24" stroke="#b45309" stroke-width="1.6"/>
+  <text x="74" y="64.6" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="900" fill="#92400e">₩</text>
+  <circle cx="67" cy="70" r="3.2" fill="#86efac"/>
+  </symbol>
+  <symbol id="ch-strategy" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 82 L25 91 M45 82 L47 91" stroke="#5b21b6" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#5b21b6"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#5b21b6"/>
+  <circle cx="36" cy="20" r="5" fill="none" stroke="#5b21b6" stroke-width="3"/>
+  <circle cx="36" cy="54" r="31" fill="url(#g-strategy)" filter="url(#f-ds-s)"/>
+  <circle cx="36" cy="54" r="25.5" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.45)" stroke-width="1.4"/>
+  <path d="M36 30 L36 33.5 M60 54 L56.5 54 M12 54 L15.5 54 M36 78 L36 74.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 30.5 L40 41 L36 39 L32 41 Z" fill="#ef4444"/>
+  
+  <ellipse cx="18" cy="64" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="64" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="54" r="7" fill="#fff"/><circle cx="26" cy="55" r="4.2" fill="#0b2540"/><circle cx="24" cy="52.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="54" r="7" fill="#fff"/><circle cx="46" cy="55" r="4.2" fill="#0b2540"/><circle cx="44" cy="52.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 66 Q36 72 43 66" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M6 60 Q-1 54 1 46" stroke="#5b21b6" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="1.5" cy="45" r="3.2" fill="#c4b5fd"/>
+  <path d="M68 77 L71.5 40" stroke="#78350f" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M71.5 40 L82 44.5 L71 49 Z" fill="#fbbf24"/>
+  <path d="M65 62 Q71 64 69.5 69" stroke="#5b21b6" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="69.6" cy="68" r="3.2" fill="#c4b5fd"/>
+  </symbol>
+  <symbol id="ch-safety" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#b45309" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#b45309"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#b45309"/>
+  <rect x="8" y="34" width="56" height="52" rx="16" fill="url(#g-safety)" filter="url(#f-ds-s)"/>
+  <rect x="10.5" y="78" width="51" height="4.5" fill="#fef9c3" opacity=".9"/>
+  <path d="M12 41 Q12 12 36 12 Q60 12 60 41 Z" fill="#facc15"/>
+  <path d="M36 13 L36 40" stroke="#eab308" stroke-width="3.4"/>
+  <path d="M19 31 Q21 21 29 17" stroke="rgba(255,255,255,.6)" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  <rect x="4" y="38" width="64" height="6.5" rx="3.2" fill="#eab308"/>
+  
+  <ellipse cx="18" cy="69" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="69" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="59" r="7" fill="#fff"/><circle cx="26" cy="60" r="4.2" fill="#0b2540"/><circle cx="24" cy="57.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="59" r="7" fill="#fff"/><circle cx="46" cy="60" r="4.2" fill="#0b2540"/><circle cx="44" cy="57.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 71 Q36 77 43 71" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M8 64 Q1 58 3 50" stroke="#b45309" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="3.5" cy="49" r="3.2" fill="#fcd34d"/>
+  <path d="M70 84 L72.5 58" stroke="#78350f" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="73" cy="51" r="8.4" fill="#fff" stroke="#16a34a" stroke-width="1.6"/>
+  <rect x="71" y="45.5" width="4" height="11" fill="#16a34a"/><rect x="67.5" y="49" width="11" height="4" fill="#16a34a"/>
+  <path d="M64 64 Q70 66 70 71" stroke="#b45309" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="70.5" cy="70" r="3.2" fill="#fcd34d"/>
+  </symbol>
+  <symbol id="ch-facility" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#3f6212" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#3f6212"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#3f6212"/>
+  <rect x="42" y="8" width="12" height="8" rx="1.5" fill="#3f6212"/><path d="M45 10.5h6M45 13.5h6" stroke="#bef264" stroke-width="1"/>
+  <rect x="10" y="18" width="52" height="68" rx="5" fill="url(#g-facility)" filter="url(#f-ds-s)"/>
+  <rect x="7" y="15" width="58" height="6" rx="2" fill="#3f6212"/>
+  <g fill="#f7fee7" opacity=".92">
+    <rect x="16" y="26" width="9" height="7" rx="1"/><rect x="31.5" y="26" width="9" height="7" rx="1"/><rect x="47" y="26" width="9" height="7" rx="1"/>
+    <rect x="16" y="37" width="9" height="5" rx="1" opacity=".7"/><rect x="31.5" y="37" width="9" height="5" rx="1" opacity=".7"/><rect x="47" y="37" width="9" height="5" rx="1" opacity=".7"/>
+  </g>
+  <rect x="31" y="78" width="10" height="8" rx="1.5" fill="#3f6212"/>
+  
+  <ellipse cx="18" cy="68" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="68" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="58" r="7" fill="#fff"/><circle cx="26" cy="59" r="4.2" fill="#0b2540"/><circle cx="24" cy="56.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="58" r="7" fill="#fff"/><circle cx="46" cy="59" r="4.2" fill="#0b2540"/><circle cx="44" cy="56.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 70 Q36 76 43 70" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M10 62 Q3 56 5 48" stroke="#3f6212" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="5.5" cy="47" r="3.2" fill="#bef264"/>
+  <path d="M66 75 L75 57" stroke="#94a3b8" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M73.6 50.2 A6 6 0 1 0 81 57.4" stroke="#94a3b8" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+  <path d="M62 63 Q68 66 67.5 71" stroke="#3f6212" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="68" cy="70" r="3.2" fill="#bef264"/>
+  </symbol>
+  <symbol id="ch-marketing" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 80 L25 91 M45 80 L47 91" stroke="#9d174d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#9d174d"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#9d174d"/>
+  <path d="M15 68 L1 84 L28 75 Z" fill="#ec4899"/>
+  <rect x="6" y="22" width="60" height="56" rx="21" fill="url(#g-marketing)" filter="url(#f-ds-s)"/>
+  <path d="M14 34 Q18 27 26 25" stroke="rgba(255,255,255,.45)" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+  <path d="M58 9 l2 5 5 2 -5 2 -2 5 -2 -5 -5 -2 5 -2 z" fill="#fde047"/>
+  
+  <ellipse cx="18" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="50" r="7" fill="#fff"/><circle cx="26" cy="51" r="4.2" fill="#0b2540"/><circle cx="24" cy="48.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="50" r="7" fill="#fff"/><circle cx="46" cy="51" r="4.2" fill="#0b2540"/><circle cx="44" cy="48.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 62 Q36 68 43 62" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M7 44 Q0 38 2 30" stroke="#9d174d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="2.5" cy="29" r="3.2" fill="#f9a8d4"/>
+  <path d="M66 56 Q71 60 68.5 64" stroke="#9d174d" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M66 48 L77 41 L77 61 L66 55 Z" fill="#fde047" stroke="#ca8a04" stroke-width="1.2" stroke-linejoin="round"/>
+  <ellipse cx="77" cy="51" rx="2.2" ry="10" fill="#facc15" stroke="#ca8a04" stroke-width="1"/>
+  <path d="M81 45 Q84.5 51 81 57" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".85"/>
+  <circle cx="68.5" cy="63" r="3.2" fill="#f9a8d4"/>
+  </symbol>
+  <symbol id="ch-hr" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#075985" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#075985"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#075985"/>
+  <path d="M28 26 Q26 6 36 6 Q46 6 44 26" stroke="#075985" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <rect x="10" y="24" width="52" height="62" rx="9" fill="url(#g-hr)" filter="url(#f-ds-s)"/>
+  <rect x="29" y="20" width="14" height="8" rx="2.5" fill="#94a3b8"/>
+  <rect x="31" y="30" width="10" height="3" rx="1.5" fill="#075985" opacity=".55"/>
+  
+  <ellipse cx="18" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="60" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="50" r="7" fill="#fff"/><circle cx="26" cy="51" r="4.2" fill="#0b2540"/><circle cx="24" cy="48.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="50" r="7" fill="#fff"/><circle cx="46" cy="51" r="4.2" fill="#0b2540"/><circle cx="44" cy="48.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 62 Q36 68 43 62" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  <rect x="18" y="71" width="36" height="9" rx="3" fill="#fff" opacity=".92"/>
+  <path d="M22 75.5 h20" stroke="#7dd3fc" stroke-width="2.2" stroke-linecap="round"/>
+  
+  <path d="M10 58 Q3 52 5 44" stroke="#075985" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="5.5" cy="43" r="3.2" fill="#7dd3fc"/>
+  <path d="M72 62 C62 55 65 46 72 51 C79 46 82 55 72 62 Z" fill="#fb7185" stroke="#e11d48" stroke-width="1"/>
+  <path d="M62 63 Q68 68 70 64" stroke="#075985" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="70.5" cy="63.5" r="3.2" fill="#7dd3fc"/>
+  </symbol>
+  <symbol id="ch-labor" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 82 L25 91 M45 82 L47 91" stroke="#701a75" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#701a75"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#701a75"/>
+  <path d="M25 27 Q36 19 47 27" stroke="#701a75" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <g transform="rotate(-38 15 24)"><path d="M6 28 Q15 12 24 28 Z" fill="#fbbf24" stroke="#b45309" stroke-width="1"/><circle cx="15" cy="17" r="1.8" fill="#b45309"/></g>
+  <g transform="rotate(38 57 24)"><path d="M48 28 Q57 12 66 28 Z" fill="#fbbf24" stroke="#b45309" stroke-width="1"/><circle cx="57" cy="17" r="1.8" fill="#b45309"/></g>
+  <circle cx="36" cy="56" r="30" fill="url(#g-labor)" filter="url(#f-ds-s)"/>
+  <circle cx="36" cy="56" r="25" fill="rgba(255,255,255,.16)" stroke="rgba(255,255,255,.5)" stroke-width="1.4"/>
+  <path d="M36 31.5 L36 34.5 M60.5 56 L57.5 56 M11.5 56 L14.5 56 M36 80.5 L36 77.5" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+  <path d="M36 43 L36 36 M36 43 L42.5 40" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="36" cy="43" r="2.1" fill="#fff"/>
+  
+  <ellipse cx="18" cy="67" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="67" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="57" r="7" fill="#fff"/><circle cx="26" cy="58" r="4.2" fill="#0b2540"/><circle cx="24" cy="55.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="57" r="7" fill="#fff"/><circle cx="46" cy="58" r="4.2" fill="#0b2540"/><circle cx="44" cy="55.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 69 Q36 75 43 69" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M7 62 Q0 56 2 48" stroke="#701a75" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="2.5" cy="47" r="3.2" fill="#f0abfc"/>
+  <g transform="rotate(10 74 54)"><rect x="66.5" y="42" width="15" height="19" rx="1.6" fill="#fff" stroke="#cbd5e1" stroke-width=".8"/>
+  <path d="M69.5 46.5h9M69.5 50h9M69.5 53.5h6" stroke="#94a3b8" stroke-width="1.1" stroke-linecap="round"/>
+  <path d="M69.5 57.5 q1.6 -2.2 3.2 0 t3.2 0 t3 -0.6" stroke="#701a75" stroke-width="1.2" fill="none" stroke-linecap="round"/></g>
+  <path d="M64 66 Q68.5 69 69.5 64" stroke="#701a75" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="70" cy="62.5" r="3.2" fill="#f0abfc"/>
+  </symbol>
+  <symbol id="ch-affairs" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#7c4a1e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#7c4a1e"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#7c4a1e"/>
+  <path d="M12 34 L60 34 L56 27 L16 27 Z" fill="#7c4a1e"/>
+  <g transform="rotate(-14 26 24)"><rect x="23" y="9" width="6" height="24" fill="#facc15"/><path d="M23 9 L26 3 L29 9 Z" fill="#fde7c4"/><path d="M25.2 5 L26 3 L26.8 5 Z" fill="#334155"/></g>
+  <g transform="rotate(12 47 22)"><rect x="43.5" y="6" width="7" height="27" rx="1" fill="#93c5fd"/><path d="M43.5 10h2.6M43.5 14h1.6M43.5 18h2.6M43.5 22h1.6M43.5 26h2.6" stroke="#1e3a8a" stroke-width=".9"/></g>
+  <rect x="8" y="34" width="56" height="52" rx="5" fill="url(#g-affairs)" filter="url(#f-ds-s)"/>
+  <path d="M8 34 L1 27 L21 27 L27 34 Z M64 34 L71 27 L51 27 L45 34 Z" fill="#f5d0a0"/>
+  <rect x="8" y="34" width="56" height="5" fill="#7c4a1e" opacity=".3"/>
+  <rect x="44" y="75" width="14" height="8" rx="1.5" fill="#fff" opacity=".88"/><path d="M47 78.2h8M47 80.4h5" stroke="#cbd5e1" stroke-width="1"/>
+  
+  <ellipse cx="18" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="56" r="7" fill="#fff"/><circle cx="26" cy="57" r="4.2" fill="#0b2540"/><circle cx="24" cy="54.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="56" r="7" fill="#fff"/><circle cx="46" cy="57" r="4.2" fill="#0b2540"/><circle cx="44" cy="54.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 68 Q36 74 43 68" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M8 62 Q1 56 3 48" stroke="#7c4a1e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="3.5" cy="47" r="3.2" fill="#f5d0a0"/>
+  <path d="M72 48 Q70.5 45 72 42 M76.5 48 Q75 45 76.5 42" stroke="#fff" stroke-width="1.3" stroke-linecap="round" fill="none" opacity=".7"/>
+  <path d="M79 54 Q84 57.5 79 61" stroke="#fff" stroke-width="2.2" fill="none"/>
+  <rect x="68" y="51" width="11.5" height="13" rx="2.2" fill="#fff" stroke="#cbd5e1" stroke-width=".8"/>
+  <ellipse cx="73.75" cy="52.4" rx="4.6" ry="1.3" fill="#78350f"/>
+  <path d="M64 64 Q68 67 68.5 66" stroke="#7c4a1e" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="68.5" cy="64.5" r="3.2" fill="#f5d0a0"/>
+  </symbol>
+  <symbol id="ch-admin" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#334155"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#334155"/>
+  <rect x="8" y="22" width="56" height="64" rx="7" fill="url(#g-admin)" filter="url(#f-ds-s)"/>
+  <rect x="14" y="29" width="44" height="17" rx="2" fill="#fff"/>
+  <path d="M19 35h22M19 40h16" stroke="#cbd5e1" stroke-width="1.8" stroke-linecap="round"/>
+  <circle cx="50" cy="38" r="4.2" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+  <rect x="26" y="16" width="20" height="10" rx="3" fill="#334155"/><rect x="31" y="18.5" width="10" height="4" rx="2" fill="#cbd5e1"/>
+  
+  <ellipse cx="18" cy="69" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="69" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="59" r="7" fill="#fff"/><circle cx="26" cy="60" r="4.2" fill="#0b2540"/><circle cx="24" cy="57.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="59" r="7" fill="#fff"/><circle cx="46" cy="60" r="4.2" fill="#0b2540"/><circle cx="44" cy="57.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 71 Q36 77 43 71" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M8 64 Q1 58 3 50" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="3.5" cy="49" r="3.2" fill="#cbd5e1"/>
+  <rect x="68" y="58" width="12" height="5.5" rx="1.6" fill="#dc2626"/>
+  <rect x="72" y="50" width="4" height="9" fill="#9a3412"/>
+  <circle cx="74" cy="48" r="3.8" fill="#7c2d12"/>
+  <path d="M64 65 Q71 67 72.5 57" stroke="#334155" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="73.5" cy="55" r="3.2" fill="#cbd5e1"/>
+  </symbol>
+  <symbol id="ch-tax" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 82 L25 91 M45 82 L47 91" stroke="#9a3412" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#9a3412"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#9a3412"/>
+  <path d="M10 20 Q10 16 14 16 L58 16 Q62 16 62 20 L62 82 L57 86.5 L51.8 82 L46.6 86.5 L41.4 82 L36 86.5 L30.8 82 L25.6 86.5 L20.4 82 L15.2 86.5 L10 82 Z" fill="url(#g-tax)" filter="url(#f-ds-s)"/>
+  <path d="M17 24h24M17 29.5h17" stroke="rgba(255,255,255,.85)" stroke-width="2" stroke-linecap="round"/>
+  <text x="53" y="31" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="900" fill="#fff">%</text>
+  <path d="M17 76.5 h38" stroke="rgba(255,255,255,.8)" stroke-width="1.6" stroke-dasharray="3 2.4"/>
+  
+  <ellipse cx="18" cy="62" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="62" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="52" r="7" fill="#fff"/><circle cx="26" cy="53" r="4.2" fill="#0b2540"/><circle cx="24" cy="50.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="52" r="7" fill="#fff"/><circle cx="46" cy="53" r="4.2" fill="#0b2540"/><circle cx="44" cy="50.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 64 Q36 70 43 64" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M10 60 Q3 54 5 46" stroke="#9a3412" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="5.5" cy="45" r="3.2" fill="#fdba74"/>
+  <path d="M62 63 Q67 67 66.5 70.5" stroke="#9a3412" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <rect x="66" y="49" width="14" height="18" rx="2.4" fill="#1f2937"/>
+  <rect x="68" y="51.5" width="10" height="4.2" rx="1" fill="#a7f3d0"/>
+  <g fill="#fdba74"><circle cx="70" cy="59.5" r="1.4"/><circle cx="76" cy="59.5" r="1.4"/><circle cx="70" cy="64" r="1.4"/><circle cx="76" cy="64" r="1.4"/></g>
+  <circle cx="67" cy="69" r="3.2" fill="#fdba74"/>
+  </symbol>
+  <symbol id="ch-legal" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#991b1b" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#991b1b"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#991b1b"/>
+  <path d="M36 34 L36 14" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M16 17 L56 17" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="36" cy="12" r="2.8" fill="#fbbf24"/>
+  <path d="M16 17 L11.5 27 M16 17 L20.5 27 M56 17 L51.5 27 M56 17 L60.5 27" stroke="#fbbf24" stroke-width="1.2"/>
+  <path d="M10 27 Q16 33 22 27 Z M50 27 Q56 33 62 27 Z" fill="#fbbf24"/>
+  <path d="M10 52 Q10 33 36 33 Q62 33 62 52 L62 80 Q62 86 56 86 L16 86 Q10 86 10 80 Z" fill="url(#g-legal)" filter="url(#f-ds-s)"/>
+  <path d="M30 76 L36 80 L30 84 Z M42 76 L36 80 L42 84 Z" fill="#fff" opacity=".92"/>
+  
+  <ellipse cx="18" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="54" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="25" cy="56" r="7" fill="#fff"/><circle cx="26" cy="57" r="4.2" fill="#0b2540"/><circle cx="24" cy="54.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="47" cy="56" r="7" fill="#fff"/><circle cx="46" cy="57" r="4.2" fill="#0b2540"/><circle cx="44" cy="54.8" r="1.5" fill="#fff"/></g>
+  <path d="M29 68 Q36 74 43 68" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M10 62 Q3 56 5 48" stroke="#991b1b" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="5.5" cy="47" r="3.2" fill="#fca5a5"/>
+  <path d="M65 74 L73 58" stroke="#92400e" stroke-width="3" stroke-linecap="round"/>
+  <path d="M69.5 53 L79 58.5" stroke="#78350f" stroke-width="6.5"/>
+  <path d="M62 64 Q68 67 67 71.5" stroke="#991b1b" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="67.5" cy="70" r="3.2" fill="#fca5a5"/>
+  </symbol>
+  <symbol id="ch-rules" viewBox="-6 6 90 90">
+  <ellipse cx="36" cy="93" rx="20" ry="4.2" fill="rgba(0,30,60,.35)"/>
+  <path d="M27 84 L25 91 M45 84 L47 91" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <ellipse cx="23.5" cy="91.5" rx="4.5" ry="2.2" fill="#1e3a8a"/>
+  <ellipse cx="48.5" cy="91.5" rx="4.5" ry="2.2" fill="#1e3a8a"/>
+  <rect x="14" y="20" width="51" height="64" rx="3" fill="#e2e8f0"/>
+  <path d="M60 24 L60 80" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="8" y="22" width="52" height="64" rx="5" fill="url(#g-rules)" filter="url(#f-ds-s)"/>
+  <rect x="8" y="22" width="8" height="64" rx="4" fill="#1e3a8a" opacity=".55"/>
+  <rect x="22" y="29" width="30" height="8" rx="2" fill="#fff" opacity=".88"/>
+  <path d="M26 33h16" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/>
+  <path d="M46 84 L46 92 L49 89.5 L52 92 L52 84 Z" fill="#facc15"/>
+  
+  <ellipse cx="19" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <ellipse cx="55" cy="66" rx="4.2" ry="2.5" fill="#ffaec9" opacity=".55"/>
+  <g class="eye-group"><circle cx="26" cy="56" r="7" fill="#fff"/><circle cx="27" cy="57" r="4.2" fill="#0b2540"/><circle cx="25" cy="54.8" r="1.5" fill="#fff"/></g>
+  <g class="eye-group"><circle cx="48" cy="56" r="7" fill="#fff"/><circle cx="47" cy="57" r="4.2" fill="#0b2540"/><circle cx="45" cy="54.8" r="1.5" fill="#fff"/></g>
+  <path d="M30 68 Q37 74 44 68" stroke="#04324a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+  
+  <path d="M8 62 Q1 56 3 48" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="3.5" cy="47" r="3.2" fill="#93c5fd"/>
+  <g transform="rotate(18 72 54)"><rect x="68.5" y="38" width="7" height="32" rx="1.2" fill="#fde047" stroke="#ca8a04" stroke-width=".8"/>
+  <path d="M68.5 42h2.6M68.5 46h1.6M68.5 50h2.6M68.5 54h1.6M68.5 58h2.6M68.5 62h1.6M68.5 66h2.6" stroke="#a16207" stroke-width=".9"/></g>
+  <path d="M60 63 Q66 67 66.5 71" stroke="#1e3a8a" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <circle cx="67" cy="69.5" r="3.2" fill="#93c5fd"/>
+  </symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__brand">
+      <img src="../img/logo-symbol.png?v=1" alt="" class="nav__brand-logo"/>
+      <span class="brand-name"><b>CG</b>Essence</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../"         class="nav__link">회사 소개</a></li>
+      <li><a href="../serviq/"  class="nav__link">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
+      <li><a href="./"          class="nav__link nav__link--on">에센나B <span style="font-size:0.8em;color:var(--ghost)">기업</span></a></li>
+      <li><a href="../essenna/" class="nav__link">에센나S <span style="font-size:0.8em;color:var(--ghost)">학원</span></a></li>
+      <li><a href="#contact"    class="nav__link nav__link--cta">도입 문의</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile">
+    <a href="../"         class="nav__link">회사 소개</a>
+    <a href="../serviq/"  class="nav__link">서비큐 SERVIQ</a>
+    <a href="./"          class="nav__link">에센나B 기업</a>
+    <a href="../essenna/" class="nav__link">에센나S 학원</a>
+    <a href="#contact"    class="nav__link">도입 문의</a>
+  </div>
+</nav>
+
+<!-- ═══ 히어로 ═══ -->
+<header class="hero hero--essenna-b">
+  <div class="container hero__inner">
+    <div>
+      <span class="eyebrow">ESSENNA B · 회사 업무 AI 비서</span>
+      <h1 class="hero__title">담당자에게 매일 오던<br/>같은 질문, <em>에센나</em>가<br/>먼저 받습니다</h1>
+      <p class="hero__desc">
+        비서 에센나가 직원의 질문을 받아, 부서 일은 알맞은 부서 AI에게 바로 이어 줍니다.
+        부서 AI는 우리 회사 규정과 문서를 근거로 조항까지 짚어 답합니다.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--b">무료 시범 문의</a>
+        <a href="#flow" class="btn btn--ghost">어떻게 이어 주나요</a>
+      </div>
+      <p class="hero__note">직원 PC에 설치하는 Windows 프로그램 · 회사 문서는 직원 본인 권한으로만 읽습니다.</p>
+      <p class="series-note">학원을 운영하신다면 → <a href="../essenna/">학원 전용 에센나S</a></p>
+    </div>
+    <div class="hero__media">
+      <div class="mock" aria-hidden="true">
+        <div class="mock__bar">
+          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+          <span class="mock__bar-title">에센나B — 예시 화면</span>
+        </div>
+        <div class="mock__body">
+          <div class="mock__date">오늘 · 오전 9:12</div>
+          <div class="bubble bubble--me">이번 주말 야유회, 출근한 걸로 봐야 하는 거 아닌가요?</div>
+          <div class="mock__who"><svg viewBox="-6 6 90 90"><use href="#ch-folder"/></svg>에센나</div>
+          <div class="bubble bubble--bot">
+            참석이 사실상 의무라면 근무시간으로 볼 여지가 커요.
+            정확한 답은 노무전문가가 회사 기준으로 이어서 드릴게요.
+          </div>
+          <div class="mock__divider">에센나가 노무전문가에게 연결했습니다</div>
+          <div class="mock__who"><svg viewBox="-6 6 90 90"><use href="#ch-labor"/></svg>노무전문가</div>
+          <div class="bubble bubble--bot">
+            공지에 「전원 참석」으로 안내한 회사 행사는 근무시간으로 처리하고,
+            주말이면 휴일근로로 봅니다 [1]. 참석이 자유인 행사는 근무로 보지 않습니다.
+            <br/><span class="bubble__src">근거 [1] 취업규칙 · 회사 행사 조항</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 회사가 얻는 것 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">VALUE</span>
+      <h2 class="section__title">직원은 기다리지 않고,<br/>담당자는 본업에 집중합니다</h2>
+      <p class="section__desc">연차 · 경조휴가 · 법인카드 · 비품 · 결재선 — 답이 이미 문서에 있는 질문은 에센나B가 먼저 받습니다.</p>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__icon card__icon--b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>
+        </div>
+        <h3 class="card__title">같은 질문에 덜 답합니다</h3>
+        <p class="card__desc">
+          해마다 되풀이되는 문의를 부서 AI가 먼저 받습니다. 담당자는 문서만 최신으로 두면
+          되고, 사람이 꼭 해야 하는 일에 시간을 씁니다.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+        </div>
+        <h3 class="card__title">근거와 함께, 바로 답합니다</h3>
+        <p class="card__desc">
+          답 아래에 문서 이름과 조항을 붙이고, 누르면 원본 파일이 열립니다.
+          직원은 담당자 답장을 기다리지 않고 그 자리에서 확인합니다.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--b">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 class="card__title">권한은 그대로, 문서는 회사 안에</h3>
+        <p class="card__desc">
+          직원이 원래 열 수 있는 문서만 읽습니다. 문서를 외부 서버에 옮겨 쌓지 않고,
+          질문에 필요한 대목만 AI에 보내 답을 만듭니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 이어 주는 흐름 ═══ -->
+<section class="section section--soft" id="flow">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">HOW IT WORKS</span>
+      <h2 class="section__title">부서를 몰라도,<br/>에센나에게 그냥 물으면 됩니다</h2>
+      <p class="section__desc">에센나는 직원 곁의 업무 비서이자, 알맞은 부서 AI로 이어 주는 안내 데스크입니다.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step__no step__no--b">1</span>
+        <h3 class="step__title">에센나에게 묻기</h3>
+        <p class="step__desc">어느 부서 일인지 몰라도 됩니다. 문서 작성 · 요약 같은 일은 에센나가 직접 돕습니다.</p>
+      </div>
+      <div class="step">
+        <span class="step__no step__no--b">2</span>
+        <h3 class="step__title">한마디 하고 바로 연결</h3>
+        <p class="step__desc">부서 일이면 에센나가 방향을 짧게 알려 주고 알맞은 부서 AI에게 이어 줍니다. 「인사 담당 연결해 줘」 한마디도 됩니다.</p>
+      </div>
+      <div class="step">
+        <span class="step__no step__no--b">3</span>
+        <h3 class="step__title">회사 자료로 답하기</h3>
+        <p class="step__desc">부서 AI가 그 부서 문서를 찾아 조항까지 짚어 같은 질문에 이어서 답합니다. 직원이 다시 물을 필요가 없습니다.</p>
+      </div>
+      <div class="step">
+        <span class="step__no step__no--b">4</span>
+        <h3 class="step__title">없으면 담당자에게</h3>
+        <p class="step__desc">자료에 없거나 신청 · 승인처럼 사람이 할 일이면 담당자 연락처 카드를 띄웁니다. 메일도 질문이 채워진 채로 열립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 부서 AI ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">DEPARTMENT AI</span>
+      <h2 class="section__title">비서 에센나와 부서 AI 14종</h2>
+      <p class="section__desc">부서마다 AI 하나 — 그 부서의 문서로 답하고, 그 부서 담당자가 가꿉니다.</p>
+    </div>
+    <div class="depts">
+      <div class="dept dept--main"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-folder"/></svg><div><div class="dept__name">비서 에센나</div><div class="dept__desc">직원 곁의 업무 비서 · 부서 AI로 이어 주는 안내 데스크 · 문서 작성과 요약</div></div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-it"/></svg><div class="dept__name">IT전문가</div><div class="dept__desc">PC · 네트워크 · 계정 · 장애</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-security"/></svg><div class="dept__name">정보보호전문가</div><div class="dept__desc">보안 정책 · 개인정보 · 사고 대응</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-finance"/></svg><div class="dept__name">재무전문가</div><div class="dept__desc">예산 · 자금 · 원가 · 재무제표</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-strategy"/></svg><div class="dept__name">경영판단전문가</div><div class="dept__desc">전략 · 사업계획 · 의사결정</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-safety"/></svg><div class="dept__name">안전전문가</div><div class="dept__desc">산업안전 · 보건 · 사고 대응</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-facility"/></svg><div class="dept__name">시설전문가</div><div class="dept__desc">건물 · 설비 · 유지보수 · 에너지</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-marketing"/></svg><div class="dept__name">마케팅전문가</div><div class="dept__desc">시장 · 고객 · 캠페인 · 성과지표</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-hr"/></svg><div class="dept__name">인사전문가</div><div class="dept__desc">채용 · 근태 · 휴가 · 평가 · 보상</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-labor"/></svg><div class="dept__name">노무전문가</div><div class="dept__desc">근로시간 · 임금 · 휴일 · 근로계약 · 징계</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-affairs"/></svg><div class="dept__name">총무전문가</div><div class="dept__desc">비품 · 차량 · 출장 · 행사 · 복리후생</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-admin"/></svg><div class="dept__name">행정전문가</div><div class="dept__desc">결재 · 문서 · 인감 · 구매</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-tax"/></svg><div class="dept__name">세무전문가</div><div class="dept__desc">부가세 · 법인세 · 원천세 · 증빙</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-legal"/></svg><div class="dept__name">법무전문가</div><div class="dept__desc">계약 검토 · 법적 리스크</div></div>
+      <div class="dept"><svg viewBox="-6 6 90 90" aria-hidden="true"><use href="#ch-rules"/></svg><div class="dept__name">내규전문가</div><div class="dept__desc">사내 규정 · 지침 해석</div></div>
+    </div>
+    <p class="depts-note">
+      회사 부서에 맞게 이름을 바꾸고 고를 수 있으며, 새 부서 AI도 만들 수 있습니다.<br/>
+      법무 · 세무 · 노무 AI는 실무 판단을 돕는 역할이며 변호사 · 세무사 · 노무사의 자문을 대신하지 않습니다.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ 누가 어떻게 ═══ -->
+<section class="section section--soft" id="roles">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">FOR EVERYONE</span>
+      <h2 class="section__title">같은 프로그램, 각자의 역할</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <span class="chip chip--b">직원</span>
+        <h3 class="card__title" style="margin-top:14px;">묻기만 하면 됩니다</h3>
+        <ul class="plan__list">
+          <li>에센나에게 그냥 묻거나, 부서 AI를 직접 고릅니다</li>
+          <li>답 아래 근거 문서를 누르면 원본이 열립니다</li>
+          <li>내 PC 폴더를 연결해 에센나를 나만의 비서로 씁니다</li>
+          <li>설정할 것도, 실수로 바꿀 것도 없습니다</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="chip chip--b">부서 담당자</span>
+        <h3 class="card__title" style="margin-top:14px;">내 부서 AI는 내가 가꿉니다</h3>
+        <ul class="plan__list">
+          <li>부서 AI를 우클릭해 담당자로 로그인합니다</li>
+          <li>「내 업무 지식 연결」에 부서 문서 폴더를 지정합니다</li>
+          <li>말투 · 안내 범위와 담당자 연락처를 직접 고칩니다</li>
+          <li>문서를 고치면 바뀐 파일만 다시 읽어 다음 질문부터 반영됩니다</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="chip chip--b">관리자</span>
+        <h3 class="card__title" style="margin-top:14px;">설정은 한 곳에서</h3>
+        <ul class="plan__list">
+          <li>회사 설정 폴더 하나를 전 직원 PC가 함께 읽습니다</li>
+          <li>마법사로 쓸 부서를 고르고 담당자 비밀번호를 정합니다</li>
+          <li>그 부서 파일을 고칠 수 있는 사람이 담당자 — 윈도 폴더 권한 그대로입니다</li>
+          <li>모든 부서 AI에 공통 지침을 한 번에 겁니다</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 읽는 자료 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">YOUR DOCUMENTS</span>
+      <h2 class="section__title">지금 있는 문서를 그대로 씁니다</h2>
+      <p class="section__desc">AI를 따로 학습시키지 않습니다. 규정을 고치면 다음 질문부터 새 규정으로 답합니다.</p>
+    </div>
+    <div class="sources">
+      <div class="card">
+        <h3 class="card__title">문서가 있는 곳</h3>
+        <p class="card__desc">여러 곳을 함께 연결할 수 있습니다.</p>
+        <div class="chips">
+          <span class="chip chip--b">사내 공유폴더</span>
+          <span class="chip chip--b">직원 PC 폴더</span>
+          <span class="chip chip--b">Microsoft 365 — SharePoint · OneDrive · Teams 파일</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">읽는 형식</h3>
+        <p class="card__desc">자주 묻는 질문은 엑셀 한 장(질문 | 답 | 담당자)으로 정리해 두어도 됩니다.</p>
+        <div class="chips">
+          <span class="chip chip--gray">한글 HWP · HWPX</span>
+          <span class="chip chip--gray">워드</span>
+          <span class="chip chip--gray">엑셀</span>
+          <span class="chip chip--gray">파워포인트</span>
+          <span class="chip chip--gray">PDF</span>
+          <span class="chip chip--gray">텍스트 · CSV</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 안심 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">TRUST</span>
+      <h2 class="section__title">회사 문서를 다루는 AI라,<br/>처음부터 이렇게 만들었습니다</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <h3 class="card__title">직원 본인 권한으로만</h3>
+        <p class="card__desc">윈도 폴더 권한과 Microsoft 365 권한을 그대로 따릅니다. 답하기 직전에 한 번 더 확인해, 열 수 없는 문서는 답에 쓰지 않습니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">문서를 바깥에 쌓지 않습니다</h3>
+        <p class="card__desc">찾아보기용 색인은 각 PC에 암호화해 둡니다. AI에는 질문에 필요한 대목만 보냅니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">근거를 함께 보여 줍니다</h3>
+        <p class="card__desc">문서 이름과 조항을 답에 붙입니다. 숫자 · 날짜 · 금액은 문서에 적힌 그대로 옮깁니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">모르면 지어내지 않습니다</h3>
+        <p class="card__desc">자료에 없으면 「확인되지 않습니다」를 먼저 밝히고, 담당자에게 이어 드립니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">담당자만 고칩니다</h3>
+        <p class="card__desc">부서 AI의 자료 · 지시문 · 연락처는 담당자 로그인 뒤에만 보이고 고칠 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">사내 서버 AI도 됩니다</h3>
+        <p class="card__desc">외부 AI를 쓸 수 없는 회사는 사내 서버의 AI 모델로 운영할 수 있습니다. 시범에서 답변 품질을 먼저 확인합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 맞는 회사 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">BEST FIT</span>
+      <h2 class="section__title">이런 회사에서 효과가 큽니다</h2>
+    </div>
+    <div class="grid grid--2">
+      <div class="card">
+        <h3 class="card__title">지원 부서 몇 명이 전 직원 문의를 받는 회사</h3>
+        <p class="card__desc">경영지원팀 몇 명이 직원 수백 명의 질문에 답하고 있다면, 가장 먼저 시간이 돌아옵니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">본사와 지점 · 공장이 떨어진 회사</h3>
+        <p class="card__desc">지점에서 본사로 전화하던 질문을 그 자리에서 해결합니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">입사 · 인사이동이 잦은 회사</h3>
+        <p class="card__desc">새로 온 직원이 묻기 망설이던 질문도 언제든 편하게 묻습니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">규정과 제도가 자주 바뀌는 회사</h3>
+        <p class="card__desc">개정 직후 몰리는 문의에도 바뀐 규정 그대로 답합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 요금 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">PRICING</span>
+      <h2 class="section__title">무료 시범으로 먼저 확인하세요</h2>
+      <p class="section__desc">
+        직원 수와 쓰실 부서 AI에 맞춰 안내드립니다. 구축 공사 없이 PC에 설치해 시작하고,
+        시범 중 연결한 자료와 설정은 정식 이용으로 그대로 이어집니다.
+        시범 기간에 담당자 문의가 얼마나 줄었는지 함께 확인합니다.
+      </p>
+      <div style="margin-top:28px;">
+        <a href="#contact" class="btn btn--b">무료 시범 문의</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 문의 ═══ -->
+<section class="cta" id="contact" style="background:#0b2f3d;">
+  <div class="container cta__inner">
+    <h2 class="cta__title">직원은 바로 답을 받고,<br/>담당자는 본업에 집중하세요</h2>
+    <p class="cta__desc">
+      직원 수와 먼저 쓰고 싶은 부서(인사 · 총무 · 노무 · 재무 등)를 알려 주시면,
+      시범 시작 방법을 하루 안에 안내드립니다.
+    </p>
+    <div class="cta__actions">
+      <a href="mailto:changgyo@cgessence.co.kr?subject=%EC%97%90%EC%84%BC%EB%82%98B%20%EB%AC%B4%EB%A3%8C%20%EC%8B%9C%EB%B2%94%20%EB%AC%B8%EC%9D%98&amp;body=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94.%20%EC%97%90%EC%84%BC%EB%82%98B%20%EB%AC%B4%EB%A3%8C%20%EC%8B%9C%EB%B2%94%EC%9D%84%20%EC%8B%A0%EC%B2%AD%ED%95%A9%EB%8B%88%EB%8B%A4.%0A%0A%ED%9A%8C%EC%82%AC%EB%AA%85%3A%0A%EB%8B%B4%EB%8B%B9%EC%9E%90%20%C2%B7%20%EC%97%B0%EB%9D%BD%EC%B2%98%3A%0A%EC%A7%81%EC%9B%90%20%EC%88%98(%EB%8C%80%EB%9E%B5)%3A%0A%EB%A8%BC%EC%A0%80%20%EC%93%B0%EA%B3%A0%20%EC%8B%B6%EC%9D%80%20%EB%B6%80%EC%84%9C(%EC%9D%B8%EC%82%AC%20%C2%B7%20%EC%B4%9D%EB%AC%B4%20%C2%B7%20%EB%85%B8%EB%AC%B4%20%C2%B7%20%EC%9E%AC%EB%AC%B4%20%EB%93%B1)%3A%0A%EB%AC%B8%EC%84%9C%EA%B0%80%20%EC%9E%88%EB%8A%94%20%EA%B3%B3(%EC%82%AC%EB%82%B4%20%EA%B3%B5%EC%9C%A0%ED%8F%B4%EB%8D%94%20%2F%20SharePoint%20%C2%B7%20OneDrive%20%2F%20%EA%B8%B0%ED%83%80)%3A%0A%EC%8B%9C%EC%97%B0%20%ED%9D%AC%EB%A7%9D%20%EC%9D%BC%EC%8B%9C%3A" class="btn btn--b">메일로 문의하기</a>
+      <a href="tel:010-3369-5635" class="btn btn--ghost">전화 010-3369-5635</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 푸터 ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <a href="../" class="footer__brand">
+        <img src="../img/logo-symbol.png?v=1" alt="" class="footer__brand-logo"/>
+        <span class="brand-name"><b>CG</b>Essence</span>
+      </a>
+      <div class="footer__links">
+        <a href="../">회사 소개</a>
+        <a href="../serviq/">서비큐</a>
+        <a href="./">에센나B</a>
+        <a href="../essenna/">에센나S</a>
+        <a href="#contact">도입 문의</a>
+      </div>
+    </div>
+    <div class="footer__info">
+      <span>상호 씨지에센스(CGEssence)</span><span>대표 김창교</span><span>사업자등록번호 566-30-01786</span><br/>
+      <span>경기도 수원시 영통구 대학로 16, 171호</span><span>changgyo@cgessence.co.kr</span><span>010-3369-5635</span>
+    </div>
+    <p class="footer__copy">© 2026 CGEssence. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  document.getElementById('navToggle').addEventListener('click', function () {
+    nav.classList.toggle('nav--open');
+  });
+  nav.querySelectorAll('.nav__mobile a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('nav--open'); });
+  });
+</script>
+</body>
+</html>

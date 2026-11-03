@@ -13,5 +13,6 @@
 | approach-meeting.jpg | https://images.unsplash.com/photo-1517245386807-bb43f82c33c4 |
 | biz-serviq.jpg | https://images.unsplash.com/photo-1587560699334-cc4ff634909a |
 | biz-essenna.jpg | https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8 |
+| biz-essenna-b.jpg | https://images.unsplash.com/photo-1519389950473-47ba0277781c |
 | ceo-office.jpg | https://images.unsplash.com/photo-1497215728101-856f4ea42174 |
 | band-skyscrapers.jpg | https://images.unsplash.com/photo-1486406146926-c627a92ad1ab |
