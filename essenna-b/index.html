@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="../css/site.css?v=4" />
+  <link rel="stylesheet" href="../css/site.css?v=5" />
   <style>
     /* 에센나B — 에센나 캐릭터의 청록(학원용 에센나S 는 초록) */
     :root { --b: #0a7ea3; --b-deep: #075e7a; --b-soft: #e7f5fa; --b-line: #bfe2ee; }
@@ -71,9 +71,26 @@
     .chips .chip { font-size: 0.86rem; padding: 6px 13px; white-space: normal; }   /* 휴대폰에서 긴 꼬리표가 칸 밖으로 나가지 않게 */
     .sources > .card { min-width: 0; }
 
+    /* 실제 화면 · 사진(2026-11-03 사용자: 「사진이나 캡쳐 화면이 들어가야 시각적으로 이해가 쉽게」) */
+    .shot { display: block; width: 100%; max-width: 400px; height: auto; margin: 0 auto; border-radius: 18px; box-shadow: var(--shadow-lg); }
+    .product--essenna-b .product__list li::before { color: var(--b); }
+    .product__eyebrow.b-accent .dot { background: var(--b); }
+    .screens-note { margin-top: 64px; text-align: center; font-size: 0.86rem; color: var(--ghost); }
+    .role-shot {
+      display: block; width: calc(100% + 52px); max-width: none; height: 230px; margin: -30px -26px 22px;
+      object-fit: cover; object-position: top center; border-radius: var(--radius) var(--radius) 0 0;
+      background: #0b1020;
+    }
+    .approach__no.b-accent { color: var(--b); }
+    .approach-lead { margin-top: 28px; font-size: 1.08rem; font-weight: 700; color: var(--b-deep); }
+    .approach--flip { grid-template-columns: 1.1fr 0.9fr; }
+    .approach--flip .approach__img { order: 2; }
+
     @media (max-width: 1024px) {
       .depts { grid-template-columns: repeat(3, 1fr); }
       .dept--main { grid-column: span 3; }
+      .approach--flip { grid-template-columns: 1fr; }
+      .approach--flip .approach__img { order: 0; }
     }
     @media (max-width: 640px) {
       .depts { grid-template-columns: repeat(2, 1fr); }
@@ -490,6 +507,7 @@
     <ul class="nav__links">
       <li><a href="../"         class="nav__link">회사 소개</a></li>
       <li><a href="../serviq/"  class="nav__link">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
+      <li><a href="../servigent/" class="nav__link">서비전트 <span style="font-size:0.8em;color:var(--ghost)">그룹웨어</span></a></li>
       <li><a href="./"          class="nav__link nav__link--on">에센나B <span style="font-size:0.8em;color:var(--ghost)">기업</span></a></li>
       <li><a href="../essenna/" class="nav__link">에센나S <span style="font-size:0.8em;color:var(--ghost)">학원</span></a></li>
       <li><a href="#contact"    class="nav__link nav__link--cta">도입 문의</a></li>
@@ -501,6 +519,7 @@
   <div class="nav__mobile">
     <a href="../"         class="nav__link">회사 소개</a>
     <a href="../serviq/"  class="nav__link">서비큐 SERVIQ</a>
+    <a href="../servigent/" class="nav__link">서비전트 그룹웨어</a>
     <a href="./"          class="nav__link">에센나B 기업</a>
     <a href="../essenna/" class="nav__link">에센나S 학원</a>
     <a href="#contact"    class="nav__link">도입 문의</a>
@@ -550,6 +569,41 @@
     </div>
   </div>
 </header>
+
+<!-- ═══ 담당자의 하루 ═══ -->
+<section class="section section--soft">
+  <div class="container approach">
+    <img class="approach__img" src="../img/photos/approach-meeting.jpg" alt="노트북 앞에서 문의에 답하는 담당자" loading="lazy" />
+    <div>
+      <span class="eyebrow b-accent">WHY</span>
+      <h2 class="section__title">규정집은 있는데,<br/>질문은 매일 담당자에게 옵니다</h2>
+      <div class="approach__list">
+        <div class="approach__item">
+          <span class="approach__no b-accent">01</span>
+          <div>
+            <h3 class="approach__title">같은 질문이 하루에도 몇 번씩</h3>
+            <p class="approach__desc">「연차 며칠 남았죠?」 「법인카드 영수증은 언제까지 내요?」 — 묻는 사람만 바뀌고 질문은 같습니다.</p>
+          </div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no b-accent">02</span>
+          <div>
+            <h3 class="approach__title">문서는 있는데 아무도 찾지 않습니다</h3>
+            <p class="approach__desc">규정 · 양식 · 안내문이 공유폴더에 있어도, 어디 있는지 몰라 담당자에게 묻습니다.</p>
+          </div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no b-accent">03</span>
+          <div>
+            <h3 class="approach__title">답하느라 정작 할 일이 밀립니다</h3>
+            <p class="approach__desc">메신저와 전화 응대가 이어질수록 담당자의 본업은 뒤로 밀립니다.</p>
+          </div>
+        </div>
+      </div>
+      <p class="approach-lead">에센나B는 이 질문들을 먼저 받습니다.</p>
+    </div>
+  </div>
+</section>
 
 <!-- ═══ 회사가 얻는 것 ═══ -->
 <section class="section">
@@ -627,8 +681,96 @@
   </div>
 </section>
 
+<!-- ═══ 실제 화면 ═══ -->
+<section class="section" id="screens">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow b-accent">REAL SCREENS</span>
+      <h2 class="section__title">실제 화면으로 보면 이렇습니다</h2>
+      <p class="section__desc">에센나B 프로그램을 실제로 돌려 찍은 화면입니다.</p>
+    </div>
+
+    <div class="product product--essenna-b">
+      <div class="product__media">
+        <img class="shot" src="img/relay.png" width="553" height="760" loading="lazy" alt="주말 야유회 질문에 에센나가 한마디 하고 노무전문가에게 연결한 화면" />
+      </div>
+      <div>
+        <span class="product__eyebrow b-accent"><span class="dot"></span>안내 데스크</span>
+        <h3 class="product__title">에센나가 한마디 하고,<br/>담당 부서 AI가 이어서 답합니다</h3>
+        <p class="product__desc">
+          「주말 야유회도 근무인가요?」처럼 부서를 몰라도 그냥 물으면, 에센나가 방향을 알려 주고
+          노무전문가에게 이어 줍니다. 직원은 같은 질문을 다시 쓰지 않습니다.
+        </p>
+        <ul class="product__list">
+          <li>부서를 몰라도 에센나에게 그냥 묻습니다</li>
+          <li>이어받은 부서 AI가 같은 질문에 바로 답합니다</li>
+          <li>회사 자료에 없는 기준은 「확인되지 않습니다」라고 먼저 밝힙니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product product--flip product--essenna-b">
+      <div class="product__media">
+        <img class="shot" src="img/direct.png" width="553" height="760" loading="lazy" alt="「인사 담당자 연결 부탁해」라고 하자 인사전문가가 바로 나와 인사하는 화면" />
+      </div>
+      <div>
+        <span class="product__eyebrow b-accent"><span class="dot"></span>바로 연결</span>
+        <h3 class="product__title">「인사 담당자 연결해 줘」<br/>한마디면 바로 넘어갑니다</h3>
+        <p class="product__desc">
+          부서 이름을 말하면 기다림 없이 그 자리에서 담당 부서 AI가 나와 인사합니다.
+          대화 중인 부서 AI에게 「안전전문가 연결해 줘」라고 해도 됩니다.
+        </p>
+        <ul class="product__list">
+          <li>부서 이름만 말하면 그 자리에서 바뀝니다</li>
+          <li>부서 AI끼리도 서로 이어 줍니다</li>
+          <li>「에센나로 돌아가 줘」로 언제든 처음으로</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product product--essenna-b">
+      <div class="product__media">
+        <img class="shot" src="img/answer.png" width="553" height="760" loading="lazy" alt="연차휴가 질문에 취업규칙 조항을 근거로 답하고 근거 문서를 보여 주는 화면" />
+      </div>
+      <div>
+        <span class="product__eyebrow b-accent"><span class="dot"></span>근거 문서</span>
+        <h3 class="product__title">근거 문서와 함께 답하고,<br/>누르면 원본이 열립니다</h3>
+        <p class="product__desc">
+          답 속 [1] · [2] 번호가 아래 근거 문서와 이어집니다.
+          숫자 · 날짜 · 조항은 문서에 적힌 그대로 옮깁니다.
+        </p>
+        <ul class="product__list">
+          <li>문서 이름과 조항까지 함께 보여 줍니다</li>
+          <li>근거 문서를 누르면 원본 파일이 바로 열립니다</li>
+          <li>직원이 열 수 없는 문서는 답에 쓰지 않습니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product product--flip product--essenna-b">
+      <div class="product__media">
+        <img class="shot" src="img/contact.png" width="553" height="360" loading="lazy" alt="자료에 없는 질문에 담당자 연락처 카드를 띄운 화면" />
+      </div>
+      <div>
+        <span class="product__eyebrow b-accent"><span class="dot"></span>담당자 연결</span>
+        <h3 class="product__title">자료에 없으면,<br/>담당자에게 바로 이어 줍니다</h3>
+        <p class="product__desc">
+          문서에 없는 질문이나 신청 · 승인처럼 사람이 할 일이면 담당자 연락처 카드를 띄웁니다.
+        </p>
+        <ul class="product__list">
+          <li>담당자 이름 · 부서 · 연락처 · 문의 시간</li>
+          <li>[메일 쓰기]를 누르면 질문이 채워진 메일이 열립니다</li>
+          <li>담당자는 무엇을 물었는지 바로 압니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="screens-note">화면 속 회사 문서와 담당자는 시연용 예시입니다.</p>
+  </div>
+</section>
+
 <!-- ═══ 부서 AI ═══ -->
-<section class="section">
+<section class="section section--soft">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow b-accent">DEPARTMENT AI</span>
@@ -660,7 +802,7 @@
 </section>
 
 <!-- ═══ 누가 어떻게 ═══ -->
-<section class="section section--soft" id="roles">
+<section class="section" id="roles">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow b-accent">FOR EVERYONE</span>
@@ -668,6 +810,7 @@
     </div>
     <div class="grid grid--3">
       <div class="card">
+        <img class="role-shot" src="img/experts.png" loading="lazy" alt="부서 AI를 고르는 전문가 목록 화면" />
         <span class="chip chip--b">직원</span>
         <h3 class="card__title" style="margin-top:14px;">묻기만 하면 됩니다</h3>
         <ul class="plan__list">
@@ -678,6 +821,7 @@
         </ul>
       </div>
       <div class="card">
+        <img class="role-shot" src="img/editor.png" loading="lazy" alt="담당자 모드에서 「내 업무 지식 연결」에 부서 폴더를 지정한 화면" />
         <span class="chip chip--b">부서 담당자</span>
         <h3 class="card__title" style="margin-top:14px;">내 부서 AI는 내가 가꿉니다</h3>
         <ul class="plan__list">
@@ -688,6 +832,7 @@
         </ul>
       </div>
       <div class="card">
+        <img class="role-shot" src="img/wizard.png" loading="lazy" alt="회사 설정 만들기 마법사에서 쓸 부서를 고르는 화면" />
         <span class="chip chip--b">관리자</span>
         <h3 class="card__title" style="margin-top:14px;">설정은 한 곳에서</h3>
         <ul class="plan__list">
@@ -702,7 +847,7 @@
 </section>
 
 <!-- ═══ 읽는 자료 ═══ -->
-<section class="section">
+<section class="section section--soft">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow b-accent">YOUR DOCUMENTS</span>
@@ -736,7 +881,7 @@
 </section>
 
 <!-- ═══ 안심 ═══ -->
-<section class="section section--soft">
+<section class="section">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow b-accent">TRUST</span>
@@ -772,35 +917,48 @@
 </section>
 
 <!-- ═══ 맞는 회사 ═══ -->
-<section class="section">
-  <div class="container">
-    <div class="section__head section__head--center">
+<section class="section section--soft">
+  <div class="container approach approach--flip">
+    <img class="approach__img" src="../img/photos/biz-essenna-b.jpg" alt="노트북을 펴고 함께 일하는 사무실 책상" loading="lazy" />
+    <div>
       <span class="eyebrow b-accent">BEST FIT</span>
       <h2 class="section__title">이런 회사에서 효과가 큽니다</h2>
-    </div>
-    <div class="grid grid--2">
-      <div class="card">
-        <h3 class="card__title">지원 부서 몇 명이 전 직원 문의를 받는 회사</h3>
-        <p class="card__desc">경영지원팀 몇 명이 직원 수백 명의 질문에 답하고 있다면, 가장 먼저 시간이 돌아옵니다.</p>
-      </div>
-      <div class="card">
-        <h3 class="card__title">본사와 지점 · 공장이 떨어진 회사</h3>
-        <p class="card__desc">지점에서 본사로 전화하던 질문을 그 자리에서 해결합니다.</p>
-      </div>
-      <div class="card">
-        <h3 class="card__title">입사 · 인사이동이 잦은 회사</h3>
-        <p class="card__desc">새로 온 직원이 묻기 망설이던 질문도 언제든 편하게 묻습니다.</p>
-      </div>
-      <div class="card">
-        <h3 class="card__title">규정과 제도가 자주 바뀌는 회사</h3>
-        <p class="card__desc">개정 직후 몰리는 문의에도 바뀐 규정 그대로 답합니다.</p>
+      <div class="approach__list">
+        <div class="approach__item">
+          <span class="approach__no b-accent">01</span>
+          <div>
+            <h3 class="approach__title">지원 부서 몇 명이 전 직원 문의를 받는 회사</h3>
+            <p class="approach__desc">경영지원팀 몇 명이 직원 수백 명의 질문에 답하고 있다면, 가장 먼저 시간이 돌아옵니다.</p>
+          </div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no b-accent">02</span>
+          <div>
+            <h3 class="approach__title">본사와 지점 · 공장이 떨어진 회사</h3>
+            <p class="approach__desc">지점에서 본사로 전화하던 질문을 그 자리에서 해결합니다.</p>
+          </div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no b-accent">03</span>
+          <div>
+            <h3 class="approach__title">입사 · 인사이동이 잦은 회사</h3>
+            <p class="approach__desc">새로 온 직원이 묻기 망설이던 질문도 언제든 편하게 묻습니다.</p>
+          </div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no b-accent">04</span>
+          <div>
+            <h3 class="approach__title">규정과 제도가 자주 바뀌는 회사</h3>
+            <p class="approach__desc">개정 직후 몰리는 문의에도 바뀐 규정 그대로 답합니다.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ 요금 ═══ -->
-<section class="section section--soft">
+<section class="section">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow b-accent">PRICING</span>
@@ -843,6 +1001,7 @@
       <div class="footer__links">
         <a href="../">회사 소개</a>
         <a href="../serviq/">서비큐</a>
+        <a href="../servigent/">서비전트</a>
         <a href="./">에센나B</a>
         <a href="../essenna/">에센나S</a>
         <a href="#contact">도입 문의</a>
