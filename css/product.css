@@ -151,3 +151,22 @@
       .pd-step::after { display: none; }
     }
   
+
+/* 긴 화면을 틀 안에서 천천히 내렸다 올리며 전체를 보여 주기 (2026-11-04, 서비큐 접수 화면)
+   그림 높이에 맞춘 이동 거리는 figure 의 style="--scroll:-70.2%" 처럼 준다 = -(1 - 0.625 / (그림 높이 ÷ 폭)) × 100% */
+.pd-scroll { position: relative; }
+.pd-scroll__view { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #fff; }
+.pd-scroll__view img { position: absolute; left: 0; top: 0; width: 100%; height: auto; animation: pd-scroll 16s ease-in-out infinite; will-change: transform; }
+.pd-scroll:hover .pd-scroll__view img { animation-play-state: paused; }
+@keyframes pd-scroll {
+  0%, 10% { transform: translateY(0); }
+  45%, 60% { transform: translateY(var(--scroll, -60%)); }
+  95%, 100% { transform: translateY(0); }
+}
+.pd-scroll__hint { position: absolute; right: 14px; bottom: 14px; z-index: 1; padding: 6px 12px; border-radius: 999px;
+  background: rgba(13,36,73,0.78); color: #fff; font-size: 0.76rem; font-weight: 700; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .pd-scroll__view { overflow-y: auto; }
+  .pd-scroll__view img { position: static; animation: none; }
+  .pd-scroll__hint { display: none; }
+}
