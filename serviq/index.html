@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SERVIQ — AI IT 서비스데스크</title>
-  <meta name="description" content="접수와 동시에 AI가 분류·요약하고, 표준 안내로 끝낼 수 있는 요청은 1차 회신까지. 엔지니어는 판단이 필요한 건에만 투입되는 AI IT 서비스데스크입니다." />
-  <meta property="og:title" content="SERVIQ — AI IT 서비스데스크" />
-  <meta property="og:description" content="1선 대응은 AI가, 2선은 해결에 집중합니다. CGEssence의 AI IT 서비스데스크." />
+  <title>SERVIQ — 1선 응대는 AI가, 담당자는 해결에. AI IT 서비스데스크 서비큐</title>
+  <meta name="description" content="직원이 문제를 적으면 AI가 즉시 분류 · 요약하고 해결 방법을 먼저 안내한 뒤, 규칙에 따라 담당 팀과 담당자에게 배정합니다. 접수부터 처리 · 보고까지 한 화면에서 관리하는 CGEssence의 AI IT 서비스데스크 서비큐(SERVIQ)." />
+  <meta property="og:title" content="SERVIQ — 1선 응대는 AI가, 담당자는 해결에 집중하는 AI IT 서비스데스크" />
+  <meta property="og:description" content="접수 화면 · AI 분류와 1차 안내 · 자동 배정 · 통합 티켓 · 지식공유 · 보고서. CGEssence의 AI IT 서비스데스크 서비큐." />
   <meta property="og:url" content="https://cgessence.co.kr/serviq/" />
+  <meta property="og:image" content="https://cgessence.co.kr/img/serviq/og-serviq.jpg" />
   <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="../css/site.css?v=8" />
+  <link rel="stylesheet" href="../css/product.css?v=1" />
+  <style>
+    /* 서비큐 — 앱과 같은 청록. 화면 캡처는 가상 회사(계열사 4곳 · 처리 담당자 13명) 시연 자료로 찍었다. */
+    :root { --acc: #0a7ea4; --acc-deep: #08627f; --acc-soft: #e6f3f8; --acc-line: #d9e6ec; }
+    .pd-hero { background: radial-gradient(1100px 520px at 50% -8%, rgba(10,126,164,0.11), transparent 70%), linear-gradient(#f4f9fb, #fff 62%); }
+    .pd-row__media { background: linear-gradient(150deg, #e9f4f8, #f7fafb); }
+  </style>
 </head>
 <body>
 
@@ -22,254 +30,467 @@
       <span class="brand-name"><b>CG</b>Essence</span>
     </a>
     <ul class="nav__links">
-      <li><a href="../"        class="nav__link">회사 소개</a></li>
+      <li><a href="../"           class="nav__link">회사 소개</a></li>
       <li><a href="../servigent/" class="nav__link">서비전트 <span style="font-size:0.8em;color:var(--ghost)">그룹웨어</span></a></li>
-      <li><a href="../servit/" class="nav__link">서비트 <span style="font-size:0.8em;color:var(--ghost)">자산관리</span></a></li>
-      <li><a href="./"         class="nav__link nav__link--on">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
+      <li><a href="../servit/"    class="nav__link">서비트 <span style="font-size:0.8em;color:var(--ghost)">자산관리</span></a></li>
+      <li><a href="./"            class="nav__link nav__link--on">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
       <li><a href="../servim/" class="nav__link">서빔 <span style="font-size:0.8em;color:var(--ghost)">메신저</span></a></li>
       <li><a href="../essenna-b/" class="nav__link">에센나B <span style="font-size:0.8em;color:var(--ghost)">기업</span></a></li>
       <li><a href="../essenna/"   class="nav__link">에센나S <span style="font-size:0.8em;color:var(--ghost)">학원</span></a></li>
-      <li><a href="#contact"    class="nav__link nav__link--cta">도입 문의</a></li>
+      <li><a href="#contact"      class="nav__link nav__link--cta">도입 문의</a></li>
     </ul>
     <button class="nav__hamburger" id="navToggle" aria-label="메뉴 열기">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="nav__mobile">
-    <a href="../"         class="nav__link">회사 소개</a>
+    <a href="../"           class="nav__link">회사 소개</a>
     <a href="../servigent/" class="nav__link">서비전트 그룹웨어</a>
-    <a href="../servit/" class="nav__link">서비트 자산관리</a>
-    <a href="./"          class="nav__link">서비큐 SERVIQ</a>
+    <a href="../servit/"    class="nav__link">서비트 자산관리</a>
+    <a href="./"            class="nav__link">서비큐 SERVIQ</a>
     <a href="../servim/" class="nav__link">서빔 메신저</a>
     <a href="../essenna-b/" class="nav__link">에센나B 기업</a>
     <a href="../essenna/"   class="nav__link">에센나S 학원</a>
-    <a href="#contact"    class="nav__link">도입 문의</a>
+    <a href="#contact"      class="nav__link">도입 문의</a>
   </div>
 </nav>
 
 <!-- ═══ 히어로 ═══ -->
-<header class="hero hero--grad">
-  <div class="container hero__inner">
-    <div>
-      <span class="eyebrow">SERVIQ · AI IT 서비스데스크</span>
-      <h1 class="hero__title">1선 대응은 AI가,<br/>2선은 <em>해결에 집중</em>합니다</h1>
-      <p class="hero__desc">
-        접수와 동시에 분류 · 요약하고, 표준 안내로 종결할 수 있는 요청은 AI가
-        1차 회신합니다. 엔지니어는 판단이 필요한 건에만 투입됩니다.
-      </p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--primary">도입 문의</a>
-        <a href="#how" class="btn btn--ghost">작동 방식 보기</a>
-      </div>
-      <p class="hero__note">클라우드 운영형 · 사내 서버 구축형 모두 지원합니다.</p>
+<header class="pd-hero">
+  <div class="container">
+    <span class="eyebrow">SERVIQ · AI IT 서비스데스크</span>
+    <h1 class="pd-hero__title">1선 응대는 AI가,<br/>담당자는 <em>해결에 집중</em>합니다</h1>
+    <p class="pd-hero__desc">
+      직원이 접수 화면에 문제를 적으면 AI가 즉시 분류 · 요약하고 해결 방법을 먼저 안내한 뒤,
+      규칙에 따라 담당 팀과 담당자에게 배정합니다. 접수부터 처리 · 보고까지 한 화면에서 관리합니다.
+    </p>
+    <div class="pd-hero__actions">
+      <a href="#contact" class="btn btn--acc">도입 상담</a>
+      <a href="#screens" class="btn btn--ghost">실제 화면 보기</a>
     </div>
-    <div class="hero__media">
-      <div class="mock" aria-hidden="true">
-        <div class="mock__bar">
-          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-          <span class="mock__bar-title">SERVIQ — 오늘 접수 현황</span>
+    <div class="pd-hero__chips" aria-label="들어 있는 기능">
+      <span>접수 화면 · 4개 언어</span><span>AI 분류 · 요약</span><span>AI 1차 안내</span><span>자동 배정</span><span>통합 티켓</span><span>지식공유</span><span>보고서</span><span>계열사 구조</span>
+    </div>
+    <div class="pd-stage">
+      <figure class="pd-browser">
+        <div class="pd-browser__bar" aria-hidden="true">
+          <span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span>
+          <span class="pd-browser__url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>SERVIQ · 종합 현황</span>
         </div>
-        <div class="mock__body">
-          <div class="ticket ticket--ai">
-            <div class="ticket__txt">
-              <div class="ticket__title">비밀번호 초기화 요청</div>
-              <div class="ticket__meta">09:02 접수 화면 · AI 분류: 계정</div>
-            </div>
-            <span class="chip chip--green">AI 1차 회신</span>
-          </div>
-          <div class="ticket ticket--ai">
-            <div class="ticket__txt">
-              <div class="ticket__title">신규 입사자 PC 세팅 문의</div>
-              <div class="ticket__meta">09:15 포털 접수 · AI 분류: 표준 절차</div>
-            </div>
-            <span class="chip chip--green">AI 1차 회신</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">공유폴더 접근 권한 신청</div>
-              <div class="ticket__meta">09:31 접수 · 인프라팀 김OO 배정</div>
-            </div>
-            <span class="chip chip--blue">2선 배정</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">회의실 화면 공유가 안 됩니다</div>
-              <div class="ticket__meta">09:48 접수 · 현장 지원 요청</div>
-            </div>
-            <span class="chip chip--amber">처리 중</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">그룹웨어 결재 오류</div>
-              <div class="ticket__meta">10:05 접수 · 시스템팀 이OO 배정</div>
-            </div>
-            <span class="chip chip--blue">2선 배정</span>
-          </div>
-        </div>
-      </div>
+        <img src="../img/serviq/dashboard.webp" width="1920" height="1200"
+             alt="서비큐 처리 담당자 콘솔 종합 현황 — 오늘 접수 · 미처리 · 누적 완료 · 응답 지연 · AI 자동해결 비율, 계열사별 처리 현황, 최근 접수, AI 처리 현황" />
+      </figure>
+      <figure class="pd-phone" aria-hidden="true">
+        <img src="../img/serviq/m-intake.webp" width="600" height="1298" alt="" />
+      </figure>
     </div>
   </div>
 </header>
 
-<!-- ═══ 문제 ═══ -->
+<!-- ═══ 기능 한눈에 ═══ -->
+<section class="section section--soft" style="padding-top:96px">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">ALL IN ONE</span>
+      <h2 class="section__title">IT 문의가 들어와서 끝날 때까지,<br/>한 시스템에서</h2>
+      <p class="section__desc">접수 · 분류 · 1차 안내 · 배정 · 처리 · 알림 · 보고가 하나로 이어집니다.</p>
+    </div>
+    <div class="pd-modules">
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15h6"/></svg></span>
+        <div><div class="pd-module__name">웹 접수 화면</div><p class="pd-module__desc">회사(계열사)마다 접수 링크가 따로 있고, 한국어 · English · 中文 · 日本語로 접수합니다. 접수 즉시 번호가 나옵니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.8L20 10l-5 3.6L16.2 20 12 16.4 7.8 20 9 13.6 4 10l6.1-1.2z"/></svg></span>
+        <div><div class="pd-module__name">AI 분류 · 요약</div><p class="pd-module__desc">접수 내용을 읽고 유형을 나누고, 핵심을 요약해 담당자가 제목만 보고도 상황을 압니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg></span>
+        <div><div class="pd-module__name">AI 1차 안내</div><p class="pd-module__desc">접수하자마자 AI가 해결 방법을 먼저 안내합니다. 직원이 바로 해결하면 담당자 손이 가지 않습니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M9 6h4a3 3 0 0 1 3 3v6"/></svg></span>
+        <div><div class="pd-module__name">자동 배정</div><p class="pd-module__desc">분류 → 팀 → 담당자로 이어지는 규칙대로 배정합니다. AI가 확신하지 못한 건은 사람이 먼저 확인합니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.5 5.1L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.5-6.9A2 2 0 0 0 16.8 4H7.2a2 2 0 0 0-1.7 1.1z"/></svg></span>
+        <div><div class="pd-module__name">통합 티켓</div><p class="pd-module__desc">모든 계열사의 접수가 한 인박스에 모이고, 「내가 처리할게요」로 맡아 조치 내역을 남깁니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <div><div class="pd-module__name">수기 접수 · 웹훅</div><p class="pd-module__desc">전화 · 메일로 받은 문의는 담당자가 대신 접수하면 AI 분류가 똑같이 붙습니다. 다른 시스템은 웹훅으로 연결합니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+        <div><div class="pd-module__name">지식공유</div><p class="pd-module__desc">해결 방법과 사내 문서를 지식으로 쌓아, 담당자가 바뀌어도 같은 답을 이어 갑니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+        <div><div class="pd-module__name">메일 · 문자 알림</div><p class="pd-module__desc">요청자에게는 접수 · 배정 · 완료를 메일로, 담당자에게는 배정을 문자 · 텔레그램으로 알립니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        <div><div class="pd-module__name">보고서 · AI 성과</div><p class="pd-module__desc">기간 · 계열사별 종합 보고서를 요약으로 내려받거나 PDF로 인쇄하고, AI가 대신한 1선 업무를 시간으로 봅니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 지금 → 서비큐 ═══ -->
 <section class="section">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow">PROBLEM</span>
-      <h2 class="section__title">엔지니어의 하루는<br/>반복 문의로 시작해 반복 문의로 끝납니다</h2>
+      <span class="eyebrow acc">BEFORE · AFTER</span>
+      <h2 class="section__title">IT 담당자의 하루가<br/>이렇게 흘러가고 있다면</h2>
+      <p class="section__desc">같은 질문에 같은 답을 하고, 누가 맡을지 정하고, 진행 상황을 다시 알려 주는 일 — 반복을 덜어 냅니다.</p>
     </div>
-    <div class="grid grid--3">
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-        <h3 class="card__title">같은 질문, 같은 답</h3>
-        <p class="card__desc">
-          비밀번호 초기화, 계정 신청, 프린터 연결 — 답이 정해진 문의가
-          메일과 전화로 하루 종일 흩어져 들어옵니다.
-        </p>
+    <div class="pd-compare">
+      <div class="pd-compare__row pd-compare__row--head"><div>업무</div><div>지금</div><div class="pd-compare__arrow"></div><div class="pd-compare__after">서비큐로</div></div>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">접수</div>
+        <div class="pd-compare__before">전화 · 메신저 · 메일로 제각각 들어와 빠지는 건이 생깁니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">접수 화면 하나로 모이고, 접수하는 순간 번호가 붙습니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3 class="card__title">접수 누락과 지연</h3>
-        <p class="card__desc">
-          바쁜 날 들어온 요청은 메일함에 묻히고, 「그거 어떻게 됐어요?」라는
-          확인 전화가 다시 일을 만듭니다.
-        </p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">1차 응대</div>
+        <div class="pd-compare__before">비밀번호 · 프린터 같은 같은 질문에 매번 같은 답을 합니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">AI가 접수 즉시 해결 방법을 먼저 안내합니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-        </div>
-        <h3 class="card__title">남지 않는 이력</h3>
-        <p class="card__desc">
-          누가 무엇을 언제 처리했는지 기록이 흩어져 있으면, 인수인계도
-          월간 보고도 매번 처음부터입니다.
-        </p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">배정</div>
+        <div class="pd-compare__before">문의마다 누가 맡을지 다시 정하고 전달합니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">분류 → 팀 → 담당자 규칙대로 배정되고, 담당자에게 문자가 갑니다</div>
+      </div>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">진행 안내</div>
+        <div class="pd-compare__before">「어떻게 됐어요?」 문의 전화를 다시 받습니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">접수 · 배정 · 완료가 메일로 가고, 직원이 접수 내역을 직접 조회합니다</div>
+      </div>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">보고</div>
+        <div class="pd-compare__before">월말마다 처리 건수를 엑셀로 다시 셉니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">종합 보고서와 AI 성과현황이 기간 · 계열사별로 바로 나옵니다</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 작동 방식 ═══ -->
-<section class="section section--soft" id="how">
+<!-- ═══ 실제 화면 ═══ -->
+<section class="section section--soft" id="screens">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow">HOW IT WORKS</span>
-      <h2 class="section__title">접수부터 종결까지, 이렇게 흘러갑니다</h2>
+      <span class="eyebrow acc">REAL SCREENS</span>
+      <h2 class="section__title">실제 화면으로 먼저 보세요</h2>
+      <p class="section__desc">아래 화면은 모두 서비큐를 그대로 찍은 것입니다. 회사 · 이름 · 문의는 설명을 위한 가상 자료입니다.</p>
     </div>
-    <div class="steps steps--3">
-      <div class="step">
-        <span class="step__no">1</span>
-        <h3 class="step__title">접수</h3>
-        <p class="step__desc">
-          임직원이 접수 화면에 증상을 적어 보냅니다. 전화 · 메일로 온 문의는
-          담당자가 대신 접수합니다. 들어오는 즉시 AI가 내용을 읽고 분류와 요약을 붙입니다.
-        </p>
+    <div class="pd-tabs" role="tablist" aria-label="서비큐 화면">
+      <button class="pd-tab" role="tab" id="tab-intake" aria-controls="panel-intake" aria-selected="true">접수 화면</button>
+      <button class="pd-tab" role="tab" id="tab-tickets" aria-controls="panel-tickets" aria-selected="false" tabindex="-1">통합 티켓</button>
+      <button class="pd-tab" role="tab" id="tab-ticket" aria-controls="panel-ticket" aria-selected="false" tabindex="-1">티켓 처리</button>
+      <button class="pd-tab" role="tab" id="tab-triage" aria-controls="panel-triage" aria-selected="false" tabindex="-1">AI 성과현황</button>
+      <button class="pd-tab" role="tab" id="tab-kb" aria-controls="panel-kb" aria-selected="false" tabindex="-1">지식공유</button>
+      <button class="pd-tab" role="tab" id="tab-reports" aria-controls="panel-reports" aria-selected="false" tabindex="-1">종합 보고서</button>
+      <button class="pd-tab" role="tab" id="tab-client" aria-controls="panel-client" aria-selected="false" tabindex="-1">총괄담당자</button>
+      <button class="pd-tab" role="tab" id="tab-groups" aria-controls="panel-groups" aria-selected="false" tabindex="-1">배정 규칙</button>
+    </div>
+
+    <div class="pd-panel" role="tabpanel" id="panel-intake" aria-labelledby="tab-intake">
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/intake.webp" width="1600" height="1000" alt="직원용 IT 지원 요청 화면 — 증상 작성 → AI 자동분류 → 담당팀 배정 안내, 소속 회사 · 이름 · 부서 · 연락처 · 문제 입력" /></figure>
+      <div>
+        <h3 class="pd-panel__title">접수 화면</h3>
+        <p class="pd-panel__desc">직원은 로그인 없이 회사 접수 링크에서 문제를 적습니다.</p>
+        <ul class="pd-panel__list">
+          <li>계열사마다 따로 있는 접수 링크</li>
+          <li>한국어 · English · 中文 · 日本語</li>
+          <li>바탕화면에 추가해 아이콘으로 열기</li>
+        </ul>
       </div>
-      <div class="step">
-        <span class="step__no">2</span>
-        <h3 class="step__title">AI 1차 회신</h3>
-        <p class="step__desc">
-          표준 안내로 끝낼 수 있는 요청은 AI가 절차 · 신청서 링크를 담아
-          바로 회신합니다. 1선에서 끝나는 건이 그만큼 늘어납니다.
-        </p>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-tickets" aria-labelledby="tab-tickets" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/tickets.webp" width="1600" height="1000" loading="lazy" alt="통합 티켓 — 전 계열사 접수 목록, 분류 · 담당자 · 상태 · 경과 시간" /></figure>
+      <div>
+        <h3 class="pd-panel__title">통합 티켓</h3>
+        <p class="pd-panel__desc">모든 계열사의 접수가 한 목록에 모입니다.</p>
+        <ul class="pd-panel__list">
+          <li>AI 분류 · 배정 결과가 접수마다 표시</li>
+          <li>미처리 · 완료 · 내 접수현황으로 나눠 보기</li>
+          <li>계열사를 골라 걸러 보기</li>
+        </ul>
       </div>
-      <div class="step">
-        <span class="step__no">3</span>
-        <h3 class="step__title">2선 배정과 종결</h3>
-        <p class="step__desc">
-          나머지는 분류 → 팀 → 담당자 규칙으로 자동 배정됩니다. 처리 과정과
-          결과가 그대로 이력과 통계로 남습니다.
-        </p>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-ticket" aria-labelledby="tab-ticket" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/ticket.webp" width="1600" height="1000" loading="lazy" alt="티켓 처리 화면 — 접수 내용, AI 처리 내역(요약 · 안내 · 확인 필요), 담당자 「내가 처리할게요」와 조치 내역" /></figure>
+      <div>
+        <h3 class="pd-panel__title">티켓 처리</h3>
+        <p class="pd-panel__desc">접수 내용 옆에 AI가 정리한 요약과 안내가 함께 있습니다.</p>
+        <ul class="pd-panel__list">
+          <li>AI가 판단 근거로 삼은 문장 표시</li>
+          <li>「내가 처리할게요」로 맡기</li>
+          <li>상태 저장과 조치 내역 기록</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-triage" aria-labelledby="tab-triage" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/triage.webp" width="1600" height="1000" loading="lazy" alt="AI 성과현황 — AI가 대신한 1선 업무 시간, 접수 · AI 1차 응답 · AI 담당자 배정 · 안내 메일 발송 막대, AI 처리 내역" /></figure>
+      <div>
+        <h3 class="pd-panel__title">AI 성과현황</h3>
+        <p class="pd-panel__desc">AI가 무엇을 대신했는지 숫자로 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>AI 1차 응답 · 담당자 배정 · 안내 메일 건수</li>
+          <li>대신한 1선 업무를 시간으로 환산</li>
+          <li>AI가 확신하지 못한 건은 사람이 확정</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-kb" aria-labelledby="tab-kb" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/kb.webp" width="1600" height="1000" loading="lazy" alt="지식공유 — 분류별 해결 방법 · 사내 문서 목록" /></figure>
+      <div>
+        <h3 class="pd-panel__title">지식공유</h3>
+        <p class="pd-panel__desc">한 번 해결한 방법을 팀의 지식으로 남깁니다.</p>
+        <ul class="pd-panel__list">
+          <li>분류별 해결 방법과 사내 문서</li>
+          <li>검색으로 바로 찾기</li>
+          <li>담당자가 바뀌어도 같은 답</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-reports" aria-labelledby="tab-reports" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/reports.webp" width="1600" height="1000" loading="lazy" alt="종합 보고서 — 기간 · 계열사를 골라 만드는 IT 서비스 보고서와 요약 내려받기 · 인쇄 PDF" /></figure>
+      <div>
+        <h3 class="pd-panel__title">종합 보고서</h3>
+        <p class="pd-panel__desc">월간 보고를 따로 만들지 않아도 됩니다.</p>
+        <ul class="pd-panel__list">
+          <li>기간 · 계열사를 골라 보고서 만들기</li>
+          <li>접수 · 처리 · 응답 시간 요약</li>
+          <li>요약 내려받기 · 인쇄 · PDF</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-client" aria-labelledby="tab-client" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/client.webp" width="1600" height="1000" loading="lazy" alt="총괄담당자 화면 — 계열사 전체 종합 현황과 1·2선 담당자 관리 메뉴" /></figure>
+      <div>
+        <h3 class="pd-panel__title">총괄담당자 화면</h3>
+        <p class="pd-panel__desc">고객사의 IT 총괄담당자는 따로 들어와 전체를 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>계열사 전체 접수 · 처리 현황</li>
+          <li>1 · 2선 담당자 계정과 담당그룹</li>
+          <li>보고서 · 운영 조직 · 감사 기록</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-groups" aria-labelledby="tab-groups" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/serviq/groups.webp" width="1600" height="1000" loading="lazy" alt="담당그룹 — 분류마다 담당 팀과 담당자를 정하는 배정 규칙표" /></figure>
+      <div>
+        <h3 class="pd-panel__title">배정 규칙</h3>
+        <p class="pd-panel__desc">분류마다 어느 팀, 누구에게 갈지 표 한 장으로 정합니다.</p>
+        <ul class="pd-panel__list">
+          <li>분류 → 담당 팀 → 담당자</li>
+          <li>팀은 1선 서비스데스크 · 2선 전문팀으로</li>
+          <li>총괄담당자가 화면에서 바로 수정</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 주요 기능 ═══ -->
+<!-- ═══ 확대 설명 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="pd-row">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/serviq/z-ticket.webp" width="1100" height="1495" loading="lazy" alt="티켓 상세 — 접수 내용과 AI 처리 내역: 한 줄 요약, 일반 안내, 확인 필요 항목" />
+      </div>
+      <div>
+        <div class="pd-row__no">01 · AI 분류 · 1차 안내</div>
+        <h3 class="pd-row__title">담당자가 열기 전에<br/>AI가 먼저 정리해 둡니다</h3>
+        <p class="pd-row__desc">접수 내용을 읽은 AI가 한 줄로 요약하고, 직원이 바로 해 볼 수 있는 일반 안내와 담당자가 확인해야 할 점을 나눠 적습니다. 담당자는 처음부터 다시 묻지 않고 바로 판단합니다.</p>
+        <ul class="pd-panel__list">
+          <li>요약 · 일반 안내 · 확인 필요로 나눈 정리</li>
+          <li>판단 근거가 된 문장을 원문에 표시</li>
+          <li>AI 안내는 접수 즉시 요청자 메일로</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-row pd-row--flip">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/serviq/z-triage.webp" width="1100" height="1238" loading="lazy" alt="AI 성과현황 — AI가 대신한 1선 업무 시간과 회사 규모로 환산한 담당자 수, 단계별 처리 건수" />
+      </div>
+      <div>
+        <div class="pd-row__no">02 · AI 성과현황</div>
+        <h3 class="pd-row__title">AI가 대신한 일을<br/>시간으로 보여 줍니다</h3>
+        <p class="pd-row__desc">AI 1차 응답, 담당자 배정, 안내 메일이 몇 건이었는지, 그 일을 사람이 했다면 몇 시간이었을지 계산해 보여 줍니다. 우리 회사 월 접수 건수를 넣으면 몇 명분의 일인지도 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>최근 30일 AI가 대신한 1선 업무</li>
+          <li>회사 규모로 환산한 1선 담당자 수</li>
+          <li>건마다 AI 분류 · 한 일 · 상태 내역</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-row">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/serviq/z-groups.webp" width="1100" height="1409" loading="lazy" alt="담당그룹 배정 규칙표 — M365 · PC/OA · 네트워크 · 보안 · 업무시스템 분류별 담당 팀과 담당자" />
+      </div>
+      <div>
+        <div class="pd-row__no">03 · 자동 배정</div>
+        <h3 class="pd-row__title">누가 맡을지,<br/>표 한 장으로 정해 둡니다</h3>
+        <p class="pd-row__desc">M365 · PC/OA · 네트워크 · 보안 · 업무시스템처럼 분류마다 담당 팀과 담당자를 정해 두면, AI가 나눈 분류대로 배정됩니다. 배정되면 담당자에게 문자 · 텔레그램 알림이 갑니다.</p>
+        <ul class="pd-panel__list">
+          <li>분류마다 담당 팀 · 담당자 지정</li>
+          <li>확신이 낮은 건은 사람이 먼저 확인</li>
+          <li>총괄담당자가 직접 규칙 수정</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 휴대폰 ═══ -->
+<section class="section pd-mobile">
+  <div class="container pd-mobile__inner">
+    <div>
+      <span class="eyebrow">MOBILE</span>
+      <h2 class="section__title">직원은 휴대폰으로<br/>접수하고 조회합니다</h2>
+      <p class="section__desc">접수 화면은 로그인이 필요 없고 휴대폰 폭에 맞춰집니다. 자리에 없어도 문제를 적어 보내고, 처리 상황을 직접 확인합니다.</p>
+      <ul class="pd-panel__list" style="margin-top:26px">
+        <li>앱 설치 없이 회사 접수 링크로</li>
+        <li>이름 · 연락처나 접수번호로 내역 조회</li>
+        <li>처리가 끝나면 만족도 평가</li>
+      </ul>
+    </div>
+    <div class="pd-mobile__phones">
+      <figure class="pd-phone"><img src="../img/serviq/m-intake.webp" width="600" height="1298" loading="lazy" alt="휴대폰 접수 화면 — 증상 작성 · AI 자동분류 · 담당팀 배정 안내와 요청자 정보 입력" /></figure>
+      <figure class="pd-phone"><img src="../img/serviq/m-lookup.webp" width="600" height="1298" loading="lazy" alt="휴대폰 접수내역 조회 — 이름으로 찾기 · 접수번호로 찾기" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 역할 ═══ -->
 <section class="section">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow">FEATURES</span>
-      <h2 class="section__title">주요 기능</h2>
+      <span class="eyebrow acc">FOR EVERYONE</span>
+      <h2 class="section__title">세 사람이 각자의 문으로 들어옵니다</h2>
+      <p class="section__desc">요청하는 직원, 처리하는 담당자, 전체를 보는 총괄담당자에게 각자의 화면이 있습니다.</p>
     </div>
     <div class="grid grid--3">
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg>
-        </div>
-        <h3 class="card__title">AI 분류 · 요약</h3>
-        <p class="card__desc">접수 즉시 요청 유형을 분류하고 핵심을 요약해, 담당자가 제목만 읽고도 상황을 파악합니다.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
-        </div>
-        <h3 class="card__title">표준 안내 1차 회신</h3>
-        <p class="card__desc">정해진 절차가 있는 요청은 AI가 표준 안내문으로 바로 회신합니다. 안내문은 우리 회사 기준으로 직접 다듬을 수 있습니다.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M21 3l-7 7"/><path d="m3 3 7 7"/><circle cx="12" cy="16" r="5"/></svg>
-        </div>
-        <h3 class="card__title">자동 배정 규칙</h3>
-        <p class="card__desc">분류 → 팀 → 담당자로 이어지는 배정 규칙을 조직에 맞게 설정합니다. AI가 확신하지 못한 건은 배정하지 않고 사람이 먼저 확인합니다.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="10" width="3" height="7"/><rect x="13" y="6" width="3" height="11"/></svg>
-        </div>
-        <h3 class="card__title">이력 · 통계</h3>
-        <p class="card__desc">건별 처리 이력이 자동으로 쌓이고, 기간 · 유형 · 담당자별 통계로 월간 보고를 대신합니다.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
-        </div>
-        <h3 class="card__title">메일 · 문자 알림</h3>
-        <p class="card__desc">접수 · 배정 · 종결 때마다 요청자와 담당자에게 메일과 문자로 알립니다. 「어떻게 됐어요?」 전화가 줄어듭니다.</p>
-      </div>
-      <div class="card">
-        <div class="card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        </div>
-        <h3 class="card__title">그룹 · 계열사 구조</h3>
-        <p class="card__desc">계열사 · 부서별로 접수 창구와 담당 조직을 나누고, 전체 현황은 총괄 담당자가 한 화면에서 봅니다.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ 도입 형태 ═══ -->
-<section class="section section--soft">
-  <div class="container">
-    <div class="section__head section__head--center">
-      <span class="eyebrow">DEPLOYMENT</span>
-      <h2 class="section__title">회사 사정에 맞는 도입 형태</h2>
-      <p class="section__desc">보안 정책과 예산에 따라 두 가지 중 고르실 수 있습니다.</p>
-    </div>
-    <div class="grid grid--2" style="max-width:860px;margin:0 auto;">
-      <div class="plan plan--hi">
-        <div class="plan__name">운영형 <span class="chip chip--blue" style="margin-left:6px;">클라우드</span></div>
-        <p class="plan__for">서버 없이 바로 시작하고 싶은 회사</p>
-        <ul class="plan__list">
-          <li>별도 서버 구축 없이 도입</li>
-          <li>업데이트와 백업을 CGEssence가 운영</li>
-          <li>월 구독 방식</li>
+      <div class="plan">
+        <div class="plan__name">요청하는 직원</div>
+        <p class="plan__for">로그인 없이 접수 링크로</p>
+        <ul class="plan__list plan__list--acc">
+          <li>문제 접수와 접수번호</li>
+          <li>AI 1차 안내 메일</li>
+          <li>접수 내역 조회 · 만족도 평가</li>
         </ul>
       </div>
       <div class="plan">
-        <div class="plan__name">구축형 <span class="chip chip--gray" style="margin-left:6px;">사내 서버</span></div>
-        <p class="plan__for">데이터를 사내에 두어야 하는 회사</p>
-        <ul class="plan__list">
-          <li>회사 서버에 설치 — 데이터가 밖으로 나가지 않음</li>
-          <li>사내 보안 정책 · 결재 체계에 맞춰 조정</li>
-          <li>구축 후 유지보수 계약</li>
+        <div class="plan__name">1 · 2선 처리 담당자</div>
+        <p class="plan__for">처리 담당자 콘솔</p>
+        <ul class="plan__list plan__list--acc">
+          <li>통합 티켓과 내 접수현황</li>
+          <li>맡기 · 상태 저장 · 조치 내역</li>
+          <li>수기 접수 · 지식공유 · 공지사항</li>
+          <li>배정되면 문자 · 텔레그램 알림</li>
         </ul>
       </div>
+      <div class="plan plan--acc">
+        <div class="plan__name">총괄담당자</div>
+        <p class="plan__for">고객사 IT 책임자 전용 화면</p>
+        <ul class="plan__list plan__list--acc">
+          <li>계열사 전체 현황과 AI 성과</li>
+          <li>1 · 2선 담당자 계정 · 담당그룹</li>
+          <li>배정 규칙 · 운영 조직 설정</li>
+          <li>종합 보고서와 감사 기록</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 신뢰 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">TRUST</span>
+      <h2 class="section__title">회사 정보를 다루는 만큼, 이렇게 지킵니다</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+        <h3 class="card__title">계열사별로 나뉩니다</h3>
+        <p class="card__desc">계열사 담당자 계정은 자기 회사 접수만 봅니다. 그룹 전체는 총괄담당자만 봅니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3 class="card__title">역할대로만 열립니다</h3>
+        <p class="card__desc">처리 담당자와 총괄담당자는 로그인 문부터 따로 있고, 설정 메뉴는 권한이 있는 계정에만 열립니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+        <h3 class="card__title">기록이 남습니다</h3>
+        <p class="card__desc">접수마다 처리 이력이 쌓이고, 계정 · 설정을 바꾼 일은 감사 기록으로 남습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 도입 단계 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">GET STARTED</span>
+      <h2 class="section__title">도입은 네 단계면 됩니다</h2>
+      <p class="section__desc">서버를 따로 준비하지 않고, 서비큐에 우리 회사 공간을 열어 바로 시작합니다.</p>
+    </div>
+    <div class="pd-steps">
+      <div class="pd-step"><span class="pd-step__no">1</span><h3 class="pd-step__title">도입 상담</h3><p class="pd-step__desc">임직원 수와 지금 IT 문의를 받는 방식을 들려주시면, 실제 화면으로 맞는지 함께 봅니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">2</span><h3 class="pd-step__title">회사 공간 열기</h3><p class="pd-step__desc">회사 · 계열사를 등록하면 계열사마다 접수 링크가 생깁니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">3</span><h3 class="pd-step__title">담당자 · 배정 규칙</h3><p class="pd-step__desc">1 · 2선 담당자 계정을 만들고, 분류마다 담당 팀과 담당자를 정합니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">4</span><h3 class="pd-step__title">직원에게 링크 안내</h3><p class="pd-step__desc">직원은 접수 링크를 바탕화면에 추가해 두고, 문제가 생기면 바로 적어 보냅니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 자주 묻는 질문 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">FAQ</span>
+      <h2 class="section__title">자주 묻는 질문</h2>
+    </div>
+    <div class="pd-faq">
+      <details>
+        <summary>직원도 계정을 만들어야 하나요?</summary>
+        <p>아니요. 직원은 회사 접수 링크에서 이름 · 부서 · 연락처를 적어 접수하고, 이름 · 연락처나 접수번호로 내역을 조회합니다. 계정은 처리 담당자와 총괄담당자에게만 있습니다.</p>
+      </details>
+      <details>
+        <summary>메일로 온 문의도 자동으로 접수되나요?</summary>
+        <p>메일 · 전화로 받은 문의는 담당자가 「수기 접수」로 대신 등록합니다. 이때도 AI 분류 · 요약은 똑같이 붙습니다. 다른 업무 시스템과는 웹훅으로 연결할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>AI는 무엇을 쓰나요? 접수 내용은 어디로 가나요?</summary>
+        <p>분류 · 요약 · 안내에는 외부 AI 서비스(Gemini · Claude API)를 씁니다. 그래서 접수 내용이 AI 판단을 위해 이 서비스로 전달됩니다. 사내 서버에 설치하는 경우에도 AI 판단은 같은 API를 거칩니다.</p>
+      </details>
+      <details>
+        <summary>계열사가 여러 곳인데 한 번에 쓸 수 있나요?</summary>
+        <p>네. 계열사마다 접수 링크와 담당 조직을 나누고, 그룹 전체 현황은 총괄담당자가 한 화면에서 봅니다.</p>
+      </details>
+      <details>
+        <summary>요금은 어떻게 되나요?</summary>
+        <p>월 구독(임대형)으로 쓰시며, 임직원 수와 계열사 수에 따라 달라집니다. 도입 문의로 알려 주시면 견적과 함께 안내드립니다.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -277,13 +498,13 @@
 <!-- ═══ 문의 ═══ -->
 <section class="cta" id="contact">
   <div class="container cta__inner">
-    <h2 class="cta__title">우리 회사에 맞을지 궁금하시다면</h2>
+    <h2 class="cta__title">우리 회사 IT 지원에 맞을지,<br/>실제 화면으로 먼저 확인해 보세요</h2>
     <p class="cta__desc">
-      임직원 수와 지금의 접수 방식을 알려 주시면, 시연 환경과 함께
-      도입 방안을 하루 안에 답변드립니다.
+      임직원 수와 지금 IT 문의를 받는 방식을 알려 주시면, 시연 화면과 함께
+      도입 방법을 하루 안에 답변드립니다.
     </p>
     <div class="cta__actions">
-      <a href="mailto:changgyo@cgessence.co.kr?subject=SERVIQ%20도입%20문의" class="btn btn--primary">메일로 문의하기</a>
+      <a href="mailto:changgyo@cgessence.co.kr?subject=SERVIQ%20도입%20문의" class="btn btn--acc">메일로 문의하기</a>
       <a href="tel:010-3369-5635" class="btn btn--ghost">전화 010-3369-5635</a>
     </div>
   </div>
@@ -316,14 +537,6 @@
   </div>
 </footer>
 
-<script>
-  var nav = document.getElementById('nav');
-  document.getElementById('navToggle').addEventListener('click', function () {
-    nav.classList.toggle('nav--open');
-  });
-  nav.querySelectorAll('.nav__mobile a').forEach(function (a) {
-    a.addEventListener('click', function () { nav.classList.remove('nav--open'); });
-  });
-</script>
+<script src="../js/product.js?v=1"></script>
 </body>
 </html>
