@@ -461,48 +461,6 @@
   </div>
 </section>
 
-<!-- ═══ 요금(11-04) — 금액은 결제 센터(lib/catalog.js)와 같게 ═══ -->
-<section class="section" id="pricing">
-  <div class="container">
-    <div class="section__head section__head--center">
-      <span class="eyebrow acc">PRICING</span>
-      <h2 class="section__title">구축비 없이, 쓰는 인원만큼 월 구독</h2>
-      <p class="section__desc">이용료는 학원이 냅니다. 학생 · 학부모님은 따로 내는 비용이 없습니다.</p>
-    </div>
-    <div class="pd-price">
-      <div class="pd-price__units">
-        <div class="pd-price__unit"><span>원장님 · 선생님 계정</span><b>39,000원</b><small>1명당 · 월</small></div>
-        <div class="pd-price__plus" aria-hidden="true">+</div>
-        <div class="pd-price__unit"><span>가입 학생</span><b>39,000원</b><small>30명당 · 월</small></div>
-      </div>
-      <div class="pd-calc" data-unit="39000" data-band="30">
-        <label>원장님 · 선생님 <input type="number" inputmode="numeric" min="1" max="200" value="3" data-k="acc" aria-label="원장님 · 선생님 수"> 명</label>
-        <label>학생 <input type="number" inputmode="numeric" min="1" max="3000" value="30" data-k="stu" aria-label="학생 수"> 명</label>
-        <p class="pd-calc__out">월 <b data-out>156,000원</b> <small>부가세 포함</small></p>
-      </div>
-      <table class="pd-price__ex">
-        <thead><tr><th>학원 규모</th><th>원장님 · 선생님</th><th>학생</th><th>월 요금</th></tr></thead>
-        <tbody>
-          <tr><td>공부방 · 교습소</td><td>1명</td><td>30명</td><td>78,000원</td></tr>
-          <tr><td>소형 학원</td><td>3명</td><td>30명</td><td>156,000원</td></tr>
-          <tr><td>중형 학원</td><td>6명</td><td>150명</td><td>429,000원</td></tr>
-          <tr><td>대형 학원</td><td>11명</td><td>300명</td><td>819,000원</td></tr>
-        </tbody>
-      </table>
-      <ul class="pd-price__notes">
-        <li>학생은 30명 단위로 셉니다(1~30명 = 1구간). 학부모님 계정은 세지 않습니다.</li>
-        <li>학원 등록부터 무료 체험으로 시작합니다. 체험 중 만든 학원 · 자료 · 기록은 정식 이용으로 그대로 이어집니다.</li>
-        <li>매달 같은 날 자동 결제되고, 결제 3일 전에 메일로 알려 드립니다. 해지는 언제든 할 수 있습니다(<a href="../refund/">환불 정책</a>).</li>
-      </ul>
-      <div class="pd-price__cta">
-        <a href="https://essenna-s.fly.dev/start" class="btn btn--acc">무료로 시작하기</a>
-        <a href="https://cgessence-pay.fly.dev/download/essenna-s" class="btn btn--ghost">PC 프로그램 내려받기</a>
-        <span>정식 이용은 학원 화면의 <b>⚙ 설정 → 요금 · 결제</b>에서 바로 신청합니다. 이미 구독 중이면 <a href="https://cgessence-pay.fly.dev/account" style="color:var(--acc);font-weight:700">내 구독</a>에서 인원 · 카드 · 해지를 바꿉니다.</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ 자주 묻는 질문 ═══ -->
 <section class="section section--soft">
   <div class="container">
@@ -533,7 +491,7 @@
       </details>
       <details>
         <summary>요금은 어떻게 되나요?</summary>
-        <p>원장님 · 선생님 계정 1명당 월 39,000원, 가입 학생 30명당 월 39,000원입니다(부가세 포함). 위 <a href="#pricing" style="color:var(--acc);font-weight:700">요금</a>에서 우리 학원 인원으로 계산해 보실 수 있습니다.</p>
+        <p>원장님 · 선생님 수와 학생 수에 따른 월 구독입니다. 학생 · 학부모님은 따로 내는 비용이 없습니다. 자세한 금액과 계산은 <a href="https://cgessence-pay.fly.dev/pricing/essenna-s" style="color:var(--acc);font-weight:700">요금 보기</a>에서 확인하실 수 있습니다.</p>
       </details>
       <details>
         <summary>해지 · 환불은 어떻게 하나요?</summary>
@@ -556,10 +514,10 @@
         <span class="pd-plan__no">1</span>
         <p class="pd-plan__tag">바로 쓰기</p>
         <h3>월 구독</h3>
-        <p class="pd-plan__how">원장님 · 선생님 수 + 학생 수에 따른 월 구독</p>
-        <p>학원 등록부터 무료 체험으로 시작하고, 원장님 화면 ⚙ 설정 → 요금 · 결제에서 바로 구독합니다.</p>
+        <p class="pd-plan__how">원장님 · 선생님 수와 학생 수에 따른 월 구독</p>
+        <p>학원 등록부터 무료 체험으로 시작하고, 원장님 화면 ⚙ 설정 → 요금 · 결제에서 바로 구독합니다. 학생 · 학부모님은 따로 내는 비용이 없습니다.</p><p style="margin-top:10px;font-size:0.9rem"><a href="https://essenna-s.fly.dev/start" style="color:var(--acc);font-weight:700">무료로 시작하기</a> · <a href="https://cgessence-pay.fly.dev/download/essenna-s" style="color:var(--acc);font-weight:700">PC 프로그램 내려받기</a></p>
         <ul><li>구축비 없이 매달 이용료만</li><li>매달 같은 날 자동 결제 · 결제 3일 전 안내</li><li>언제든 해지 — 결제한 기간 끝까지 사용</li></ul>
-        <div class="pd-plan__acts"><a href="https://essenna-s.fly.dev/start" class="btn btn--acc">무료로 시작하기</a><a href="#pricing" class="btn btn--ghost">요금 보기</a></div>
+        <div class="pd-plan__acts"><a href="https://cgessence-pay.fly.dev/checkout/essenna-s" class="btn btn--acc">구독 신청</a><a href="https://cgessence-pay.fly.dev/pricing/essenna-s" class="btn btn--ghost">요금 보기</a></div>
       </div>
       <div class="pd-plan">
         <span class="pd-plan__no">2</span>
@@ -623,6 +581,5 @@
 </footer>
 
 <script src="../js/product.js?v=1"></script>
-<script src="../js/pricing.js?v=1"></script>
 </body>
 </html>
