@@ -11,8 +11,8 @@
   <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
-  <link rel="stylesheet" href="../css/site.css?v=8" />
-  <link rel="stylesheet" href="../css/product.css?v=1" />
+  <link rel="stylesheet" href="../css/site.css?v=9" />
+  <link rel="stylesheet" href="../css/product.css?v=3" />
   <style>
     /* 에센나B — 에센나 캐릭터의 청록(학원용 에센나S 는 초록). 2026-11-04 서비전트 페이지 틀(product.css)로 재구성 */
     :root { --acc: #0a7ea3; --acc-deep: #075e7a; --acc-soft: #e7f5fa; --acc-line: #bfe2ee; --b: #0a7ea3; --b-deep: #075e7a; --b-soft: #e7f5fa; --b-line: #bfe2ee; }
@@ -946,6 +946,36 @@
   </div>
 </section>
 
+<!-- ═══ 요금(11-04) — 금액은 결제 센터(lib/catalog.js)와 같게. 에센나B 가격은 아직 확정 전(시험 가격) ═══ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">PRICING</span>
+      <h2 class="section__title">쓰는 PC만큼, 월 구독</h2>
+      <p class="section__desc">담당자 한 분이 회사 카드로 신청하면 라이선스 키와 설치 파일을 바로 받습니다.</p>
+    </div>
+    <div class="pd-price" style="text-align:center">
+      <span class="pd-price__chip">가격 확정 전 · 시험 가격</span>
+      <div class="pd-price__units">
+        <div class="pd-price__unit"><span>에센나B 를 켤 PC</span><b>9,900원</b><small>1대당 · 월</small></div>
+      </div>
+      <div class="pd-calc" data-unit="9900">
+        <label>PC <input type="number" inputmode="numeric" min="1" max="1000" value="10" data-k="acc" aria-label="PC 수"> 대</label>
+        <p class="pd-calc__out">월 <b data-out>99,000원</b> <small>부가세 포함</small></p>
+      </div>
+      <ul class="pd-price__notes" style="text-align:left">
+        <li>라이선스 키 하나로 구독한 PC 수만큼 켭니다. 쓰지 않는 PC는 「내 구독」에서 해제하고 다른 PC에 씁니다.</li>
+        <li>AI 연결은 회사가 계약한 AI 키(Anthropic 등)를 넣어 씁니다. AI 사용료는 그 계약에 따라 AI 회사에 냅니다.</li>
+        <li>매달 같은 날 자동 결제되고, 결제 3일 전에 메일로 알려 드립니다. 해지는 언제든 할 수 있습니다(<a href="../refund/">환불 정책</a>).</li>
+      </ul>
+      <div class="pd-price__cta">
+        <a href="https://cgessence-pay.fly.dev/checkout/essenna-b" class="btn btn--acc">구독 신청</a>
+        <span>이미 구독 중이면 <a href="https://cgessence-pay.fly.dev/account" style="color:var(--acc);font-weight:700">내 구독</a>에서 PC 수 · 카드 · 해지를 바꾸고 설치 파일을 내려받습니다.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ 자주 묻는 질문 ═══ -->
 <section class="section">
   <div class="container">
@@ -976,7 +1006,11 @@
       </details>
       <details>
         <summary>요금은 어떻게 되나요?</summary>
-        <p>직원 수와 쓰실 부서 AI에 맞춰 안내드립니다. 무료 시범으로 먼저 확인하시고, 시범 중 연결한 자료와 설정은 정식 이용으로 그대로 이어집니다.</p>
+        <p>에센나B 를 켤 PC 1대당 월 구독입니다. 위 <a href="#pricing" style="color:var(--acc);font-weight:700">요금</a>에서 PC 수로 계산해 보실 수 있습니다. 연결한 자료와 설정은 각 PC에 남아 그대로 이어집니다.</p>
+      </details>
+      <details>
+        <summary>해지 · 환불은 어떻게 하나요?</summary>
+        <p>「내 구독」에서 언제든 해지할 수 있고, 이미 결제한 기간이 끝날 때까지 그대로 씁니다. 첫 결제 후 7일 안에 PC를 한 대도 켜지 않으셨다면 전액 돌려드립니다. 자세한 기준은 <a href="../refund/" style="color:var(--acc);font-weight:700">환불 정책</a>에 있습니다.</p>
       </details>
     </div>
   </div>
@@ -1020,10 +1054,12 @@
       <span>상호 씨지에센스(CGEssence)</span><span>대표 김창교</span><span>사업자등록번호 566-30-01786</span><br/>
       <span>경기도 수원시 영통구 대학로 16, 171호</span><span>changgyo@cgessence.co.kr</span><span>010-3369-5635</span>
     </div>
+    <div class="footer__legal"><a href="../terms/">이용약관</a><a href="../privacy/" class="b">개인정보처리방침</a><a href="../refund/">환불 정책</a><a href="https://cgessence-pay.fly.dev/account">내 구독</a></div>
     <p class="footer__copy">© 2026 CGEssence. All rights reserved.</p>
   </div>
 </footer>
 
 <script src="../js/product.js?v=1"></script>
+<script src="../js/pricing.js?v=1"></script>
 </body>
 </html>

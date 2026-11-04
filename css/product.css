@@ -170,3 +170,30 @@
   .pd-scroll__view img { position: static; animation: none; }
   .pd-scroll__hint { display: none; }
 }
+
+/* ── 요금(11-04, 에센나S · 에센나B) — 단가 카드 + 계산기 + 규모별 예시 ── */
+    .pd-price { max-width: 980px; margin: 0 auto; background: #fff; border: 1px solid var(--acc-line); border-radius: 20px; padding: 34px 36px 30px; box-shadow: var(--shadow); }
+    .pd-price__units { display: flex; align-items: stretch; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .pd-price__unit { flex: 1 1 240px; max-width: 340px; background: var(--acc-soft); border-radius: 16px; padding: 20px 22px; text-align: center; }
+    .pd-price__unit span { display: block; font-weight: 700; color: var(--navy); }
+    .pd-price__unit b { display: block; font-size: 2rem; letter-spacing: -0.02em; color: var(--acc-deep); margin: 4px 0 0; }
+    .pd-price__unit small { color: var(--muted); font-size: 0.88rem; }
+    .pd-price__plus { align-self: center; font-size: 1.6rem; font-weight: 800; color: var(--ghost); }
+    .pd-price__chip { display: inline-block; margin: 0 auto 14px; padding: 5px 12px; border-radius: 999px; background: #fff4d6; color: #7a5200; font-size: 0.82rem; font-weight: 800; }
+    .pd-calc { margin: 26px auto 0; display: flex; align-items: center; justify-content: center; gap: 14px 22px; flex-wrap: wrap; padding: 18px; border: 1px dashed var(--acc-line); border-radius: 14px; }
+    .pd-calc label { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--navy); }
+    .pd-calc input { width: 88px; padding: 9px 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; font-weight: 700; text-align: center; }
+    .pd-calc__out { margin: 0; font-size: 1.08rem; color: var(--navy); }
+    .pd-calc__out b { font-size: 1.5rem; color: var(--acc-deep); }
+    .pd-calc__out small { color: var(--muted); font-weight: 500; }
+    .pd-price__ex { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 0.95rem; }
+    .pd-price__ex th { text-align: left; color: var(--ghost); font-size: 0.82rem; font-weight: 800; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+    .pd-price__ex td { padding: 11px 10px; border-bottom: 1px solid var(--line); }
+    .pd-price__ex td:last-child, .pd-price__ex th:last-child { text-align: right; font-weight: 800; color: var(--navy); }
+    .pd-price__notes { margin: 20px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 0.93rem; }
+    .pd-price__notes li { position: relative; padding-left: 18px; margin: 6px 0; }
+    .pd-price__notes li::before { content: ''; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 50%; background: var(--acc); }
+    .pd-price__notes a { color: var(--acc); font-weight: 700; text-decoration: underline; }
+    .pd-price__cta { display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .pd-price__cta span { color: var(--muted); font-size: 0.92rem; }
+    @media (max-width: 640px) { .pd-price { padding: 24px 18px; } .pd-price__plus { display: none; } .pd-price__ex { font-size: 0.86rem; } }
