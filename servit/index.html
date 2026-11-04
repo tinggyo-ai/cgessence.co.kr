@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servit — 구매부터 감가상각까지, 자산의 처음과 끝을 관리하는 자산관리 ERP</title>
+  <meta name="description" content="구매 요청 · 발주 · 입고부터 감가상각 · 월 마감, 예산, 라이선스, 유지보수 · 계약, 소모품 · 재고 실사까지. 회사 자산의 처음과 끝을 한곳에서 관리하는 CGEssence의 자산관리 ERP 서비트(Servit)입니다." />
+  <meta property="og:title" content="Servit — 자산의 처음과 끝을 한곳에서 관리하는 자산관리 ERP" />
+  <meta property="og:description" content="구매 요청과 입고, 지급과 이동, 감가상각과 재고 실사까지. CGEssence의 자산관리 ERP 서비트." />
+  <meta property="og:url" content="https://cgessence.co.kr/servit/" />
+  <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
+  <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+  <link rel="stylesheet" href="../css/site.css?v=6" />
+  <style>
+    /* 서비트 — 다른 제품 페이지와 구별되도록 짙은 주황(구매 · 재고의 색)을 쓴다 */
+    :root { --st: #b4510c; --st-deep: #8c3e09; --st-soft: #fdf0e6; }
+    .hero--servit {
+      background:
+        radial-gradient(900px 420px at 85% -10%, rgba(180,81,12,0.09), transparent 70%),
+        radial-gradient(700px 380px at 0% 110%, rgba(46,165,242,0.05), transparent 70%),
+        var(--bg);
+    }
+    .hero--servit .hero__title em { color: var(--st); }
+    .hero--servit .eyebrow, .eyebrow.st-accent { color: var(--st); }
+    .btn--st { background: var(--st); color: #fff; }
+    .btn--st:hover { background: var(--st-deep); transform: translateY(-1px); }
+    .card__icon--st { background: var(--st-soft); color: var(--st-deep); }
+    .chip--st { background: var(--st-soft); color: var(--st-deep); }
+    .plan--st { border-color: var(--st); box-shadow: var(--shadow); }
+    .plan__list--st li::before { color: var(--st); }
+    .approach--st .approach__no { color: var(--st); }
+    .approach--st .approach__img { aspect-ratio: 4 / 3; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../" class="nav__brand">
+      <img src="../img/logo-symbol.png?v=1" alt="" class="nav__brand-logo"/>
+      <span class="brand-name"><b>CG</b>Essence</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="../"           class="nav__link">회사 소개</a></li>
+      <li><a href="../serviq/"    class="nav__link">서비큐 <span style="font-size:0.8em;color:var(--ghost)">SERVIQ</span></a></li>
+      <li><a href="../servigent/" class="nav__link">서비전트 <span style="font-size:0.8em;color:var(--ghost)">그룹웨어</span></a></li>
+      <li><a href="./"            class="nav__link nav__link--on">서비트 <span style="font-size:0.8em;color:var(--ghost)">자산관리</span></a></li>
+      <li><a href="../essenna-b/" class="nav__link">에센나B <span style="font-size:0.8em;color:var(--ghost)">기업</span></a></li>
+      <li><a href="../essenna/"   class="nav__link">에센나S <span style="font-size:0.8em;color:var(--ghost)">학원</span></a></li>
+      <li><a href="#contact"      class="nav__link nav__link--cta">도입 문의</a></li>
+    </ul>
+    <button class="nav__hamburger" id="navToggle" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav__mobile">
+    <a href="../"           class="nav__link">회사 소개</a>
+    <a href="../serviq/"    class="nav__link">서비큐 SERVIQ</a>
+    <a href="../servigent/" class="nav__link">서비전트 그룹웨어</a>
+    <a href="./"            class="nav__link">서비트 자산관리</a>
+    <a href="../essenna-b/" class="nav__link">에센나B 기업</a>
+    <a href="../essenna/"   class="nav__link">에센나S 학원</a>
+    <a href="#contact"      class="nav__link">도입 문의</a>
+  </div>
+</nav>
+
+<!-- ═══ 히어로 ═══ -->
+<header class="hero hero--servit">
+  <div class="container hero__inner">
+    <div>
+      <span class="eyebrow">SERVIT · 자산관리 ERP</span>
+      <h1 class="hero__title">자산의 <em>처음과 끝</em>을<br/>한곳에서 관리합니다</h1>
+      <p class="hero__desc">
+        구매 요청과 발주, 입고와 지급, 감가상각과 재고 실사, 폐기 · 매각까지 — 회사 자산이
+        거치는 모든 단계를 하나의 화면에 모았습니다. 입고하면 자산이 저절로 등록되고,
+        장부가와 감가상각도 함께 계산됩니다.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--st">도입 문의</a>
+        <a href="#features" class="btn btn--ghost">주요 기능 보기</a>
+      </div>
+      <p class="hero__note">웹 브라우저로 접속합니다 — 따로 설치할 것이 없습니다.</p>
+    </div>
+    <div class="hero__media">
+      <div class="mock" aria-hidden="true">
+        <div class="mock__bar">
+          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
+          <span class="mock__bar-title">Servit — 처리할 일</span>
+        </div>
+        <div class="mock__body">
+          <div class="ticket">
+            <div class="ticket__txt">
+              <div class="ticket__title">PR-202611-0003 노트북 5대 구매</div>
+              <div class="ticket__meta">개발팀 요청 · 승인 대기</div>
+            </div>
+            <span class="chip chip--st">구매</span>
+          </div>
+          <div class="ticket">
+            <div class="ticket__txt">
+              <div class="ticket__title">PO-202611-0002 모니터 10대</div>
+              <div class="ticket__meta">납기 D-2 · 부분입고</div>
+            </div>
+            <span class="chip chip--blue">발주</span>
+          </div>
+          <div class="ticket">
+            <div class="ticket__txt">
+              <div class="ticket__title">디자인 프로그램 구독</div>
+              <div class="ticket__meta">25/24석 · 1석 초과</div>
+            </div>
+            <span class="chip chip--gray">라이선스</span>
+          </div>
+          <div class="ticket">
+            <div class="ticket__txt">
+              <div class="ticket__title">복합기 유지보수 계약</div>
+              <div class="ticket__meta">D-14 · 자동 갱신</div>
+            </div>
+            <span class="chip chip--gray">계약</span>
+          </div>
+          <div class="ticket">
+            <div class="ticket__txt">
+              <div class="ticket__title">A4 복사용지</div>
+              <div class="ticket__meta">재고 3박스 / 안전 10박스</div>
+            </div>
+            <span class="chip chip--green">소모품</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 문제 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow st-accent">PROBLEM</span>
+      <h2 class="section__title">자산 대장은 엑셀로, 구매는 메일로,<br/>감가상각은 결산 때마다 따로 계산한다면</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3 class="card__title">대장과 실제가 다른 자산</h3>
+        <p class="card__desc">
+          누가 어떤 노트북을 쓰는지, 창고에 무엇이 남아 있는지 엑셀 대장과 실제가
+          어긋나기 시작하면 하나하나 다시 확인해야 합니다.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+        </div>
+        <h3 class="card__title">여러 번 옮겨 적는 구매</h3>
+        <p class="card__desc">
+          구매는 품의로, 발주는 메일로, 들어온 물건은 다시 대장에 — 같은 정보를
+          여러 번 손으로 옮겨 적습니다.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3 class="card__title">닥쳐서야 챙기는 날짜</h3>
+        <p class="card__desc">
+          라이선스 · 계약 만료와 감가상각 계산은 갱신일이나 결산이 다가와서야
+          부랴부랴 챙기게 됩니다.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 주요 기능 ═══ -->
+<section class="section section--soft" id="features">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow st-accent">FEATURES</span>
+      <h2 class="section__title">구매부터 폐기까지 한 흐름으로</h2>
+      <p class="section__desc">승인을 기다리는 구매 요청, 만료가 다가온 라이선스 · 계약, 안전 재고 밑으로 내려간 소모품은 <span style="white-space:nowrap">「처리할 일」에</span> 먼저 모입니다.</p>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
+        </div>
+        <h3 class="card__title">자산 대장</h3>
+        <p class="card__desc">자산번호를 분류별로 자동으로 매기고, 지급 · 반납 · 이동 · 폐기 · 매각까지 자산마다 이력이 남습니다. 지금 쓰는 대장은 엑셀 양식으로 한 번에 옮깁니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </div>
+        <h3 class="card__title">구매 · 발주 · 입고</h3>
+        <p class="card__desc">구매 요청을 승인하면 발주로 이어지고, 입고 검수를 마치면 자산이 자동으로 등록됩니다. 소모품은 재고에, 소프트웨어는 라이선스 수량에 더해집니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 7l4 4 3-3 5 5"/></svg>
+        </div>
+        <h3 class="card__title">감가상각 · 월 마감</h3>
+        <p class="card__desc">정액법 · 정률법으로 달마다 나눠 상각하고, 정률법은 법인세법 상각률을 따릅니다. 달을 마감하면 자산별 상각액이 계정 · 부서별로 확정됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+        </div>
+        <h3 class="card__title">예산 · 총소유비용</h3>
+        <p class="card__desc">부서별로 자산구매 · 소프트웨어 · 유지보수 · 소모품 예산을 세우면, 구매와 유지보수 기록이 집행액으로 저절로 모입니다. 자산마다 구매가에 유지보수 · 계약 비용을 더한 총소유비용(TCO)도 봅니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg>
+        </div>
+        <h3 class="card__title">라이선스 · 유지보수 · 계약</h3>
+        <p class="card__desc">소프트웨어 좌석을 임직원에게 할당하고 초과 · 만료를 알려 줍니다. 수리 · 점검 이력과 다음 점검 일정, 유지보수 · 임대 · 구독 계약을 함께 관리합니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4h-4"/></svg>
+        </div>
+        <h3 class="card__title">소모품 · 재고 실사</h3>
+        <p class="card__desc">소모품 입출고와 안전 재고를 관리합니다. 자산번호와 QR 코드가 든 라벨을 인쇄해 붙이면, 실사 때 리더기로 읽어 바로 확인하고 휴대폰으로 찍어 자산 정보를 엽니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 역할 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow st-accent">FOR EVERYONE</span>
+      <h2 class="section__title">같은 장부, 역할에 맞는 권한</h2>
+      <p class="section__desc">계정마다 권한을 나눠 맡깁니다. 현황과 보고서는 엑셀로 내려받습니다.</p>
+    </div>
+    <div class="grid grid--3">
+      <div class="plan">
+        <div class="plan__name">조회 전용</div>
+        <p class="plan__for">보기만 하고 바꾸지 않습니다</p>
+        <ul class="plan__list plan__list--st">
+          <li>자산 대장과 자산별 이력 조회</li>
+          <li>감가상각 · 예산 · 총소유비용 현황</li>
+          <li>부서별 · 노후 자산 · 연도별 추이 보고서</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <div class="plan__name">부관리자</div>
+        <p class="plan__for">매일의 자산 업무를 처리합니다</p>
+        <ul class="plan__list plan__list--st">
+          <li>자산 등록과 지급 · 반납 · 이동 · 처분</li>
+          <li>구매 요청 · 발주 · 입고 검수</li>
+          <li>라이선스 할당 · 유지보수 기록</li>
+          <li>소모품 입출고와 재고 실사</li>
+        </ul>
+      </div>
+      <div class="plan plan--st">
+        <div class="plan__name">마스터 관리자</div>
+        <p class="plan__for">승인과 마감을 맡습니다</p>
+        <ul class="plan__list plan__list--st">
+          <li>구매 요청 승인 · 반려</li>
+          <li>감가상각 월 마감</li>
+          <li>계정 · 권한과 회사 설정</li>
+          <li>감사 로그 확인</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 신뢰 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow st-accent">TRUST</span>
+      <h2 class="section__title">회사 장부를 다루는 만큼, 이렇게 지킵니다</h2>
+    </div>
+    <div class="grid grid--3">
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h3 class="card__title">권한은 서버에서 확인합니다</h3>
+        <p class="card__desc">조회 전용 계정은 아무것도 바꿀 수 없고, 승인 · 마감 · 계정 관리는 마스터 관리자만 합니다. 화면이 아니라 서버에서 막습니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="card__title">비밀번호를 지킵니다</h3>
+        <p class="card__desc">비밀번호는 되돌릴 수 없는 방식(해시)으로 저장합니다. 로그인 실패가 반복되면 10분 동안 시도를 막고, 30분 동안 쓰지 않으면 저절로 로그아웃됩니다.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon card__icon--st">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        </div>
+        <h3 class="card__title">기록이 남습니다</h3>
+        <p class="card__desc">누가 언제 무엇을 바꿨는지 감사 로그로 남고, 자산마다 등록부터 지급 · 이동 · 처분까지의 이력이 쌓입니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 시작 ═══ -->
+<section class="section">
+  <div class="container approach approach--st">
+    <img class="approach__img" src="../img/photos/biz-servit.jpg" alt="" loading="lazy" />
+    <div>
+      <span class="eyebrow st-accent">GET STARTED</span>
+      <h2 class="section__title">시작은 이렇게 간단합니다</h2>
+      <p class="section__desc">기준정보를 정하고 지금의 대장을 옮기면 바로 씁니다. 따로 설치할 것이 없습니다.</p>
+      <div class="approach__list">
+        <div class="approach__item">
+          <span class="approach__no">01</span>
+          <div><h3 class="approach__title">기준정보</h3><p class="approach__desc">부서 · 위치 · 자산 분류를 정하고, 임직원은 엑셀 한 장으로 한 번에 등록합니다.</p></div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no">02</span>
+          <div><h3 class="approach__title">기존 자산 옮기기</h3><p class="approach__desc">지금 쓰는 자산 대장과 라이선스 목록을 등록 양식에 맞춰 엑셀로 올립니다.</p></div>
+        </div>
+        <div class="approach__item">
+          <span class="approach__no">03</span>
+          <div><h3 class="approach__title">라벨 붙이고 시작</h3><p class="approach__desc">QR 라벨을 인쇄해 붙이면, 그다음부터 구매 · 입고 · 지급 · 실사가 한 흐름으로 이어집니다.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 문의 ═══ -->
+<section class="cta" id="contact">
+  <div class="container cta__inner">
+    <h2 class="cta__title">우리 회사 자산 관리에 맞을지 궁금하시다면</h2>
+    <p class="cta__desc">
+      관리하는 자산 수와 지금의 대장 · 구매 방식을 알려 주시면, 시연 화면과 함께
+      도입 방법을 하루 안에 답변드립니다.
+    </p>
+    <div class="cta__actions">
+      <a href="mailto:changgyo@cgessence.co.kr?subject=Servit%20도입%20문의" class="btn btn--st">메일로 문의하기</a>
+      <a href="tel:010-3369-5635" class="btn btn--ghost">전화 010-3369-5635</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 푸터 ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <a href="../" class="footer__brand">
+        <img src="../img/logo-symbol.png?v=1" alt="" class="footer__brand-logo"/>
+        <span class="brand-name"><b>CG</b>Essence</span>
+      </a>
+      <div class="footer__links">
+        <a href="../">회사 소개</a>
+        <a href="../serviq/">서비큐</a>
+        <a href="../servigent/">서비전트</a>
+        <a href="./">서비트</a>
+        <a href="../essenna-b/">에센나B</a>
+        <a href="../essenna/">에센나S</a>
+        <a href="#contact">도입 문의</a>
+      </div>
+    </div>
+    <div class="footer__info">
+      <span>상호 씨지에센스(CGEssence)</span><span>대표 김창교</span><span>사업자등록번호 566-30-01786</span><br/>
+      <span>경기도 수원시 영통구 대학로 16, 171호</span><span>changgyo@cgessence.co.kr</span><span>010-3369-5635</span>
+    </div>
+    <p class="footer__copy">© 2026 CGEssence. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('nav');
+  document.getElementById('navToggle').addEventListener('click', function () {
+    nav.classList.toggle('nav--open');
+  });
+  nav.querySelectorAll('.nav__mobile a').forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('nav--open'); });
+  });
+</script>
+</body>
+</html>

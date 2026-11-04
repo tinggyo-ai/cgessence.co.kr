@@ -15,5 +15,6 @@
 | biz-essenna.jpg | https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8 |
 | biz-essenna-b.jpg | https://images.unsplash.com/photo-1519389950473-47ba0277781c |
 | biz-servigent.jpg | https://images.unsplash.com/photo-1450101499163-c8848c66ca85 |
+| biz-servit.jpg | https://unsplash.com/photos/laptops-on-a-table-Zv9Oh0dnDBs (서비트 앱 로그인 화면과 같은 사진) |
 | ceo-office.jpg | https://images.unsplash.com/photo-1497215728101-856f4ea42174 |
 | band-skyscrapers.jpg | https://images.unsplash.com/photo-1486406146926-c627a92ad1ab |
