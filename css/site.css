@@ -358,15 +358,28 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
 .value__no { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.12em; color: var(--blue); }
 .value__title { margin-top: 8px; font-size: 1.15rem; font-weight: 800; }
 .value__desc { margin-top: 10px; font-size: 0.93rem; color: var(--muted); }
-.formula {
-  margin-top: 40px; padding: 30px 36px; border-radius: 16px;
-  background: var(--navy); color: #fff;
-  display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+/* 합산 띠: 가치 카드 4장과 같은 칸(4열 · 18px 간격)에 「업무 + 시간 + 품질 + 비용」, 아래 남색 띠에 「= 일의 효과 극대화」 */
+.formula { margin-top: 18px; }
+.formula__row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.formula__cell {
+  position: relative; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 12px;
+  border-radius: 14px; background: var(--bg-soft); border: 1px solid var(--line); font-size: 1.2rem; font-weight: 800; color: var(--navy);
 }
-.formula__eq { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 1.05rem; font-weight: 700; }
-.formula__eq span { padding: 7px 14px; border-radius: 999px; background: rgba(255,255,255,0.1); }
-.formula__eq i { font-style: normal; color: #7cc4ff; }
-.formula__result { font-size: 1.15rem; font-weight: 800; color: #7cc4ff; }
+.formula__arrow { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #e3eefc; color: var(--blue); }
+.formula__cell--up .formula__arrow { background: #dcf5ea; color: var(--green-deep); }
+.formula__plus {
+  position: absolute; right: -9px; top: 50%; transform: translate(50%, -50%); z-index: 1;
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: #fff; border: 1px solid var(--line); color: var(--blue); font-style: normal; font-weight: 800; font-size: 1rem;
+}
+.formula__total {
+  position: relative; margin-top: 34px; padding: 30px 24px 28px; border-radius: 16px; background: var(--navy);
+  color: #fff; text-align: center; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em;
+}
+.formula__eq {
+  position: absolute; left: 50%; top: 0; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--sky); color: #fff; font-size: 1.5rem; font-weight: 700; border: 4px solid #fff;
+}
 
 /* 서비스 방식 */
 .approach { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: center; }
@@ -434,6 +447,8 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
   .ceo__img { aspect-ratio: 16 / 9; }
   .biz--6 { grid-template-columns: 1fr 1fr; }
   .biz--6 .biz__card { padding: 30px 26px; }
+  .formula__row { grid-template-columns: repeat(2, 1fr); }
+  .formula__cell:nth-child(2n) .formula__plus { display: none; }  /* 2열일 때 줄 끝의 + 는 숨김 */
 }
 @media (max-width: 640px) {
   .hero-photo { min-height: 0; padding: 130px 0 90px; }
@@ -443,7 +458,11 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
   .biz--6 .biz__card { min-height: 300px; padding: 28px 24px; }
   .biz-band { padding: 72px 0; }
   .story__logo { padding: 24px; }
-  .formula { padding: 24px; }
+  .formula__row { grid-template-columns: repeat(4, 1fr); gap: 10px; }  /* 휴대폰: 카드는 1열이지만 합산은 한 줄로 */
+  .formula__cell { flex-direction: column; gap: 6px; padding: 14px 4px; font-size: 1rem; }
+  .formula__cell:nth-child(2n) .formula__plus { display: grid; }
+  .formula__plus { right: -5px; width: 22px; height: 22px; font-size: 0.85rem; }
+  .formula__total { font-size: 1.3rem; padding: 28px 18px 22px; }
   .info__cell--wide { grid-column: auto; }
   .value__img { aspect-ratio: 16 / 9; }
 }
