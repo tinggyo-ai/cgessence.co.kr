@@ -4,33 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servit — 구매부터 감가상각까지, 자산의 처음과 끝을 관리하는 자산관리 ERP</title>
-  <meta name="description" content="구매 요청 · 발주 · 입고부터 감가상각 · 월 마감, 예산, 라이선스, 유지보수 · 계약, 소모품 · 재고 실사까지. 회사 자산의 처음과 끝을 한곳에서 관리하는 CGEssence의 자산관리 ERP 서비트(Servit)입니다." />
+  <meta name="description" content="구매 요청 · 발주 · 입고부터 감가상각 · 월 마감, 예산 · 총소유비용, 라이선스, 유지보수 · 계약, 소모품 · 재고 실사까지. 회사 자산의 처음과 끝을 한곳에서 관리하는 CGEssence의 자산관리 ERP 서비트(Servit)입니다." />
   <meta property="og:title" content="Servit — 자산의 처음과 끝을 한곳에서 관리하는 자산관리 ERP" />
-  <meta property="og:description" content="구매 요청과 입고, 지급과 이동, 감가상각과 재고 실사까지. CGEssence의 자산관리 ERP 서비트." />
+  <meta property="og:description" content="구매 요청과 입고, 감가상각과 월 마감, 라이선스와 계약, QR 라벨과 재고 실사까지. CGEssence의 자산관리 ERP 서비트." />
   <meta property="og:url" content="https://cgessence.co.kr/servit/" />
+  <meta property="og:image" content="https://cgessence.co.kr/img/servit/og-servit.jpg" />
   <link rel="icon" type="image/png" href="../img/favicon.png?v=1" />
   <link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
   <link rel="stylesheet" href="../css/site.css?v=8" />
+  <link rel="stylesheet" href="../css/product.css?v=1" />
   <style>
-    /* 서비트 — 다른 제품 페이지와 구별되도록 짙은 주황(구매 · 재고의 색)을 쓴다 */
-    :root { --st: #b4510c; --st-deep: #8c3e09; --st-soft: #fdf0e6; }
-    .hero--servit {
-      background:
-        radial-gradient(900px 420px at 85% -10%, rgba(180,81,12,0.09), transparent 70%),
-        radial-gradient(700px 380px at 0% 110%, rgba(46,165,242,0.05), transparent 70%),
-        var(--bg);
-    }
-    .hero--servit .hero__title em { color: var(--st); }
-    .hero--servit .eyebrow, .eyebrow.st-accent { color: var(--st); }
-    .btn--st { background: var(--st); color: #fff; }
-    .btn--st:hover { background: var(--st-deep); transform: translateY(-1px); }
-    .card__icon--st { background: var(--st-soft); color: var(--st-deep); }
-    .chip--st { background: var(--st-soft); color: var(--st-deep); }
-    .plan--st { border-color: var(--st); box-shadow: var(--shadow); }
-    .plan__list--st li::before { color: var(--st); }
-    .approach--st .approach__no { color: var(--st); }
-    .approach--st .approach__img { aspect-ratio: 4 / 3; }
+    /* 서비트 — 다른 제품 페이지와 구별되도록 짙은 주황(구매 · 재고의 색). 화면 캡처는 가상 회사 데이터로 찍었다. */
+    :root { --acc: #b4510c; --acc-deep: #8c3e09; --acc-soft: #fdf0e6; --acc-line: #e9e2db; }
+    .pd-hero { background: radial-gradient(1100px 520px at 50% -8%, rgba(180,81,12,0.10), transparent 70%), linear-gradient(#fbf8f5, #fff 62%); }
+    .pd-row__media { background: linear-gradient(150deg, #fbf1e8, #fbf9f7); }
   </style>
 </head>
 <body>
@@ -68,163 +56,338 @@
 </nav>
 
 <!-- ═══ 히어로 ═══ -->
-<header class="hero hero--servit">
-  <div class="container hero__inner">
-    <div>
-      <span class="eyebrow">SERVIT · 자산관리 ERP</span>
-      <h1 class="hero__title">자산의 <em>처음과 끝</em>을<br/>한곳에서 관리합니다</h1>
-      <p class="hero__desc">
-        구매 요청과 발주, 입고와 지급, 감가상각과 재고 실사, 폐기 · 매각까지 — 회사 자산이
-        거치는 모든 단계를 하나의 화면에 모았습니다. 입고하면 자산이 저절로 등록되고,
-        장부가와 감가상각도 함께 계산됩니다.
-      </p>
-      <div class="hero__actions">
-        <a href="#contact" class="btn btn--st">도입 문의</a>
-        <a href="#features" class="btn btn--ghost">주요 기능 보기</a>
-      </div>
-      <p class="hero__note">웹 브라우저로 접속합니다 — 따로 설치할 것이 없습니다.</p>
+<header class="pd-hero">
+  <div class="container">
+    <span class="eyebrow">SERVIT · 자산관리 ERP</span>
+    <h1 class="pd-hero__title">구매부터 감가상각까지,<br/>자산의 <em>처음과 끝</em>을 한곳에서</h1>
+    <p class="pd-hero__desc">
+      구매 요청과 발주, 입고와 지급, 감가상각과 월 마감, 라이선스 · 계약 · 소모품 · 재고 실사까지 —
+      회사 자산이 거치는 모든 단계를 하나의 화면에 모았습니다. 입고하면 자산이 저절로 등록되고, 장부가도 함께 계산됩니다.
+    </p>
+    <div class="pd-hero__actions">
+      <a href="#contact" class="btn btn--acc">도입 상담</a>
+      <a href="#screens" class="btn btn--ghost">실제 화면 보기</a>
     </div>
-    <div class="hero__media">
-      <div class="mock" aria-hidden="true">
-        <div class="mock__bar">
-          <span class="mock__dot"></span><span class="mock__dot"></span><span class="mock__dot"></span>
-          <span class="mock__bar-title">Servit — 처리할 일</span>
+    <div class="pd-hero__chips" aria-label="들어 있는 기능">
+      <span>자산 대장</span><span>구매 · 발주 · 입고</span><span>감가상각</span><span>예산 · TCO</span><span>라이선스</span><span>유지보수 · 계약</span><span>소모품 · 실사</span><span>보고서</span>
+    </div>
+    <div class="pd-stage">
+      <figure class="pd-browser">
+        <div class="pd-browser__bar" aria-hidden="true">
+          <span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span>
+          <span class="pd-browser__url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Servit · 홈</span>
         </div>
-        <div class="mock__body">
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">PR-202611-0003 노트북 5대 구매</div>
-              <div class="ticket__meta">개발팀 요청 · 승인 대기</div>
-            </div>
-            <span class="chip chip--st">구매</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">PO-202611-0002 모니터 10대</div>
-              <div class="ticket__meta">납기 D-2 · 부분입고</div>
-            </div>
-            <span class="chip chip--blue">발주</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">디자인 프로그램 구독</div>
-              <div class="ticket__meta">25/24석 · 1석 초과</div>
-            </div>
-            <span class="chip chip--gray">라이선스</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">복합기 유지보수 계약</div>
-              <div class="ticket__meta">D-14 · 자동 갱신</div>
-            </div>
-            <span class="chip chip--gray">계약</span>
-          </div>
-          <div class="ticket">
-            <div class="ticket__txt">
-              <div class="ticket__title">A4 복사용지</div>
-              <div class="ticket__meta">재고 3박스 / 안전 10박스</div>
-            </div>
-            <span class="chip chip--green">소모품</span>
-          </div>
-        </div>
-      </div>
+        <img src="../img/servit/dashboard.webp" width="1920" height="1200"
+             alt="서비트 홈 대시보드 — 보유 자산 · 취득가액 · 현재 장부가 · 올해 감가상각비 · 라이선스 · 내용연수 경과 요약, 처리할 일 목록, 분류별 장부가액" />
+      </figure>
+      <figure class="pd-phone" aria-hidden="true">
+        <img src="../img/servit/m-alerts.webp" width="600" height="1298" alt="" />
+      </figure>
     </div>
   </div>
 </header>
 
-<!-- ═══ 문제 ═══ -->
-<section class="section">
+<!-- ═══ 기능 한눈에 ═══ -->
+<section class="section section--soft" style="padding-top:96px">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow st-accent">PROBLEM</span>
-      <h2 class="section__title">자산 대장은 엑셀로, 구매는 메일로,<br/>감가상각은 결산 때마다 따로 계산한다면</h2>
+      <span class="eyebrow acc">ALL IN ONE</span>
+      <h2 class="section__title">엑셀 대장 여러 개가 하던 일을<br/>하나의 ERP로</h2>
+      <p class="section__desc">자산을 사고, 나눠 주고, 상각하고, 정리하는 일까지 아홉 가지 기능이 서로 이어져 있습니다.</p>
     </div>
-    <div class="grid grid--3">
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        </div>
-        <h3 class="card__title">대장과 실제가 다른 자산</h3>
-        <p class="card__desc">
-          누가 어떤 노트북을 쓰는지, 창고에 무엇이 남아 있는지 엑셀 대장과 실제가
-          어긋나기 시작하면 하나하나 다시 확인해야 합니다.
-        </p>
+    <div class="pd-modules">
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></span>
+        <div><div class="pd-module__name">자산 대장</div><p class="pd-module__desc">자산번호를 분류별로 자동으로 매기고, 지급 · 반납 · 이동 · 폐기 · 매각 이력이 자산마다 남습니다.</p></div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
-        </div>
-        <h3 class="card__title">여러 번 옮겨 적는 구매</h3>
-        <p class="card__desc">
-          구매는 품의로, 발주는 메일로, 들어온 물건은 다시 대장에 — 같은 정보를
-          여러 번 손으로 옮겨 적습니다.
-        </p>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></span>
+        <div><div class="pd-module__name">구매 · 발주 · 입고</div><p class="pd-module__desc">구매 요청을 승인하면 발주로, 입고 검수를 마치면 자산이 자동 등록됩니다.</p></div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3 class="card__title">닥쳐서야 챙기는 날짜</h3>
-        <p class="card__desc">
-          라이선스 · 계약 만료와 감가상각 계산은 갱신일이나 결산이 다가와서야
-          부랴부랴 챙기게 됩니다.
-        </p>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 7l4 4 3-3 5 5"/></svg></span>
+        <div><div class="pd-module__name">감가상각 · 월 마감</div><p class="pd-module__desc">정액법 · 정률법으로 달마다 나눠 상각하고, 달을 마감하면 계정 · 부서별 금액이 확정됩니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg></span>
+        <div><div class="pd-module__name">예산 · 총소유비용</div><p class="pd-module__desc">부서별 예산에 구매 · 유지보수 기록이 집행액으로 모이고, 자산마다 총소유비용(TCO)을 봅니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3M7 9l3 3-3 3M13 15h4"/></svg></span>
+        <div><div class="pd-module__name">라이선스</div><p class="pd-module__desc">소프트웨어 좌석을 임직원에게 할당하고, 보유 수량을 넘겨 쓰거나 만료가 다가오면 알려 줍니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></span>
+        <div><div class="pd-module__name">유지보수 · 계약</div><p class="pd-module__desc">수리 · 점검 이력과 다음 점검 일정, 유지보수 · 임대 · 구독 계약과 만료일을 함께 관리합니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg></span>
+        <div><div class="pd-module__name">소모품 재고</div><p class="pd-module__desc">복사용지 · 토너 같은 소모품의 입고 · 출고와 안전 재고를 관리합니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4h-4"/></svg></span>
+        <div><div class="pd-module__name">QR 라벨 · 재고 실사</div><p class="pd-module__desc">자산번호와 QR이 든 라벨을 인쇄해 붙이고, 실사 때 리더기로 읽어 그 자리에서 확인합니다.</p></div>
+      </div>
+      <div class="pd-module">
+        <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></span>
+        <div><div class="pd-module__name">보고서</div><p class="pd-module__desc">자산 종합 현황, 부서별, 노후 · 교체 대상, 연도별 추이를 보고 엑셀로 내려받습니다.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ 주요 기능 ═══ -->
-<section class="section section--soft" id="features">
+<!-- ═══ 지금 → 서비트 ═══ -->
+<section class="section">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow st-accent">FEATURES</span>
-      <h2 class="section__title">구매부터 폐기까지 한 흐름으로</h2>
-      <p class="section__desc">승인을 기다리는 구매 요청, 만료가 다가온 라이선스 · 계약, 안전 재고 밑으로 내려간 소모품은 <span style="white-space:nowrap">「처리할 일」에</span> 먼저 모입니다.</p>
+      <span class="eyebrow acc">BEFORE · AFTER</span>
+      <h2 class="section__title">지금 자산을 이렇게 관리하고 계신다면</h2>
+      <p class="section__desc">대장은 엑셀로, 구매는 메일로, 감가상각은 결산 때 따로 — 흩어진 장부를 하나로 잇습니다.</p>
     </div>
-    <div class="grid grid--3">
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg>
-        </div>
-        <h3 class="card__title">자산 대장</h3>
-        <p class="card__desc">자산번호를 분류별로 자동으로 매기고, 지급 · 반납 · 이동 · 폐기 · 매각까지 자산마다 이력이 남습니다. 지금 쓰는 대장은 엑셀 양식으로 한 번에 옮깁니다.</p>
+    <div class="pd-compare">
+      <div class="pd-compare__row pd-compare__row--head"><div>업무</div><div>지금</div><div class="pd-compare__arrow"></div><div class="pd-compare__after">서비트로</div></div>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">자산 대장</div>
+        <div class="pd-compare__before">누가 어떤 노트북을 쓰는지 엑셀 대장과 실제가 어긋납니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">지급 · 반납 · 이동이 기록되는 대로 대장이 맞춰지고, 이력이 자산마다 남습니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
-        </div>
-        <h3 class="card__title">구매 · 발주 · 입고</h3>
-        <p class="card__desc">구매 요청을 승인하면 발주로 이어지고, 입고 검수를 마치면 자산이 자동으로 등록됩니다. 소모품은 재고에, 소프트웨어는 라이선스 수량에 더해집니다.</p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">구매</div>
+        <div class="pd-compare__before">품의는 결재로, 발주는 메일로, 들어온 물건은 다시 대장에 옮겨 적습니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">요청 → 승인 → 발주 → 입고가 이어지고, 입고하면 자산이 자동 등록됩니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 7l4 4 3-3 5 5"/></svg>
-        </div>
-        <h3 class="card__title">감가상각 · 월 마감</h3>
-        <p class="card__desc">정액법 · 정률법으로 달마다 나눠 상각하고, 정률법은 법인세법 상각률을 따릅니다. 달을 마감하면 자산별 상각액이 계정 · 부서별로 확정됩니다.</p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">감가상각</div>
+        <div class="pd-compare__before">결산 때마다 자산별 상각비를 엑셀로 다시 계산합니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">달마다 상각비가 계산되고, 월 마감으로 계정 · 부서별 금액을 확정합니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 15.9A10 10 0 1 1 8 2.8"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
-        </div>
-        <h3 class="card__title">예산 · 총소유비용</h3>
-        <p class="card__desc">부서별로 자산구매 · 소프트웨어 · 유지보수 · 소모품 예산을 세우면, 구매와 유지보수 기록이 집행액으로 저절로 모입니다. 자산마다 구매가에 유지보수 · 계약 비용을 더한 총소유비용(TCO)도 봅니다.</p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">라이선스 · 계약</div>
+        <div class="pd-compare__before">갱신일이 지나서야 만료를 알고, 좌석이 남는지 모자라는지 모릅니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">초과 사용 · 만료 임박이 홈 화면 「처리할 일」에 먼저 올라옵니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg>
-        </div>
-        <h3 class="card__title">라이선스 · 유지보수 · 계약</h3>
-        <p class="card__desc">소프트웨어 좌석을 임직원에게 할당하고 초과 · 만료를 알려 줍니다. 수리 · 점검 이력과 다음 점검 일정, 유지보수 · 임대 · 구독 계약을 함께 관리합니다.</p>
+      <div class="pd-compare__row">
+        <div class="pd-compare__what">재고 실사</div>
+        <div class="pd-compare__before">출력한 목록을 들고 다니며 하나씩 체크합니다</div>
+        <div class="pd-compare__arrow">→</div>
+        <div class="pd-compare__after">QR 라벨을 리더기로 읽으면 확인 처리되고, 남은 자산이 바로 보입니다</div>
       </div>
-      <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM20 14v.01M14 20h.01M17 17h4v4h-4"/></svg>
-        </div>
-        <h3 class="card__title">소모품 · 재고 실사</h3>
-        <p class="card__desc">소모품 입출고와 안전 재고를 관리합니다. 자산번호와 QR 코드가 든 라벨을 인쇄해 붙이면, 실사 때 리더기로 읽어 바로 확인하고 휴대폰으로 찍어 자산 정보를 엽니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 실제 화면 ═══ -->
+<section class="section section--soft" id="screens">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">REAL SCREENS</span>
+      <h2 class="section__title">실제 화면으로 먼저 보세요</h2>
+      <p class="section__desc">아래 화면은 모두 서비트를 그대로 찍은 것입니다. 이름 · 거래처 · 금액은 설명을 위한 가상 회사 자료입니다.</p>
+    </div>
+    <div class="pd-tabs" role="tablist" aria-label="서비트 화면">
+      <button class="pd-tab" role="tab" id="tab-assets" aria-controls="panel-assets" aria-selected="true">자산 대장</button>
+      <button class="pd-tab" role="tab" id="tab-purchase" aria-controls="panel-purchase" aria-selected="false" tabindex="-1">구매 요청</button>
+      <button class="pd-tab" role="tab" id="tab-dep" aria-controls="panel-dep" aria-selected="false" tabindex="-1">감가상각</button>
+      <button class="pd-tab" role="tab" id="tab-budget" aria-controls="panel-budget" aria-selected="false" tabindex="-1">예산</button>
+      <button class="pd-tab" role="tab" id="tab-license" aria-controls="panel-license" aria-selected="false" tabindex="-1">라이선스</button>
+      <button class="pd-tab" role="tab" id="tab-contract" aria-controls="panel-contract" aria-selected="false" tabindex="-1">계약</button>
+      <button class="pd-tab" role="tab" id="tab-stock" aria-controls="panel-stock" aria-selected="false" tabindex="-1">소모품</button>
+      <button class="pd-tab" role="tab" id="tab-report" aria-controls="panel-report" aria-selected="false" tabindex="-1">보고서</button>
+    </div>
+
+    <div class="pd-panel" role="tabpanel" id="panel-assets" aria-labelledby="tab-assets">
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/assets.webp" width="1600" height="1000" alt="자산 대장 — 상태별 분류, 자산번호 · 자산명 · 사용자 · 위치 · 상태 · 취득일 · 취득가 · 장부가 목록" /></figure>
+      <div>
+        <h3 class="pd-panel__title">자산 대장</h3>
+        <p class="pd-panel__desc">회사의 모든 자산을 상태별로 걸러 보고, 지금의 장부가까지 한 줄에 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>사용중 · 보관중 · 수리중 같은 상태별 분류</li>
+          <li>분류별 자산번호 자동 부여</li>
+          <li>지금 쓰는 대장은 엑셀 양식으로 한 번에</li>
+        </ul>
       </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-purchase" aria-labelledby="tab-purchase" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/purchase.webp" width="1600" height="1000" loading="lazy" alt="구매 요청 목록 — 요청번호 · 품목 · 요청 부서 · 금액 · 희망 납기 · 상태" /></figure>
+      <div>
+        <h3 class="pd-panel__title">구매 요청</h3>
+        <p class="pd-panel__desc">부서의 구매 요청을 받아 승인하고, 승인된 요청은 발주로 이어집니다.</p>
+        <ul class="pd-panel__list">
+          <li>승인 대기 · 승인 · 반려 · 발주 상태별 목록</li>
+          <li>승인 · 반려는 마스터 관리자만</li>
+          <li>요청 부서 · 금액 · 희망 납기를 한 줄에</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-dep" aria-labelledby="tab-dep" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/depreciation.webp" width="1600" height="1000" loading="lazy" alt="감가상각 명세 — 대상 자산 · 취득가 · 올해 상각비 · 장부가 요약과 분류별 · 부서별 상각비" /></figure>
+      <div>
+        <h3 class="pd-panel__title">감가상각</h3>
+        <p class="pd-panel__desc">자산마다 달마다 상각비가 계산되고, 분류별 · 부서별로 모아 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>정액법 · 정률법, 정률은 법인세법 상각률</li>
+          <li>취득가 · 누계액 · 장부가 요약</li>
+          <li>분류별 · 부서별 상각비 막대</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-budget" aria-labelledby="tab-budget" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/budgets.webp" width="1600" height="1000" loading="lazy" alt="올해 IT 예산 — 예산 · 집행 · 잔액 · 집행률과 항목별 집행 막대" /></figure>
+      <div>
+        <h3 class="pd-panel__title">예산</h3>
+        <p class="pd-panel__desc">세워 둔 예산에 실제 구매 · 유지보수가 집행액으로 저절로 모입니다.</p>
+        <ul class="pd-panel__list">
+          <li>부서별 · 항목별 예산과 집행률</li>
+          <li>자산구매 · 소프트웨어 · 유지보수 · 소모품</li>
+          <li>따로 집계하지 않아도 되는 집행액</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-license" aria-labelledby="tab-license" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/licenses.webp" width="1600" height="1000" loading="lazy" alt="라이선스 현황 — 소프트웨어별 보유 좌석 · 사용 좌석 · 사용률 막대와 만료일" /></figure>
+      <div>
+        <h3 class="pd-panel__title">라이선스</h3>
+        <p class="pd-panel__desc">소프트웨어마다 몇 석을 사서 몇 석을 쓰는지 막대로 봅니다.</p>
+        <ul class="pd-panel__list">
+          <li>임직원별 좌석 할당</li>
+          <li>보유 수량을 넘기면 빨간색으로</li>
+          <li>만료일이 다가오면 처리할 일로</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-contract" aria-labelledby="tab-contract" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/contracts.webp" width="1600" height="1000" loading="lazy" alt="계약 목록 — 유지보수 · 임대 · 구독 계약의 거래처 · 기간 · 금액 · 만료까지 남은 날" /></figure>
+      <div>
+        <h3 class="pd-panel__title">계약</h3>
+        <p class="pd-panel__desc">유지보수 · 임대 · 구독 계약을 거래처와 기간, 금액으로 정리합니다.</p>
+        <ul class="pd-panel__list">
+          <li>만료까지 남은 날을 계약마다 표시</li>
+          <li>계약에 묶인 자산 연결</li>
+          <li>만료가 다가오면 처리할 일로</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-stock" aria-labelledby="tab-stock" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/stock.webp" width="1600" height="1000" loading="lazy" alt="소모품 재고 — 품목 · 현재 재고 · 안전 재고 · 재고 금액과 입고 · 출고 버튼" /></figure>
+      <div>
+        <h3 class="pd-panel__title">소모품</h3>
+        <p class="pd-panel__desc">복사용지 · 토너처럼 쓰고 사라지는 물품도 재고로 관리합니다.</p>
+        <ul class="pd-panel__list">
+          <li>품목마다 입고 · 출고 기록</li>
+          <li>안전 재고보다 적으면 처리할 일로</li>
+          <li>재고 금액 합계</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-report" aria-labelledby="tab-report" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servit/reports.webp" width="1600" height="1000" loading="lazy" alt="자산 종합 현황 보고서 — 보유 자산 · 취득가 · 장부가 요약과 분류별 · 상태별 막대" /></figure>
+      <div>
+        <h3 class="pd-panel__title">보고서</h3>
+        <p class="pd-panel__desc">보고용 숫자를 따로 만들지 않아도 됩니다.</p>
+        <ul class="pd-panel__list">
+          <li>자산 종합 현황 · 부서별 현황</li>
+          <li>노후 · 교체 대상, 연도별 추이</li>
+          <li>표는 엑셀로 내려받기</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 확대 설명 ═══ -->
+<section class="section">
+  <div class="container">
+    <div class="pd-row">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/servit/z-alerts.webp" width="1100" height="959" loading="lazy" alt="처리할 일 — 보유 수량을 넘겨 쓰는 라이선스, 승인 대기 중인 구매 요청을 묶어 보여 주는 목록" />
+      </div>
+      <div>
+        <div class="pd-row__no">01 · 처리할 일</div>
+        <h3 class="pd-row__title">챙길 일이<br/>먼저 찾아옵니다</h3>
+        <p class="pd-row__desc">승인을 기다리는 구매 요청, 보유 수량을 넘겨 쓰는 라이선스, 만료가 다가온 계약, 안전 재고 밑으로 내려간 소모품이 「처리할 일」 한곳에 모입니다.</p>
+        <ul class="pd-panel__list">
+          <li>위쪽 메뉴에 처리할 일 건수 표시</li>
+          <li>항목마다 「바로 가기」로 해당 화면으로</li>
+          <li>납기가 지난 발주 · 다가온 점검 일정까지</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-row pd-row--flip">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/servit/z-orders.webp" width="1100" height="816" loading="lazy" alt="발주 목록 — 거래처 · 부서 · 발주일 · 납기 · 금액과 입고 진행률 막대, 부분입고 · 입고완료 · 발주 상태" />
+      </div>
+      <div>
+        <div class="pd-row__no">02 · 구매 · 발주 · 입고</div>
+        <h3 class="pd-row__title">입고하는 순간<br/>자산 대장에 올라갑니다</h3>
+        <p class="pd-row__desc">승인된 구매 요청을 발주로 넘기고, 물건이 들어오면 입고 검수를 합니다. 검수를 마치면 자산은 대장에, 소모품은 재고에, 소프트웨어는 라이선스 수량에 더해집니다.</p>
+        <ul class="pd-panel__list">
+          <li>발주마다 입고 진행률 막대</li>
+          <li>부분입고 · 입고완료 상태</li>
+          <li>납기가 지나면 「○일 지남」 표시</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-row">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/servit/z-closings.webp" width="1100" height="449" loading="lazy" alt="감가상각 월 마감 — 기간별 확정 상각비 · 자산 수 · 마감자 · 마감 일시와 전표 보기" />
+      </div>
+      <div>
+        <div class="pd-row__no">03 · 감가상각 · 월 마감</div>
+        <h3 class="pd-row__title">달을 마감하면<br/>숫자가 바뀌지 않습니다</h3>
+        <p class="pd-row__desc">달마다 상각비를 확정해 전표(차변 감가상각비 / 대변 감가상각누계액)를 남깁니다. 마감한 달의 금액은 바뀌지 않고, 마감은 마스터 관리자만 합니다.</p>
+        <ul class="pd-panel__list">
+          <li>기간별 확정 상각비와 자산 수</li>
+          <li>마감한 달마다 전표 보기</li>
+          <li>가장 최근 달부터 하나씩 되돌리기</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-row pd-row--flip">
+      <div class="pd-row__media">
+        <img class="pd-shot" src="../img/servit/z-labels.webp" width="1100" height="411" loading="lazy" alt="라벨 인쇄 미리 보기 — 자산번호 · 자산명 · 분류 · 취득 연월과 QR 코드가 든 라벨 여섯 장" />
+      </div>
+      <div>
+        <div class="pd-row__no">04 · QR 라벨 · 재고 실사</div>
+        <h3 class="pd-row__title">라벨 한 장으로<br/>실사가 빨라집니다</h3>
+        <p class="pd-row__desc">자산을 골라 자산번호와 QR 코드가 든 라벨을 A4 용지에 맞춰 인쇄합니다. 실사 때는 리더기로 라벨을 읽어 바로 확인하고, 휴대폰으로 QR을 찍으면 그 자산 화면이 열립니다.</p>
+        <ul class="pd-panel__list">
+          <li>작게(3열) · 크게(2열) 두 가지 크기</li>
+          <li>실사 진행률과 미확인 자산</li>
+          <li>휴대폰으로 찍어 자산 정보 열기</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 휴대폰 ═══ -->
+<section class="section pd-mobile">
+  <div class="container pd-mobile__inner">
+    <div>
+      <span class="eyebrow">MOBILE</span>
+      <h2 class="section__title">창고에서도<br/>휴대폰으로 확인합니다</h2>
+      <p class="section__desc">휴대폰 브라우저로 로그인하면 화면이 휴대폰 폭에 맞춰집니다. 자산 앞에서 QR을 찍어 정보를 열고, 처리할 일을 확인합니다.</p>
+      <ul class="pd-panel__list" style="margin-top:26px">
+        <li>따로 앱을 설치하지 않고 브라우저로</li>
+        <li>홈 요약 · 처리할 일 · 자산 정보를 휴대폰에서</li>
+        <li>PC와 같은 계정 · 같은 권한</li>
+      </ul>
+    </div>
+    <div class="pd-mobile__phones">
+      <figure class="pd-phone"><img src="../img/servit/m-home.webp" width="600" height="1298" loading="lazy" alt="휴대폰 홈 화면 — 보유 자산 99대, 취득가액, 현재 장부가 요약" /></figure>
+      <figure class="pd-phone"><img src="../img/servit/m-alerts.webp" width="600" height="1298" loading="lazy" alt="휴대폰 처리할 일 — 보유 수량을 넘겨 쓰는 라이선스 목록" /></figure>
     </div>
   </div>
 </section>
@@ -233,15 +396,15 @@
 <section class="section">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow st-accent">FOR EVERYONE</span>
+      <span class="eyebrow acc">FOR EVERYONE</span>
       <h2 class="section__title">같은 장부, 역할에 맞는 권한</h2>
-      <p class="section__desc">계정마다 권한을 나눠 맡깁니다. 현황과 보고서는 엑셀로 내려받습니다.</p>
+      <p class="section__desc">자산을 다루는 담당자 계정마다 권한을 나눠 맡깁니다. 현황과 보고서는 엑셀로 내려받습니다.</p>
     </div>
     <div class="grid grid--3">
       <div class="plan">
         <div class="plan__name">조회 전용</div>
         <p class="plan__for">보기만 하고 바꾸지 않습니다</p>
-        <ul class="plan__list plan__list--st">
+        <ul class="plan__list plan__list--acc">
           <li>자산 대장과 자산별 이력 조회</li>
           <li>감가상각 · 예산 · 총소유비용 현황</li>
           <li>부서별 · 노후 자산 · 연도별 추이 보고서</li>
@@ -250,17 +413,17 @@
       <div class="plan">
         <div class="plan__name">부관리자</div>
         <p class="plan__for">매일의 자산 업무를 처리합니다</p>
-        <ul class="plan__list plan__list--st">
+        <ul class="plan__list plan__list--acc">
           <li>자산 등록과 지급 · 반납 · 이동 · 처분</li>
           <li>구매 요청 · 발주 · 입고 검수</li>
           <li>라이선스 할당 · 유지보수 기록</li>
           <li>소모품 입출고와 재고 실사</li>
         </ul>
       </div>
-      <div class="plan plan--st">
+      <div class="plan plan--acc">
         <div class="plan__name">마스터 관리자</div>
         <p class="plan__for">승인과 마감을 맡습니다</p>
-        <ul class="plan__list plan__list--st">
+        <ul class="plan__list plan__list--acc">
           <li>구매 요청 승인 · 반려</li>
           <li>감가상각 월 마감</li>
           <li>계정 · 권한과 회사 설정</li>
@@ -275,28 +438,22 @@
 <section class="section section--soft">
   <div class="container">
     <div class="section__head section__head--center">
-      <span class="eyebrow st-accent">TRUST</span>
+      <span class="eyebrow acc">TRUST</span>
       <h2 class="section__title">회사 장부를 다루는 만큼, 이렇게 지킵니다</h2>
     </div>
     <div class="grid grid--3">
       <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <h3 class="card__title">권한은 서버에서 확인합니다</h3>
         <p class="card__desc">조회 전용 계정은 아무것도 바꿀 수 없고, 승인 · 마감 · 계정 관리는 마스터 관리자만 합니다. 화면이 아니라 서버에서 막습니다.</p>
       </div>
       <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3 class="card__title">비밀번호를 지킵니다</h3>
         <p class="card__desc">비밀번호는 되돌릴 수 없는 방식(해시)으로 저장합니다. 로그인 실패가 반복되면 10분 동안 시도를 막고, 30분 동안 쓰지 않으면 저절로 로그아웃됩니다.</p>
       </div>
       <div class="card">
-        <div class="card__icon card__icon--st">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
-        </div>
+        <div class="card__icon card__icon--acc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
         <h3 class="card__title">기록이 남습니다</h3>
         <p class="card__desc">누가 언제 무엇을 바꿨는지 감사 로그로 남고, 자산마다 등록부터 지급 · 이동 · 처분까지의 이력이 쌓입니다.</p>
       </div>
@@ -304,28 +461,51 @@
   </div>
 </section>
 
-<!-- ═══ 시작 ═══ -->
+<!-- ═══ 도입 단계 ═══ -->
 <section class="section">
-  <div class="container approach approach--st">
-    <img class="approach__img" src="../img/photos/biz-servit.jpg" alt="" loading="lazy" />
-    <div>
-      <span class="eyebrow st-accent">GET STARTED</span>
-      <h2 class="section__title">시작은 이렇게 간단합니다</h2>
-      <p class="section__desc">기준정보를 정하고 지금의 대장을 옮기면 바로 씁니다. 따로 설치할 것이 없습니다.</p>
-      <div class="approach__list">
-        <div class="approach__item">
-          <span class="approach__no">01</span>
-          <div><h3 class="approach__title">기준정보</h3><p class="approach__desc">부서 · 위치 · 자산 분류를 정하고, 임직원은 엑셀 한 장으로 한 번에 등록합니다.</p></div>
-        </div>
-        <div class="approach__item">
-          <span class="approach__no">02</span>
-          <div><h3 class="approach__title">기존 자산 옮기기</h3><p class="approach__desc">지금 쓰는 자산 대장과 라이선스 목록을 등록 양식에 맞춰 엑셀로 올립니다.</p></div>
-        </div>
-        <div class="approach__item">
-          <span class="approach__no">03</span>
-          <div><h3 class="approach__title">라벨 붙이고 시작</h3><p class="approach__desc">QR 라벨을 인쇄해 붙이면, 그다음부터 구매 · 입고 · 지급 · 실사가 한 흐름으로 이어집니다.</p></div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">GET STARTED</span>
+      <h2 class="section__title">도입은 네 단계면 됩니다</h2>
+      <p class="section__desc">웹 브라우저로 접속하므로 설치할 것이 없습니다. 지금 쓰는 대장을 옮기면 바로 시작합니다.</p>
+    </div>
+    <div class="pd-steps">
+      <div class="pd-step"><span class="pd-step__no">1</span><h3 class="pd-step__title">도입 상담</h3><p class="pd-step__desc">관리하는 자산 수와 지금의 대장 · 구매 방식을 들려주시면, 실제 화면으로 맞는지 함께 봅니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">2</span><h3 class="pd-step__title">기준정보</h3><p class="pd-step__desc">부서 · 위치 · 자산 분류를 정하고, 임직원은 엑셀 한 장으로 한 번에 등록합니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">3</span><h3 class="pd-step__title">기존 자산 옮기기</h3><p class="pd-step__desc">지금 쓰는 자산 대장과 라이선스 목록을 등록 양식에 맞춰 엑셀로 올립니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">4</span><h3 class="pd-step__title">라벨 붙이고 시작</h3><p class="pd-step__desc">QR 라벨을 인쇄해 붙이면, 그다음부터 구매 · 입고 · 지급 · 실사가 한 흐름으로 이어집니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 자주 묻는 질문 ═══ -->
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">FAQ</span>
+      <h2 class="section__title">자주 묻는 질문</h2>
+    </div>
+    <div class="pd-faq">
+      <details>
+        <summary>전 직원이 로그인해서 쓰는 프로그램인가요?</summary>
+        <p>아니요. 자산 · 구매 · 재무 담당자가 쓰는 관리용 ERP입니다. 로그인 계정은 조회 전용 · 부관리자 · 마스터 관리자로 나뉘고, 임직원은 자산을 지급받는 사람으로 등록만 됩니다.</p>
+      </details>
+      <details>
+        <summary>지금 쓰는 엑셀 대장을 옮길 수 있나요?</summary>
+        <p>네. 등록 양식을 내려받아 지금의 자산 대장 · 라이선스 목록 · 임직원 명단을 채워 올리면 한 번에 들어갑니다.</p>
+      </details>
+      <details>
+        <summary>감가상각은 어떤 방식으로 계산하나요?</summary>
+        <p>정액법과 정률법으로 달마다 나눠 계산하고, 정률법은 법인세법 상각률을 따릅니다. 달을 마감하면 그 달의 금액이 확정되어 바뀌지 않습니다.</p>
+      </details>
+      <details>
+        <summary>설치가 필요한가요? 휴대폰에서도 되나요?</summary>
+        <p>웹 브라우저로 접속하므로 설치할 것이 없습니다. 휴대폰 브라우저에서도 화면이 맞춰지고, 라벨의 QR을 찍으면 그 자산 화면이 열립니다.</p>
+      </details>
+      <details>
+        <summary>요금은 어떻게 되나요?</summary>
+        <p>관리하는 자산 수와 필요한 기능에 따라 달라집니다. 도입 문의로 알려 주시면 견적과 함께 안내드립니다.</p>
+      </details>
     </div>
   </div>
 </section>
@@ -333,13 +513,13 @@
 <!-- ═══ 문의 ═══ -->
 <section class="cta" id="contact">
   <div class="container cta__inner">
-    <h2 class="cta__title">우리 회사 자산 관리에 맞을지 궁금하시다면</h2>
+    <h2 class="cta__title">우리 회사 자산 관리에 맞을지,<br/>실제 화면으로 먼저 확인해 보세요</h2>
     <p class="cta__desc">
       관리하는 자산 수와 지금의 대장 · 구매 방식을 알려 주시면, 시연 화면과 함께
       도입 방법을 하루 안에 답변드립니다.
     </p>
     <div class="cta__actions">
-      <a href="mailto:changgyo@cgessence.co.kr?subject=Servit%20도입%20문의" class="btn btn--st">메일로 문의하기</a>
+      <a href="mailto:changgyo@cgessence.co.kr?subject=Servit%20도입%20문의" class="btn btn--acc">메일로 문의하기</a>
       <a href="tel:010-3369-5635" class="btn btn--ghost">전화 010-3369-5635</a>
     </div>
   </div>
@@ -372,14 +552,6 @@
   </div>
 </footer>
 
-<script>
-  var nav = document.getElementById('nav');
-  document.getElementById('navToggle').addEventListener('click', function () {
-    nav.classList.toggle('nav--open');
-  });
-  nav.querySelectorAll('.nav__mobile a').forEach(function (a) {
-    a.addEventListener('click', function () { nav.classList.remove('nav--open'); });
-  });
-</script>
+<script src="../js/product.js?v=1"></script>
 </body>
 </html>

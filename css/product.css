@@ -1,0 +1,153 @@
+/* 제품 소개 페이지 공용 부품 (2026-11-04, 서비전트 페이지에서 뽑음)
+   페이지마다 :root 에 --acc · --acc-deep · --acc-soft 를 정한다. 클래스는 pd- 로 시작. */
+        :root { --acc: #1c4f9c; --acc-deep: #153c78; --acc-soft: #e9effa; --acc-line: #dfe6f0; }
+    .eyebrow.acc { color: var(--acc); }
+    .btn--acc { background: var(--acc); color: #fff; }
+    .btn--acc:hover { background: var(--acc-deep); transform: translateY(-1px); }
+
+    /* 브라우저 · 휴대폰 틀 */
+    .pd-browser { border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid var(--acc-line);
+      box-shadow: 0 2px 6px rgba(13,36,73,0.06), 0 30px 70px rgba(13,36,73,0.16); }
+    .pd-browser__bar { display: flex; align-items: center; gap: 7px; height: 38px; padding: 0 14px; background: #f1f4f8; border-bottom: 1px solid #e3e9f1; }
+    .pd-browser__dot { width: 11px; height: 11px; border-radius: 50%; background: #d3dbe6; }
+    .pd-browser__url { margin-left: 12px; display: flex; align-items: center; gap: 6px; height: 24px; padding: 0 12px; min-width: 240px;
+      border-radius: 6px; background: #fff; border: 1px solid #e3e9f1; font-size: 0.76rem; color: var(--ghost); }
+    .pd-browser__url svg { width: 11px; height: 11px; }
+    .pd-browser img { display: block; width: 100%; height: auto; }
+    .pd-phone { width: 250px; padding: 9px; border-radius: 38px; background: #0d1b33;
+      box-shadow: 0 2px 4px rgba(13,36,73,0.2), 0 30px 60px rgba(13,36,73,0.3); }
+    .pd-phone img { display: block; width: 100%; height: auto; border-radius: 30px; }
+
+    /* 히어로 */
+    .pd-hero { padding: 150px 0 0; text-align: center; overflow: hidden;
+      background: radial-gradient(1100px 520px at 50% -8%, rgba(28,79,156,0.11), transparent 70%), linear-gradient(#f5f8fc, #fff 62%); }
+    .pd-hero .eyebrow { color: var(--acc); }
+    .pd-hero__title { margin-top: 6px; font-size: clamp(2.1rem, 4.8vw, 3.3rem); font-weight: 800; line-height: 1.28; letter-spacing: -0.03em; }
+    .pd-hero__title em { font-style: normal; color: var(--acc); }
+    .pd-hero__desc { margin: 24px auto 0; max-width: 660px; font-size: 1.13rem; color: var(--muted); }
+    .pd-hero__actions { margin-top: 34px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .pd-hero__chips { margin-top: 26px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .pd-hero__chips span { padding: 6px 13px; border-radius: 999px; background: #fff; border: 1px solid var(--acc-line); font-size: 0.86rem; font-weight: 600; color: var(--navy); }
+    .pd-stage { position: relative; max-width: 1080px; margin: 60px auto 0; padding-bottom: 80px; }
+    .pd-stage .pd-browser { text-align: left; }
+    .pd-stage .pd-phone { position: absolute; right: -46px; bottom: 30px; width: 232px; }
+
+    /* 기능 9칸 */
+    .pd-modules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .pd-module { display: flex; gap: 16px; padding: 24px 22px; border-radius: 16px; background: #fff; border: 1px solid var(--line); }
+    .pd-module__icon { flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; background: var(--acc-soft); color: var(--acc); }
+    .pd-module__icon svg { width: 23px; height: 23px; }
+    .pd-module__name { font-size: 1.06rem; font-weight: 800; color: var(--navy); }
+    .pd-module__desc { margin-top: 5px; font-size: 0.92rem; color: var(--muted); line-height: 1.6; }
+
+    /* 지금 → 서비전트 */
+    .pd-compare { max-width: 980px; margin: 0 auto; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #fff; }
+    .pd-compare__row { display: grid; grid-template-columns: 150px 1fr 40px 1.15fr; align-items: center; gap: 0; border-top: 1px solid var(--line); }
+    .pd-compare__row:first-child { border-top: 0; }
+    .pd-compare__row--head { background: #f7f9fc; font-size: 0.84rem; font-weight: 800; letter-spacing: 0.04em; color: var(--ghost); }
+    .pd-compare__row > div { padding: 20px 22px; }
+    .pd-compare__what { font-weight: 800; color: var(--navy); }
+    .pd-compare__before { color: var(--muted); font-size: 0.97rem; }
+    .pd-compare__arrow { color: #b8c4d6; text-align: center; padding: 0 !important; }
+    .pd-compare__after { font-size: 0.99rem; color: var(--navy); font-weight: 600; background: #f8fbff; height: 100%; display: flex; align-items: center; }
+    .pd-compare__row--head .pd-compare__after { background: var(--acc-soft); color: var(--acc); font-weight: 800; }
+
+    /* 실제 화면 탭 */
+    .pd-tabs { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px; }
+    .pd-tab { padding: 10px 18px; border-radius: 999px; border: 1px solid var(--acc-line); background: #fff; font: inherit; font-size: 0.95rem; font-weight: 700; color: var(--muted); cursor: pointer; transition: all 0.15s; }
+    .pd-tab:hover { color: var(--navy); border-color: #b9c7da; }
+    .pd-tab[aria-selected="true"] { background: var(--acc); border-color: var(--acc); color: #fff; }
+    .pd-panel { display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: center; }
+    .pd-panel[hidden] { display: none; }
+    .pd-panel__title { font-size: 1.4rem; font-weight: 800; color: var(--navy); }
+    .pd-panel__desc { margin-top: 12px; color: var(--muted); font-size: 0.98rem; }
+    .pd-panel__list { margin-top: 18px; display: flex; flex-direction: column; gap: 9px; }
+    .pd-panel__list li { display: flex; gap: 10px; font-size: 0.94rem; color: var(--text); }
+    .pd-panel__list li::before { content: "✓"; flex: none; width: 18px; height: 18px; margin-top: 3px; border-radius: 50%;
+      display: grid; place-items: center; background: var(--acc-soft); color: var(--acc); font-size: 0.68rem; font-weight: 900; line-height: 1; }
+
+    /* 확대 설명 줄 */
+    .pd-row { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .pd-row + .pd-row { margin-top: 110px; }
+    .pd-row--flip .pd-row__media { order: 2; }
+    .pd-row__no { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.14em; color: var(--acc); }
+    .pd-row__title { margin-top: 10px; font-size: clamp(1.5rem, 2.6vw, 1.95rem); font-weight: 800; line-height: 1.36; }
+    .pd-row__desc { margin-top: 16px; color: var(--muted); font-size: 1.02rem; }
+    .pd-row .pd-panel__list { margin-top: 22px; }
+    .pd-row__media { position: relative; border-radius: 22px; padding: 34px; background: linear-gradient(150deg, #eef3fb, #f8fafd); border: 1px solid var(--line); }
+    .pd-shot { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--acc-line); background: #fff; box-shadow: 0 18px 44px rgba(13,36,73,0.13); }
+    .pd-attend { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+    .pd-attend .pd-shot:last-child { margin-top: 56px; }
+
+    /* 휴대폰 띠 */
+    .pd-mobile { background: var(--bg-navy); color: #fff; overflow: hidden; }
+    .pd-mobile .section__title { color: #fff; }
+    .pd-mobile .section__desc { color: rgba(255,255,255,0.7); }
+    .pd-mobile .eyebrow { color: #7cc4ff; }
+    .pd-mobile__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .pd-mobile__phones { display: flex; gap: 26px; justify-content: center; align-items: flex-start; }
+    .pd-mobile__phones .pd-phone:last-child { margin-top: 60px; }
+    .pd-mobile .pd-panel__list li { color: rgba(255,255,255,0.88); }
+    .pd-mobile .pd-panel__list li::before { background: rgba(124,196,255,0.18); color: #7cc4ff; }
+
+    /* 역할 · 보안 */
+    .plan--acc { border-color: var(--acc); box-shadow: var(--shadow); }
+    .plan__list--acc li::before { color: var(--acc); }
+    .card__icon--acc { background: var(--acc-soft); color: var(--acc-deep); }
+    .pd-trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    /* 도입 단계 */
+    .pd-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; counter-reset: step; }
+    .pd-step { position: relative; padding: 28px 24px; border-radius: 16px; background: #fff; border: 1px solid var(--line); }
+    .pd-step__no { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--acc); color: #fff; font-weight: 800; font-size: 0.92rem; }
+    .pd-step__title { margin-top: 16px; font-size: 1.08rem; font-weight: 800; color: var(--navy); }
+    .pd-step__desc { margin-top: 8px; font-size: 0.93rem; color: var(--muted); }
+    .pd-step:not(:last-child)::after { content: ""; position: absolute; top: 44px; right: -14px; width: 10px; height: 10px; z-index: 1;
+      border-top: 2px solid #b8c4d6; border-right: 2px solid #b8c4d6; transform: rotate(45deg); }
+
+    /* 자주 묻는 질문 */
+    .pd-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .pd-faq details { border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+    .pd-faq summary { list-style: none; cursor: pointer; padding: 20px 56px 20px 24px; position: relative; font-weight: 700; color: var(--navy); font-size: 1.02rem; }
+    .pd-faq summary::-webkit-details-marker { display: none; }
+    .pd-faq summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 1.4rem; font-weight: 400; color: var(--acc); }
+    .pd-faq details[open] summary::after { content: "−"; }
+    .pd-faq details p { padding: 0 24px 22px; color: var(--muted); font-size: 0.97rem; }
+
+    @media (max-width: 1180px) {
+      .pd-stage .pd-phone { right: 0; width: 200px; bottom: 20px; }
+    }
+    @media (max-width: 1024px) {
+      .pd-modules { grid-template-columns: repeat(2, 1fr); }
+      .pd-panel { grid-template-columns: 1fr; gap: 26px; }
+      .pd-row { grid-template-columns: 1fr; gap: 36px; }
+      .pd-row--flip .pd-row__media { order: 0; }
+      .pd-mobile__inner { grid-template-columns: 1fr; gap: 50px; }
+      .pd-trust, .pd-steps { grid-template-columns: repeat(2, 1fr); }
+      .pd-step:nth-child(2)::after { display: none; }
+    }
+    @media (max-width: 760px) {
+      .pd-hero { padding-top: 120px; }
+      .pd-stage { margin-top: 44px; padding-bottom: 56px; }
+      .pd-stage .pd-phone { display: none; }
+      .pd-browser__url { display: none; }
+      .pd-compare__row { grid-template-columns: 1fr; }
+      .pd-compare__row--head { display: none; }
+      .pd-compare__row > div { padding: 6px 20px; }
+      .pd-compare__what { padding-top: 18px !important; }
+      .pd-compare__before::before { content: "지금 · "; font-weight: 700; }
+      .pd-compare__arrow { display: none; }
+      .pd-compare__after { padding: 12px 20px 18px !important; background: #fff; }
+      .pd-compare__after::before { content: "서비전트 · "; color: var(--acc); font-weight: 800; margin-right: 4px; white-space: nowrap; }
+      .pd-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding-bottom: 6px; margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
+      .pd-tab { flex: none; }
+      .pd-row__media { padding: 18px; }
+      .pd-attend .pd-shot:last-child { margin-top: 28px; }
+      .pd-mobile__phones .pd-phone { width: 46%; }
+      .pd-mobile__phones .pd-phone:last-child { margin-top: 40px; }
+    }
+    @media (max-width: 640px) {
+      .pd-modules, .pd-trust, .pd-steps { grid-template-columns: 1fr; }
+      .pd-step::after { display: none; }
+    }
+  
