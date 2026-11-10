@@ -591,7 +591,7 @@
       </div>
       <div class="pd-module">
         <span class="pd-module__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span>
-        <div><div class="pd-module__name">부서 AI는 담당자가 가꿉니다</div><p class="pd-module__desc">부서 문서 폴더를 연결하고 말투 · 안내 범위 · 연락처를 고칩니다. 문서를 고치면 다음 질문부터 반영됩니다.</p></div>
+        <div><div class="pd-module__name">부서 AI는 담당자가 가꿉니다</div><p class="pd-module__desc">부서 문서 폴더를 연결하고 말투 · 연락처를 고칩니다. 이번 달 질문 수와 자료에 없던 질문을 보고 어떤 문서부터 채울지 압니다.</p></div>
       </div>
     </div>
   </div>
@@ -814,6 +814,7 @@
           <li>부서 AI를 우클릭해 담당자로 로그인합니다</li>
           <li>부서 문서 폴더를 연결합니다</li>
           <li>말투 · 안내 범위와 담당자 연락처를 고칩니다</li>
+          <li>이번 달 질문 수와 직원이 남긴 질문을 봅니다</li>
         </ul>
       </div>
       <div class="plan plan--acc">
@@ -823,6 +824,7 @@
           <li>회사 설정 폴더 하나를 전 직원 PC가 함께 읽습니다</li>
           <li>마법사로 부서를 고르고 담당자 비밀번호를 정합니다</li>
           <li>모든 부서 AI에 공통 지침을 한 번에 겁니다</li>
+          <li>라이선스 키 · PC당 월 AI 사용 상한도 한 곳에서 정합니다</li>
         </ul>
       </div>
     </div>
@@ -849,7 +851,7 @@
       </div>
       <div class="card">
         <h3 class="card__title">읽는 형식</h3>
-        <p class="card__desc">자주 묻는 질문은 엑셀 한 장(질문 | 답 | 담당자)으로 정리해 두어도 됩니다.</p>
+        <p class="card__desc">자주 묻는 질문은 엑셀 한 장(질문 | 답 | 담당자)으로 정리해 두어도 됩니다. 직원이 쓰는 말(법카)과 문서의 말(법인카드)이 달라도 같은 말 사전으로 함께 찾습니다.</p>
         <div class="chips">
           <span class="chip chip--gray">한글 HWP · HWPX</span>
           <span class="chip chip--gray">워드</span>
@@ -946,8 +948,39 @@
   </div>
 </section>
 
+<!-- ═══ 도입 단계 ═══ -->
+<section class="section" id="start">
+  <div class="container">
+    <div class="section__head section__head--center">
+      <span class="eyebrow acc">GET STARTED</span>
+      <h2 class="section__title">서버 없이, 네 단계면 시작합니다</h2>
+      <p class="section__desc">따로 둘 서버가 없습니다. 지금 쓰는 공유폴더에 회사 설정 폴더 하나를 만들고, 직원 PC에 설치하면 됩니다.</p>
+    </div>
+    <div class="pd-steps">
+      <div class="pd-step"><span class="pd-step__no">1</span><h3 class="pd-step__title">도입 상담</h3><p class="pd-step__desc">직원 수, 먼저 쓸 부서, 문서가 있는 곳을 알려 주시면 시범 범위와 월 비용을 함께 정합니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">2</span><h3 class="pd-step__title">회사 설정</h3><p class="pd-step__desc">관리자 PC에서 마법사로 쓸 부서를 고르고 담당자 비밀번호를 정합니다. 설정은 공유폴더의 폴더 하나에 담깁니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">3</span><h3 class="pd-step__title">부서 자료 연결</h3><p class="pd-step__desc">부서 담당자가 자기 부서 AI에 문서 폴더를 연결합니다. 자주 묻는 질문은 엑셀 한 장으로도 충분합니다.</p></div>
+      <div class="pd-step"><span class="pd-step__no">4</span><h3 class="pd-step__title">직원 PC 설치</h3><p class="pd-step__desc">설치 파일을 PC에 설치합니다. 라이선스 키는 회사 설정에 한 번 넣어 두면 PC마다 넣지 않아도 되고, 여러 대는 배포 도구로 조용히 설치합니다.</p></div>
+    </div>
+    <div class="grid grid--3" style="margin-top:40px">
+      <div class="card">
+        <h3 class="card__title">준비 1 · 문서가 있는 곳</h3>
+        <p class="card__desc">사내 공유폴더 또는 Microsoft 365(SharePoint · OneDrive · Teams). 지금 있는 폴더를 그대로 씁니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">준비 2 · 부서마다 담당자 한 명</h3>
+        <p class="card__desc">부서 AI의 자료와 연락처를 가꿀 사람입니다. 인사 · 총무 한 부서부터 시작해도 됩니다.</p>
+      </div>
+      <div class="card">
+        <h3 class="card__title">준비 3 · 회사 AI 계약</h3>
+        <p class="card__desc">AI 사용료는 회사가 계약한 AI 키로 쓴 만큼 냅니다. 계약 방법은 도입 상담 때 안내드립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ 자주 묻는 질문 ═══ -->
-<section class="section">
+<section class="section section--soft">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow acc">FAQ</span>
@@ -959,8 +992,20 @@
         <p>직원 PC에 설치하는 Windows 프로그램입니다. 관리자가 만든 회사 설정 폴더 하나를 전 직원 PC가 함께 읽어, 같은 부서 AI와 지침으로 시작합니다.</p>
       </details>
       <details>
+        <summary>IT 부서가 할 일은 무엇인가요?</summary>
+        <p>공유폴더에 회사 설정 폴더 하나를 만들고, 부서 파일마다 담당자만 고칠 수 있게 폴더 권한을 거는 것이 전부입니다. 라이선스 키는 그 회사 설정에 한 번 넣으면 직원 PC가 처음 켤 때 자동으로 켜집니다. 직원 PC 설치는 설치 파일 하나이며 관리자 권한이 필요 없고, 배포 도구로 조용히 설치할 수도 있습니다. Microsoft 365 자료를 쓰려면 회사 관리자가 앱 사용에 한 번 동의합니다.</p>
+      </details>
+      <details>
+        <summary>PC가 많아도 되나요? 서버가 필요한가요?</summary>
+        <p>서버는 두지 않습니다. 각 PC가 직원 본인 권한으로 공유폴더를 읽어 자기 PC에 색인을 두므로, PC가 늘어도 따로 늘릴 장비가 없습니다. 라이선스 키 하나로 1대부터 1,000대까지 켤 수 있습니다.</p>
+      </details>
+      <details>
         <summary>AI를 우리 회사 문서로 따로 학습시켜야 하나요?</summary>
         <p>아니요. 지금 있는 문서를 그대로 찾아 읽고 답합니다. 규정을 고치면 바뀐 파일만 다시 읽어 다음 질문부터 새 규정으로 답합니다.</p>
+      </details>
+      <details>
+        <summary>읽지 못하는 문서도 있나요?</summary>
+        <p>워드 · 엑셀 · 파워포인트 · 한글 · PDF · 텍스트는 그대로 읽습니다. 글자가 없는 스캔 PDF(사진으로 찍은 문서), 2003 이전 구형 형식(.doc · .xls · .ppt), 문서보안(DRM)이 걸린 파일은 읽지 못합니다. 시범 전에 문서 폴더의 형식을 함께 확인해 드립니다.</p>
       </details>
       <details>
         <summary>직원이 볼 수 없는 문서가 답에 나오지는 않나요?</summary>
@@ -968,7 +1013,11 @@
       </details>
       <details>
         <summary>회사 문서가 밖으로 나가나요?</summary>
-        <p>문서를 외부 서버에 옮겨 쌓지 않고, 찾아보기용 색인은 각 PC에 암호화해 둡니다. AI에는 질문에 필요한 대목만 보냅니다. 외부 AI를 쓸 수 없는 회사는 사내 서버의 AI 모델로 운영할 수 있습니다.</p>
+        <p>문서를 외부 서버에 옮겨 쌓지 않고, 찾아보기용 색인은 각 PC에 암호화해 둡니다. AI에는 질문에 필요한 대목만 보내며, AI 제공사(Anthropic)는 API로 받은 내용을 모델 학습에 쓰지 않습니다(약관). 외부 AI를 쓸 수 없는 회사는 사내 서버의 AI 모델로 운영할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>직원이 무엇을 물었는지 회사가 볼 수 있나요?</summary>
+        <p>대화 내용은 직원 PC에만 남고 CGEssence에는 모이지 않습니다. 회사 설정 폴더에는 부서별 질문 수만 이름 없이 모이고, 자료에 없던 질문은 직원이 [익명으로 남기기]를 누른 것만 담당자 화면에 보입니다. 직원은 눈치 보지 않고 묻고, 담당자는 어떤 문서부터 채울지 압니다.</p>
       </details>
       <details>
         <summary>노무 · 세무 · 법무 AI의 답을 그대로 믿어도 되나요?</summary>
@@ -976,7 +1025,11 @@
       </details>
       <details>
         <summary>요금은 어떻게 되나요?</summary>
-        <p>에센나B 를 켤 PC 1대당 월 구독입니다. 자세한 금액과 계산은 <a href="https://cgessence-pay.fly.dev/pricing/essenna-b" style="color:var(--acc);font-weight:700">요금 보기</a>에서 확인하실 수 있습니다. 연결한 자료와 설정은 각 PC에 남아 그대로 이어집니다.</p>
+        <p>에센나B 를 켤 PC 1대당 월 구독입니다. 자세한 금액과 계산은 <a href="https://cgessence-pay.fly.dev/pricing/essenna-b" style="color:var(--acc);font-weight:700">요금 보기</a>에서 확인하실 수 있습니다. 연결한 자료와 설정은 각 PC에 남아 그대로 이어집니다. AI 사용료는 별도입니다(아래 참고).</p>
+      </details>
+      <details>
+        <summary>AI 사용료는 따로 드나요?</summary>
+        <p>네. 에센나B 구독료는 프로그램 이용료이고, AI 사용료는 회사가 직접 계약한 AI(Anthropic Claude) 키로 쓴 만큼 냅니다. 질문에 필요한 대목만 AI에 보내므로 질문 한 건의 비용은 작고, 시범 기간의 실제 사용량으로 월 예상액을 함께 계산해 드립니다. 관리자가 PC당 월 사용 상한을 정해 두면 그 이상은 나가지 않고, 이번 달 사용량은 설정 화면에서 봅니다. AI 계약 방법은 도입 상담 때 안내드립니다.</p>
       </details>
       <details>
         <summary>해지 · 환불은 어떻게 하나요?</summary>
@@ -987,7 +1040,7 @@
 </section>
 
 <!-- PLANS:BEGIN — 도입 방법 두 가지 + 카탈로그(11-05). 카탈로그 생성기 add_plans_section.py 가 넣는다 -->
-<section class="section section--soft" id="plans">
+<section class="section" id="plans">
   <div class="container">
     <div class="section__head section__head--center">
       <span class="eyebrow acc">HOW TO START</span>
