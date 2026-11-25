@@ -303,6 +303,11 @@ h1, h2, h3 { color: var(--navy); letter-spacing: -0.02em; line-height: 1.32; }
   .product + .product { margin-top: 72px; }
   .btn { width: 100%; }
   .hero__actions .btn, .cta__actions .btn, .product__actions .btn { width: auto; flex: 1 1 auto; }
+  /* 바닥(11-25 휴대폰): 회사 정보는 한 줄에 하나(항목이 중간에서 끊기지 않게), 바로가기 8칸은 4칸씩 두 줄로 열을 맞춘다 */
+  .footer__links { display: grid; grid-template-columns: repeat(4, auto); justify-content: space-between; gap: 10px 12px; width: 100%; }
+  .footer__info { line-height: 1.8; }
+  .footer__info span { display: block; margin-right: 0; }
+  .footer__info br { display: none; }
 }
 
 /* ═══════════════════════════════════════════════
