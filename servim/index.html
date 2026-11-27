@@ -80,7 +80,7 @@
           <span class="pd-browser__url"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Servim · 신제품 출시 TF</span>
         </div>
         <img src="../img/servim/channel.webp" width="1920" height="1200"
-             alt="서빔 대화 화면 — 왼쪽 대화 목록(채널 · 다이렉트 메시지), 가운데 채널 대화와 사진 · 한글 파일 첨부, 오른쪽 채널 정보(소개 · 멤버 · 최근 파일)" />
+             alt="서빔 채널 대화 — 「신제품 출시 TF」 채널의 시안 사진 미리보기 · 한글 견적서 카드 · 내 메시지 옆 「안 읽음 2」 · 「김민준 님이 입력 중」, 위에 회사 이름 띠와 PC 앱 설치" />
       </figure>
       <figure class="pd-phone" aria-hidden="true">
         <img src="../img/servim/m-channel.webp" width="600" height="1298" alt="" />
@@ -208,6 +208,7 @@
       <button class="pd-tab" role="tab" id="tab-dm" aria-controls="panel-dm" aria-selected="false" tabindex="-1">1:1 대화</button>
       <button class="pd-tab" role="tab" id="tab-call" aria-controls="panel-call" aria-selected="false" tabindex="-1">화상회의</button>
       <button class="pd-tab" role="tab" id="tab-org" aria-controls="panel-org" aria-selected="false" tabindex="-1">조직도</button>
+      <button class="pd-tab" role="tab" id="tab-meet" aria-controls="panel-meet" aria-selected="false" tabindex="-1">회의실</button>
       <button class="pd-tab" role="tab" id="tab-newch" aria-controls="panel-newch" aria-selected="false" tabindex="-1">채널 만들기</button>
       <button class="pd-tab" role="tab" id="tab-admin" aria-controls="panel-admin" aria-selected="false" tabindex="-1">관리자</button>
       <button class="pd-tab" role="tab" id="tab-login" aria-controls="panel-login" aria-selected="false" tabindex="-1">로그인 · 앱 받기</button>
@@ -215,14 +216,14 @@
 
     <div class="pd-panel" role="tabpanel" id="panel-home" aria-labelledby="tab-home">
       <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
-        <img src="../img/servim/home.webp" width="1600" height="1000" alt="서빔 홈 — 인사말과 오늘 날짜, 최근 대화 목록, 바로가기, 사용 안내" /></figure>
+        <img src="../img/servim/home.webp" width="1600" height="1000" alt="서빔 홈 — 회사 이름 사진 배너와 인사 · 날짜 · 안 읽은 메시지 수, 대화 · 채널 · 회의실 · 조직도 소개 4칸, 최근 대화" /></figure>
       <div>
         <h3 class="pd-panel__title">홈</h3>
-        <p class="pd-panel__desc">로그인하면 최근 대화와 읽지 않은 메시지부터 보입니다.</p>
+        <p class="pd-panel__desc">로그인하면 우리 회사 이름과 읽지 않은 메시지, 최근 대화부터 보입니다.</p>
         <ul class="pd-panel__list">
+          <li>회사 이름 배너 · 안 읽은 메시지 수</li>
+          <li>대화 · 채널 · 회의실 · 조직도 바로 가기</li>
           <li>채널 · 1:1 대화를 섞은 최근 대화</li>
-          <li>자주 쓰는 메뉴 바로가기</li>
-          <li>왼쪽 레일에 안 읽은 메시지 수</li>
         </ul>
       </div>
     </div>
@@ -267,7 +268,7 @@
     </div>
     <div class="pd-panel" role="tabpanel" id="panel-org" aria-labelledby="tab-org" hidden>
       <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
-        <img src="../img/servim/org.webp" width="1600" height="1000" loading="lazy" alt="조직도 — 부서별 구성원 목록과 이름 · 부서 · 직급 검색" /></figure>
+        <img src="../img/servim/org.webp" width="1600" height="1000" loading="lazy" alt="조직도 — 부서별 구성원과 직급, 이름을 누르면 오른쪽에 바로 1:1 대화" /></figure>
       <div>
         <h3 class="pd-panel__title">조직도</h3>
         <p class="pd-panel__desc">회사 사람을 부서별로 모아 보고, 바로 대화를 엽니다.</p>
@@ -275,6 +276,19 @@
           <li>부서별 구성원과 직급</li>
           <li>이름 · 부서 · 직급으로 검색</li>
           <li>누르면 그 사람과의 1:1 대화로</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pd-panel" role="tabpanel" id="panel-meet" aria-labelledby="tab-meet" hidden>
+      <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
+        <img src="../img/servim/meetings.webp" width="1600" height="1000" loading="lazy" alt="회의실 — 왼쪽 내 회의실 3곳, 「신제품 출시 점검」의 회의 시작 단추 · 멤버 6명 · 사람 초대 · 최근 회의 기록(누가 시작 · 걸린 시간)" /></figure>
+      <div>
+        <h3 class="pd-panel__title">회의실</h3>
+        <p class="pd-panel__desc">회의실을 만들어 함께할 사람을 초대하고, 화상회의는 여기서 엽니다.</p>
+        <ul class="pd-panel__list">
+          <li>[회의 시작] 한 번에 멤버 모두에게 알림</li>
+          <li>회의 중에도 사람을 더 부르기</li>
+          <li>최근 회의 기록 — 누가 시작 · 걸린 시간</li>
         </ul>
       </div>
     </div>
@@ -293,20 +307,20 @@
     </div>
     <div class="pd-panel" role="tabpanel" id="panel-admin" aria-labelledby="tab-admin" hidden>
       <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
-        <img src="../img/servim/admin.webp" width="1600" height="1000" loading="lazy" alt="사용자 관리 — 아이디 · 이름 · 부서 · 직책 · 권한 · 상태와 계정 생성 · 수정 · 비활성" /></figure>
+        <img src="../img/servim/admin-import.webp" width="1600" height="1000" loading="lazy" alt="사용자 관리 · 엑셀로 등록 — ① 양식 받기 ② 채운 파일 올리기, 줄마다 확인 결과(5명 등록 가능 · 1줄 「이미 있는 아이디입니다」)와 [5명 등록]" /></figure>
       <div>
         <h3 class="pd-panel__title">관리자</h3>
-        <p class="pd-panel__desc">관리자만 보는 메뉴에서 직원 계정을 만들고 닫습니다.</p>
+        <p class="pd-panel__desc">관리자만 보는 메뉴에서 직원 계정을 만들고 닫습니다. 여러 명은 엑셀 한 장으로 등록합니다.</p>
         <ul class="pd-panel__list">
-          <li>아이디 · 부서 · 직책 · 권한 지정</li>
-          <li>퇴사자는 비활성으로</li>
+          <li>양식 받기 → 채워 올리기 → 줄마다 확인 뒤 한 번에 등록</li>
+          <li>아이디 · 부서 · 직책 · 권한 지정, 퇴사자는 비활성으로</li>
           <li>관리자 메뉴는 관리자 계정에만</li>
         </ul>
       </div>
     </div>
     <div class="pd-panel" role="tabpanel" id="panel-login" aria-labelledby="tab-login" hidden>
       <figure class="pd-browser"><div class="pd-browser__bar" aria-hidden="true"><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span><span class="pd-browser__dot"></span></div>
-        <img src="../img/servim/login.webp" width="1600" height="1000" loading="lazy" alt="서빔 로그인 화면 — 아이디 · 비밀번호와 PC 앱 받기" /></figure>
+        <img src="../img/servim/login.webp" width="1600" height="1000" loading="lazy" alt="회사 로그인 화면 — 「한결테크 사내 메신저」 소개와 아이디 · 비밀번호, PC 앱 받기" /></figure>
       <div>
         <h3 class="pd-panel__title">로그인 · 앱 받기</h3>
         <p class="pd-panel__desc">받은 계정으로 로그인합니다. PC는 로그인 화면에서 PC 앱을 받고, 휴대폰은 같은 주소를 홈 화면에 추가합니다.</p>
@@ -325,7 +339,7 @@
   <div class="container">
     <div class="pd-row">
       <div class="pd-row__media">
-        <img class="pd-shot" src="../img/servim/z-chat.webp" width="1100" height="1282" loading="lazy" alt="채널 대화 — 사진 미리보기, 한글 견적서 첨부와 다운로드, 내가 보낸 메시지 옆 「안 읽음 2」" />
+        <img class="pd-shot" src="../img/servim/z-chat.webp" width="1100" height="776" loading="lazy" alt="채널 대화 — 사진 미리보기, 한글 견적서 첨부와 다운로드, 내가 보낸 메시지 옆 「안 읽음 2」" />
       </div>
       <div>
         <div class="pd-row__no">01 · 대화</div>
@@ -340,7 +354,7 @@
     </div>
     <div class="pd-row pd-row--flip">
       <div class="pd-row__media pd-info">
-        <img class="pd-shot" src="../img/servim/z-info.webp" width="560" height="1386" loading="lazy" alt="채널 정보 — 채널 소개 · 만든 사람 · 멤버 6명과 접속 표시 · 최근 파일 목록" />
+        <img class="pd-shot" src="../img/servim/z-info.webp" width="560" height="1492" loading="lazy" alt="채널 정보 — 채널 소개 · 만든 사람 · 멤버 6명과 접속 표시 · 최근 파일 목록" />
       </div>
       <div>
         <div class="pd-row__no">02 · 채널 정보</div>
